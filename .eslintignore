@@ -1,0 +1,6 @@
+**/node_modules/*
+**/out/*
+**/.next/*
+package.json
+*.config.js
+.eslintrc.js
