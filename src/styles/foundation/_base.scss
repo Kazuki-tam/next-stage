@@ -1,0 +1,142 @@
+@use 'variables/font-size';
+@use 'variables/font-family';
+@use 'variables/color';
+
+/* ========================================
+  Base
+  Note: Difine your base style
+======================================== */
+*,
+*::before,
+*::after {
+  box-sizing: border-box;
+}
+
+:root {
+  // Canvas Color
+  --color-canvas-primary: #{color.$color-canvas-primary};
+  --color-canvas-inverted: #{color.$color-canvas-inverted};
+
+  // Brand Color
+  --color-brand-primary: #{color.$color-brand-primary};
+  --color-brand-secondary: #{color.$color-brand-secondary};
+  --color-brand-tertiary: #{color.$color-brand-tertiary};
+
+  // Text Color
+  --color-text-primary: #{color.$color-text-primary};
+  --color-text-secondary: #{color.$color-text-secondary};
+  --color-text-tertiary: #{color.$color-text-tertiary};
+  --color-text-inverted: #{color.$color-text-inverted};
+  --color-text-link: #{color.$color-text-link};
+  --color-text-success: #{color.$color-text-success};
+  --color-text-warn: #{color.$color-text-warn};
+  --color-text-danger: #{color.$color-text-danger};
+
+  // UI Color
+  --color-ui-primary: #{color.$color-ui-primary};
+  --color-ui-secondary: #{color.$color-ui-secondary};
+  --color-ui-tertiary: #{color.$color-ui-tertiary};
+  --color-ui-success: #{color.$color-ui-success};
+  --color-ui-warn: #{color.$color-ui-warn};
+  --color-ui-danger: #{color.$color-ui-danger};
+}
+
+html {
+  /*
+  Consider if the 62.5% solution is valuable in this project.
+  You could use get-rem function to conver px to rem.
+  */
+  // font-size: 62.5%;
+  overflow-y: scroll;
+  width: 100%;
+  height: 100%;
+}
+
+body {
+  min-height: 100%;
+  min-width: 320px;
+  word-wrap: break-word;
+  overflow-wrap: break-word;
+  font-family: font-family.$font-family-primary;
+  font-size: font-size.$font-size-primary;
+  line-height: 1.6;
+  font-feature-settings: 'palt';
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+  text-size-adjust: 100%;
+  margin: 0;
+  // Dark mode
+  @media (prefers-color-scheme: dark) {
+    background-color: var(--color-canvas-inverted);
+    color: var(--color-text-inverted);
+  }
+}
+
+a {
+  text-decoration: none;
+  color: inherit;
+  cursor: pointer;
+}
+
+button {
+  padding: 0;
+  border-width: 0;
+  background-color: transparent;
+  color: inherit;
+  cursor: pointer;
+}
+
+figure {
+  margin: 0;
+}
+
+input::-moz-focus-inner {
+  margin: 0;
+  padding: 0;
+  border: 0;
+}
+
+ul,
+ol,
+dd {
+  margin: 0;
+  padding: 0;
+  list-style: none;
+}
+
+h1,
+h2,
+h3,
+h4,
+h5,
+h6 {
+  margin: 0;
+  font-size: inherit;
+  font-weight: inherit;
+}
+
+p {
+  margin: 0;
+}
+
+cite {
+  font-style: normal;
+}
+
+fieldset {
+  margin: 0;
+  padding: 0;
+  border-width: 0;
+}
+
+label {
+  cursor: pointer;
+}
+
+strong {
+  font-weight: bold;
+}
+
+em {
+  font-style: italic;
+}

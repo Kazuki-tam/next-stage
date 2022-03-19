@@ -7,17 +7,21 @@
     "build": "next build",
     "start": "next start",
     "serve": "npm-run-all build start",
+    "component": "scaffdog generate component",
     "lint": "next lint",
     "unit": "jest",
     "prepare": "husky install",
     "checkLicense": "license-checker --production",
     "format": "prettier --check .",
+    "format:fix": "prettier --write .",
     "postInstall": "typesync"
   },
   "dependencies": {
     "next": "12.1.0",
     "react": "17.0.2",
-    "react-dom": "17.0.2"
+    "react-dom": "17.0.2",
+    "react-error-boundary": "^3.1.4",
+    "sass": "^1.49.9"
   },
   "devDependencies": {
     "@types/eslint": "^8.4.1",
@@ -28,6 +32,7 @@
     "@types/react-dom": "17.0.2",
     "@types/react-test-renderer": "^17.0.1",
     "@typescript-eslint/eslint-plugin": "^5.15.0",
+    "@typescript-eslint/parser": "^5.15.0",
     "autoprefixer": "^10.4.4",
     "eslint": "^8.11.0",
     "eslint-config-next": "^12.1.0",
@@ -43,7 +48,8 @@
     "postcss": "^8.4.12",
     "prettier": "^2.6.0",
     "react-test-renderer": "^17.0.2",
-    "typescript": "4.6.2",
+    "scaffdog": "^1.2.0",
+    "typescript": "^4.6.2",
     "typesync": "^0.8.0"
   },
   "lint-staged": {

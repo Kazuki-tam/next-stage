@@ -1,0 +1,16 @@
+/* ========================================
+  Hover Mixin
+  ex: @include hover.hover() {...}
+======================================== */
+
+@mixin hover() {
+  @media (hover: hover) and (pointer: fine) {
+    &:hover {
+      @content;
+    }
+  }
+
+  &:focus {
+    @content;
+  }
+}

@@ -1,0 +1,53 @@
+@use 'src/styles/foundation/functions/get-rem' as rem;
+@use 'src/styles/foundation/mixins/media-query';
+@use 'src/styles/foundation/mixins/hover';
+// @use 'src/styles/foundation/mixins/arrow';
+// @use 'src/styles/foundation/mixins/clearfix';
+// @use 'src/styles/foundation/mixins/leading-trim';
+// @use 'src/styles/foundation/mixins/triangle';
+// @use 'src/styles/foundation/mixins/underLine';
+// @use 'src/styles/foundation/mixins/visibility-hidden';
+
+/* ========================================
+Header Component Style
+======================================== */
+.header {
+  background-color: var(--color-text-primary);
+  padding: 10px 20px;
+}
+
+.header-nav {
+  display: flex;
+  justify-content: space-between;
+}
+
+.header-nav-logo {
+  a {
+    font-size: rem.get-rem(20px);
+    font-weight: bold;
+    color: var(--color-text-tertiary);
+  }
+}
+
+.header-nav-list {
+  display: flex;
+}
+
+.header-nav-item {
+  &:not(:first-child) {
+    margin-left: 20px;
+
+    @include media-query.media-query(md) {
+      margin-left: 30px;
+    }
+  }
+}
+
+.header-nav-link {
+  font-size: rem.get-rem(16px);
+  color: var(--color-text-inverted);
+  @include hover.hover() {
+    color: var(--color-text-tertiary);
+    transition: color 0.2s;
+  }
+}

@@ -1,0 +1,21 @@
+@use '../variables/breakpoints' as bp;
+
+/* ========================================
+  Media Query Mixin
+  @param {String} $breakpoint - Class infix like 'sm', 'md'
+  Note: Check out a breakpoints file if you want to modify breakpoints.
+  ex: @include media-query.media-query(md) {...}
+======================================== */
+
+@mixin media-query($breakpoint) {
+  @if map-has-key(bp.$breakpoints, $breakpoint) {
+    @media screen and #{inspect(map-get(bp.$breakpoints, $breakpoint))} {
+      @content;
+    }
+  }
+
+  // Error handling
+  @else {
+    @error "The breakpoint is not difined. Please ckeck out 'scss/foundation/variables/breakpoints'.";
+  }
+}

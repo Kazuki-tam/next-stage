@@ -1,0 +1,57 @@
+@use 'src/styles/foundation/functions/get-rem' as rem;
+
+/* ========================================
+Base Text Style
+======================================== */
+.text {
+  margin-top: 20px;
+}
+
+// =========================================
+// Size
+// =========================================
+.text--small {
+  font-size: rem.get-rem(14px);
+}
+
+.text--medium {
+  font-size: rem.get-rem(16px);
+}
+
+.text--large {
+  font-size: rem.get-rem(20px);
+}
+
+.text--extraLarge {
+  font-size: rem.get-rem(24px);
+}
+
+// =========================================
+// Align
+// =========================================
+.text--left {
+  text-align: left;
+}
+
+.text--right {
+  text-align: right;
+}
+
+.text--center {
+  text-align: center;
+}
+
+// =========================================
+// Variation
+// =========================================
+.text--normal {
+  font-weight: normal;
+}
+
+.text--error {
+  color: var(--color-text-danger);
+}
+
+.text--strong {
+  font-weight: bold;
+}
