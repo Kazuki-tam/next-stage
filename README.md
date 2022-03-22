@@ -1,6 +1,6 @@
-# Next-stage
+# Next-Stage
 
-Next-stage is a starter template with Next.js.  
+Next-Stage is a starter template with Next.js.  
 This template is helpful for web designers and web front-end developers.
 
 ## Status
