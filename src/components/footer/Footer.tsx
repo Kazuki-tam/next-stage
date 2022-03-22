@@ -1,6 +1,6 @@
 import type { VFC } from 'react'
 
-import styles from './index.module.scss'
+import styles from './Footer.module.scss'
 
 export const Footer: VFC = () => {
   return (

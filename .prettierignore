@@ -6,3 +6,4 @@ package-lock.json
 public
 .husky
 .github
+storybook-static

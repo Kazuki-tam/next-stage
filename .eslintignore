@@ -4,3 +4,5 @@
 package.json
 *.config.js
 .eslintrc.js
+next-sitemap.js
+storybook-static

@@ -2,7 +2,7 @@ import Link from 'next/link'
 import type { VFC } from 'react'
 
 import { globalNavMenu } from '../../constants/globalNavMenu'
-import styles from './index.module.scss'
+import styles from './Header.module.scss'
 
 export const Header: VFC = () => {
   return (

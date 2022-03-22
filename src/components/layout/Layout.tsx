@@ -1,7 +1,7 @@
 import type { ReactNode, VFC } from 'react'
 
-import { Footer } from '../footer'
-import { Header } from '../header'
+import { Footer } from '../footer/Footer'
+import { Header } from '../header/Header'
 import { LayoutErrorBoundary } from './LayoutErrorBoundary'
 
 export const Layout: VFC<{ children: ReactNode }> = (props) => {
