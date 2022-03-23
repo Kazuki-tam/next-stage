@@ -1,6 +1,6 @@
 const globalNavMenu = [
   { href: '/', label: 'Home' },
-  { href: '/about', label: 'About Us' },
+  { href: '/sample', label: 'Sample' },
 ]
 
 export { globalNavMenu }

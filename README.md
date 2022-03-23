@@ -16,7 +16,7 @@ This template is still in development.
 
 - Great developer experience with [Next.js](https://nextjs.org/)
 - Lint the project code with [ESLint](https://eslint.org/)
-- Built-in test runner with [Jest](https://jestjs.io/)
+- Built-in test runner with [Jest](https://jestjs.io/) and [Playwright](https://playwright.dev/)
 - Organizing UI systems with [Storybook](https://storybook.js.org/)
 - Managing SEO with [Next SEO](https://github.com/garmeeh/next-seo#readme)
 - Generating sitemaps with [next-sitemap](https://github.com/iamvishnusankar/next-sitemap#readme)

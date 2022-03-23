@@ -20,6 +20,10 @@
     "lint:fix": "npm-run-all next:lint eslint:fix format:fix",
     "next:lint": "next lint",
     "unit": "jest",
+    "e2e": "playwright test",
+    "e2e:headed": "playwright test --headed",
+    "e2e:install": "playwright install",
+    "e2e:codegen": "playwright codegen",
     "prepare": "husky install",
     "checkLicense": "license-checker --production",
     "format": "prettier --check .",
@@ -39,6 +43,7 @@
   },
   "devDependencies": {
     "@babel/core": "^7.17.8",
+    "@playwright/test": "^1.20.0",
     "@storybook/addon-actions": "^6.4.19",
     "@storybook/addon-essentials": "^6.4.19",
     "@storybook/addon-links": "^6.4.19",
