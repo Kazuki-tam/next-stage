@@ -1,0 +1,52 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`renders correctly header 1`] = `
+<header
+  className="header"
+>
+  <nav
+    className="header-nav"
+  >
+    <div
+      className="header-nav-logo"
+    >
+      <a
+        className="header-nav-link"
+        href="/"
+        onClick={[Function]}
+        onMouseEnter={[Function]}
+      >
+        🚀 Next-Stage
+      </a>
+    </div>
+    <ul
+      className="header-nav-list"
+    >
+      <li
+        className="header-nav-item"
+      >
+        <a
+          className="header-nav-link"
+          href="/"
+          onClick={[Function]}
+          onMouseEnter={[Function]}
+        >
+          Home
+        </a>
+      </li>
+      <li
+        className="header-nav-item"
+      >
+        <a
+          className="header-nav-link"
+          href="/sample"
+          onClick={[Function]}
+          onMouseEnter={[Function]}
+        >
+          Sample
+        </a>
+      </li>
+    </ul>
+  </nav>
+</header>
+`;

@@ -3,6 +3,7 @@
 **/.next/*
 package.json
 *.config.js
+*.setup.js
 .eslintrc.js
 next-sitemap.js
 storybook-static

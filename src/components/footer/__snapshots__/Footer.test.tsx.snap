@@ -1,0 +1,13 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`renders correctly footer 1`] = `
+<footer
+  className="footer"
+>
+  <small
+    lang="en"
+  >
+    @ 20xx Sample.com
+  </small>
+</footer>
+`;
