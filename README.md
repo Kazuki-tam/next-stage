@@ -118,6 +118,13 @@ Check the package's license.
 yarn checkLicense
 ```
 
+## Libraries
+
+- Slider: [Swiper](https://swiperjs.com/)
+- Modal: [Micromodal.js](https://micromodal.vercel.app/)
+- Smooth Scroll: [React Scroll](https://www.npmjs.com/package/react-scroll)
+- Intersection Observer: [react-intersection-observer](https://github.com/thebuilder/react-intersection-observer)
+
 ## Notes
 
 This starter template doesn't support Internet Explorer.  
