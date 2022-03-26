@@ -3131,6 +3131,13 @@
   resolved "https://registry.yarnpkg.com/@types/qs/-/qs-6.9.7.tgz#63bb7d067db107cc1e457c303bc25d511febf6cb"
   integrity sha512-FGa1F62FT09qcrueBA6qYTrJPVDzah9a+493+o2PCXsesWHIn27G98TsSMs3WPNbZIEj4+VJf6saSFpvD+3Zsw==
 
+"@types/react-anchor-link-smooth-scroll@^1.0.2":
+  version "1.0.2"
+  resolved "https://registry.yarnpkg.com/@types/react-anchor-link-smooth-scroll/-/react-anchor-link-smooth-scroll-1.0.2.tgz#50a4aaa7c2731f644f8a7b69225669fc29bc6746"
+  integrity sha512-ZemNS6WzQN8KA4w0sy5N86qJ55Ft7OnIDGH6QIHe0LL27xkZpNINMNZGR0DacIVPU66+JrbDqi1cKms9qhcPNQ==
+  dependencies:
+    "@types/react" "*"
+
 "@types/react-dom@*":
   version "17.0.14"
   resolved "https://registry.yarnpkg.com/@types/react-dom/-/react-dom-17.0.14.tgz#c8f917156b652ddf807711f5becbd2ab018dea9f"
@@ -10727,6 +10734,11 @@ raw-loader@^4.0.2:
   dependencies:
     loader-utils "^2.0.0"
     schema-utils "^3.0.0"
+
+react-anchor-link-smooth-scroll@^1.0.12:
+  version "1.0.12"
+  resolved "https://registry.yarnpkg.com/react-anchor-link-smooth-scroll/-/react-anchor-link-smooth-scroll-1.0.12.tgz#5cd49c73e74be6d20b4c05a5e5c72d07ebbedac7"
+  integrity sha512-aaY+9X0yh8YnC0jBfoTKpsiCLdO/Y6pCltww+VB+NnTBPDOvnIdnp1AlazajsDitc1j+cVSQ+yNtaVeTIMQbxw==
 
 react-colorful@^5.1.2:
   version "5.5.1"

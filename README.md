@@ -123,7 +123,7 @@ yarn checkLicense
 
 - Slider: [Swiper](https://swiperjs.com/)
 - Modal: [Micromodal.js](https://micromodal.vercel.app/)
-- Smooth Scroll: [React Scroll](https://www.npmjs.com/package/react-scroll)
+- Smooth Scroll: [react-anchor-link-smooth-scroll](https://github.com/mauricevancooten/react-anchor-link-smooth-scroll)
 - Intersection Observer: [react-intersection-observer](https://github.com/thebuilder/react-intersection-observer)
 
 ## Notes
