@@ -20,6 +20,7 @@ This template is still in development.
 - Organizing UI systems with [Storybook](https://storybook.js.org/)
 - Managing SEO with [Next SEO](https://github.com/garmeeh/next-seo#readme)
 - Generating sitemaps with [next-sitemap](https://github.com/iamvishnusankar/next-sitemap#readme)
+- PWA support
 - Lint the project code when you commit in local
 - Out of the box useful SCSS functions and Mixins
 

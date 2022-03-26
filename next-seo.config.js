@@ -7,6 +7,12 @@ const siteUrl = 'https://example.com/'
 export default {
   titleTemplate: `%s | ${siteName}`,
   defaultTitle: `Welcome to ${siteName} | ${siteName}`,
+  additionalMetaTags: [
+    {
+      property: 'theme-color',
+      content: '#333'
+    }
+  ],
   additionalLinkTags: [
     {
       rel: 'icon',
@@ -14,8 +20,12 @@ export default {
     },
     {
       rel: 'apple-touch-icon',
-      href: `${siteUrl}/touch-icon.jpg`,
+      href: `${siteUrl}/apple-touch-icon.png`,
       sizes: '180x180',
+    },
+    {
+      rel: 'manifest',
+      href: '/manifest.webmanifest'
     },
   ],
   openGraph: {
