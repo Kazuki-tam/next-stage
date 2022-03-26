@@ -3,7 +3,7 @@
  * https://github.com/garmeeh/next-seo#readme
  */
 const siteName = 'Next-Stage'
-const siteUrl = 'https://example.com/'
+const siteUrl = 'https://next-stage-demo.vercel.app'
 export default {
   titleTemplate: `%s | ${siteName}`,
   defaultTitle: `Welcome to ${siteName} | ${siteName}`,
