@@ -7,3 +7,5 @@ public
 .husky
 .github
 storybook-static
+*.config.js
+*.setup.js

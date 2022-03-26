@@ -7,3 +7,4 @@ package.json
 .eslintrc.js
 next-sitemap.js
 storybook-static
+/public

@@ -36,6 +36,7 @@
   "dependencies": {
     "clsx": "^1.1.1",
     "next": "12.1.0",
+    "next-pwa": "^5.4.6",
     "next-seo": "^5.1.0",
     "react": "17.0.2",
     "react-dom": "17.0.2",
@@ -96,7 +97,7 @@
   },
   "lint-staged": {
     "*.{js,jsx,ts,tsx}": [
-      "eslint --fix .",
+      "eslint 'src/**/*.{js,jsx,ts,tsx}'",
       "prettier --write ."
     ],
     "**/*.{json,md,mdx,css,html,yml,yaml,scss}": [
