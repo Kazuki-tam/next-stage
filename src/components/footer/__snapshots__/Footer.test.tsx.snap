@@ -7,7 +7,9 @@ exports[`renders correctly footer 1`] = `
   <small
     lang="en"
   >
-    @ 20xx Sample.com
+    @ 
+    2022
+     Next-Stage
   </small>
 </footer>
 `;

@@ -20,6 +20,7 @@ This template is still in development.
 - Organizing UI systems with [Storybook](https://storybook.js.org/)
 - Managing SEO with [Next SEO](https://github.com/garmeeh/next-seo#readme)
 - Generating sitemaps with [next-sitemap](https://github.com/iamvishnusankar/next-sitemap#readme)
+- PWA support
 - Lint the project code when you commit in local
 - Out of the box useful SCSS functions and Mixins
 
@@ -117,6 +118,13 @@ Check the package's license.
 ```bash
 yarn checkLicense
 ```
+
+## Libraries
+
+- Slider: [Swiper](https://swiperjs.com/)
+- Modal: [Micromodal.js](https://micromodal.vercel.app/)
+- Smooth Scroll: [React Scroll](https://www.npmjs.com/package/react-scroll)
+- Intersection Observer: [react-intersection-observer](https://github.com/thebuilder/react-intersection-observer)
 
 ## Notes
 
