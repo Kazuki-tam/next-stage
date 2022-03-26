@@ -20,6 +20,7 @@ This template is still in development.
 - Organizing UI systems with [Storybook](https://storybook.js.org/)
 - Managing SEO with [Next SEO](https://github.com/garmeeh/next-seo#readme)
 - Generating sitemaps with [next-sitemap](https://github.com/iamvishnusankar/next-sitemap#readme)
+- Creating UI components faster with [Headless UI](https://headlessui.dev/)
 - PWA support
 - Lint the project code when you commit in local
 - Out of the box useful SCSS functions and Mixins
@@ -121,6 +122,7 @@ yarn checkLicense
 
 ## Libraries
 
+- UI: [Headless UI](https://headlessui.dev/)
 - Slider: [Swiper](https://swiperjs.com/)
 - Modal: [Micromodal.js](https://micromodal.vercel.app/)
 - Smooth Scroll: [react-anchor-link-smooth-scroll](https://github.com/mauricevancooten/react-anchor-link-smooth-scroll)
