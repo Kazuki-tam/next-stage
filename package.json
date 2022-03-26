@@ -35,13 +35,16 @@
   },
   "dependencies": {
     "clsx": "^1.1.1",
+    "micromodal": "^0.4.10",
     "next": "12.1.0",
     "next-pwa": "^5.4.6",
     "next-seo": "^5.1.0",
     "react": "17.0.2",
     "react-dom": "17.0.2",
     "react-error-boundary": "^3.1.4",
-    "sass": "^1.49.9"
+    "react-intersection-observer": "^8.33.1",
+    "sass": "^1.49.9",
+    "swiper": "^8.0.7"
   },
   "devDependencies": {
     "@babel/core": "^7.17.8",
@@ -61,6 +64,7 @@
     "@types/eslint": "^8.4.1",
     "@types/jest": "^27.4.1",
     "@types/license-checker": "^25.0.3",
+    "@types/micromodal": "^0.3.3",
     "@types/node": "17.0.21",
     "@types/prettier": "^2.4.4",
     "@types/react": "17.0.40",
