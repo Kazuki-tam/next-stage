@@ -1,5 +1,7 @@
 # Next-Stage
 
+![og-image](https://user-images.githubusercontent.com/36143987/160246377-7648f59b-4fa3-4bc8-a36c-91a9ff7f6c2c.jpg)
+
 Next-Stage is a starter template with Next.js.  
 This template is helpful for web designers and web front-end developers.
 
@@ -108,6 +110,54 @@ Fix and format your code.
 yarn lint:fix
 ```
 
+Open Docs about Next.js.
+
+```bash
+yarn docs
+```
+
+Open all docs.
+
+```bash
+yarn docsAll
+```
+
+<details>
+<summary>Other docs commands</summary>
+Open docs about React.
+
+```bash
+yarn docs:react
+```
+
+Open docs about TypeScript.
+
+```bash
+yarn docs:ts
+```
+
+Open docs about Storybook.
+
+```bash
+yarn docs:sb
+```
+
+Open docs about Jest.
+
+```bash
+yarn docs:jest
+```
+
+Open docs about Playwright.
+
+```bash
+yarn docs:pw
+```
+
+</details>
+
+<details>
+<summary>Other support commands</summary>
 Install missing TypeScript typings.
 
 ```bash
@@ -120,12 +170,14 @@ Check the package's license.
 yarn checkLicense
 ```
 
+</details>
+
 ## Libraries
 
 - UI: [Headless UI](https://headlessui.dev/)
 - Slider: [Swiper](https://swiperjs.com/)
 - Modal: [Micromodal.js](https://micromodal.vercel.app/)
-- Smooth Scroll: [react-anchor-link-smooth-scroll](https://github.com/mauricevancooten/react-anchor-link-smooth-scroll)
+- Share: [react-share](https://github.com/nygardk/react-share)
 - Intersection Observer: [react-intersection-observer](https://github.com/thebuilder/react-intersection-observer)
 
 ## Notes

@@ -32,9 +32,12 @@
     "eslint": "eslint 'src/**/*.{js,jsx,ts,tsx}'",
     "eslint:fix": "eslint --fix 'src/**/*.{js,ts}'",
     "docs": "opener https://nextjs.org/docs/getting-started",
+    "docsAll": "npm-run-all --parallel docs docs:*",
     "docs:react": "opener https://reactjs.org/docs/getting-started.html",
     "docs:ts": "opener https://www.typescriptlang.org/docs/",
     "docs:sb": "opener https://storybook.js.org/docs/react/get-started/introduction",
+    "docs:jest": "opener https://jestjs.io/docs/getting-started",
+    "docs:pw": "opener https://playwright.dev/docs/intro",
     "postInstall": "typesync"
   },
   "dependencies": {
@@ -45,10 +48,10 @@
     "next-pwa": "^5.4.6",
     "next-seo": "^5.1.0",
     "react": "17.0.2",
-    "react-anchor-link-smooth-scroll": "^1.0.12",
     "react-dom": "17.0.2",
     "react-error-boundary": "^3.1.4",
     "react-intersection-observer": "^8.33.1",
+    "react-share": "^4.4.0",
     "sass": "^1.49.9",
     "swiper": "^8.0.7"
   },
@@ -75,7 +78,6 @@
     "@types/opener": "^1.4.0",
     "@types/prettier": "^2.4.4",
     "@types/react": "17.0.40",
-    "@types/react-anchor-link-smooth-scroll": "^1.0.2",
     "@types/react-dom": "17.0.2",
     "@types/react-test-renderer": "^17.0.1",
     "@types/testing-library__jest-dom": "^5.14.3",
