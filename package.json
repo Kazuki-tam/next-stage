@@ -1,7 +1,9 @@
 {
-  "name": "nextstage",
-  "version": "0.1.0",
-  "private": true,
+  "name": "next-stage",
+  "version": "0.0.2",
+  "description": "Next-Stage is a starter template with Next.js. ",
+  "author": "Kazuki Yonemoto (https://dev.to/tim_yone)",
+  "license": "MIT",
   "scripts": {
     "dev": "npm-run-all --parallel dev:next dev:path",
     "devAll": "npm-run-all --parallel dev:*",

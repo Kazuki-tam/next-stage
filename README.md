@@ -1,6 +1,6 @@
 # Next-Stage
 
-![og-image](https://user-images.githubusercontent.com/36143987/160246377-7648f59b-4fa3-4bc8-a36c-91a9ff7f6c2c.jpg)
+![og-image](https://user-images.githubusercontent.com/36143987/160264953-c95e8c13-9296-483c-ab8c-90a1e0ba9f2c.jpg)
 
 Next-Stage is a starter template with Next.js.  
 This template is helpful for web designers and web front-end developers.
