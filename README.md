@@ -23,6 +23,7 @@ This template is still in development.
 - Managing SEO with [Next SEO](https://github.com/garmeeh/next-seo#readme)
 - Generating sitemaps with [next-sitemap](https://github.com/iamvishnusankar/next-sitemap#readme)
 - Creating UI components faster with [Headless UI](https://headlessui.dev/)
+- Tracking page views with [Google Analytics](https://analytics.google.com/)
 - PWA support
 - Lint the project code when you commit in local
 - Out of the box useful SCSS functions and Mixins
@@ -171,6 +172,19 @@ yarn checkLicense
 ```
 
 </details>
+
+## Google Analytics
+
+You need to set up a measurement ID in an env file if you would like to use Google Analytics.
+Create a `.env.production` file on the root of the project.
+
+```
+NEXT_PUBLIC_GA_ID=123
+```
+
+## SEO Settings
+
+You have to edit `next-seo.config.js`, `next-sitemap.js`, and `manifest.webmanifest` at least before you get started with your project.
 
 ## Libraries
 
