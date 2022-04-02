@@ -50,6 +50,15 @@ html {
   overflow-y: scroll;
   width: 100%;
   height: 100%;
+  transition: background-color 0.2s ease-in;
+  &[data-dark-mode='true'] {
+    background-color: var(--color-canvas-inverted);
+    color: var(--color-text-inverted);
+  }
+  &[data-dark-mode='false'] {
+    background-color: var(--color-canvas-primary);
+    color: var(--color-text-primary);
+  }
 }
 
 body {
@@ -65,11 +74,6 @@ body {
   -moz-osx-font-smoothing: grayscale;
   text-size-adjust: 100%;
   margin: 0;
-  // Dark mode
-  @media (prefers-color-scheme: dark) {
-    background-color: var(--color-canvas-inverted);
-    color: var(--color-text-inverted);
-  }
 }
 
 a {

@@ -1,6 +1,6 @@
 {
   "name": "next-stage",
-  "version": "0.0.3",
+  "version": "0.0.4",
   "description": "Next-Stage is a starter template with Next.js. ",
   "author": "Kazuki Yonemoto (https://dev.to/tim_yone)",
   "license": "MIT",
@@ -46,6 +46,7 @@
   "dependencies": {
     "@headlessui/react": "^1.5.0",
     "clsx": "^1.1.1",
+    "jotai": "^1.6.1",
     "micromodal": "^0.4.10",
     "next": "12.1.0",
     "next-pwa": "^5.4.6",
@@ -54,7 +55,6 @@
     "react-dom": "17.0.2",
     "react-error-boundary": "^3.1.4",
     "react-intersection-observer": "^8.33.1",
-    "react-share": "^4.4.0",
     "sass": "^1.49.9",
     "swiper": "^8.0.7"
   },

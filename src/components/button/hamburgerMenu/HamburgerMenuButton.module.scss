@@ -1,0 +1,63 @@
+@use 'src/styles/foundation/functions/get-rem' as rem;
+@use 'src/styles/foundation/mixins/media-query';
+// @use 'src/styles/foundation/mixins/hover';
+// @use 'src/styles/foundation/mixins/arrow';
+// @use 'src/styles/foundation/mixins/clearfix';
+// @use 'src/styles/foundation/mixins/leading-trim';
+// @use 'src/styles/foundation/mixins/triangle';
+// @use 'src/styles/foundation/mixins/underLine';
+// @use 'src/styles/foundation/mixins/visibility-hidden';
+
+/* ========================================
+Hambergur Menu Button Style
+======================================== */
+
+.hamburger-menu__button {
+  width: 40px;
+  height: 40px;
+  position: relative;
+}
+
+.hamburger-menu__icon {
+  display: inline-block;
+  width: 18px;
+  height: 2px;
+  margin: auto;
+  position: absolute;
+  left: 0;
+  right: 0;
+  top: 0;
+  bottom: 0;
+
+  &::before,
+  &::after {
+    display: inline-block;
+    background-color: #fff;
+    content: '';
+    width: 100%;
+    height: 100%;
+    position: absolute;
+    top: 0;
+    left: 0;
+    transition: transform 0.2s ease-in;
+  }
+}
+
+.hamburger-menu__icon--open {
+  &::before {
+    transform: rotate(45deg);
+  }
+  &::after {
+    transform: rotate(-45deg);
+  }
+}
+
+.hamburger-menu__icon--close {
+  background-color: #fff;
+  &::before {
+    transform: translateY(-6px);
+  }
+  &::after {
+    transform: translateY(6px);
+  }
+}
