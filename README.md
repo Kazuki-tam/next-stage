@@ -11,7 +11,7 @@ This template is still in development.
 
 [![Release (latest by date)](https://img.shields.io/github/v/release/Kazuki-tam/next-stage)](https://github.com/Kazuki-tam/next-stage/releases/tag/v0.0.1)
 [![Issues](https://img.shields.io/github/issues/Kazuki-tam/next-stage)](https://github.com/Kazuki-tam/next-stage/issues)
-![Maintenance](https://img.shields.io/maintenance/yes/2021)
+![Maintenance](https://img.shields.io/maintenance/yes/2022)
 ![Release date](https://img.shields.io/github/release-date/Kazuki-tam/next-stage)
 
 ## Features
