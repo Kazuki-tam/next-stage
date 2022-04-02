@@ -16,6 +16,11 @@ module.exports = {
         path: false,
       },
     }
+    config.resolve.alias = {
+      ...config.resolve.alias,
+      '@/globalStates': path.resolve(__dirname, '../src/globalStates'),
+      '@/hooks': path.resolve(__dirname, '../src/hooks'),
+    }
     config.module.rules.push({
       test: /\.scss$/,
       use: [

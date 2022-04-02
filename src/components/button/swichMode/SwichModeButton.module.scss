@@ -1,0 +1,68 @@
+@use 'src/styles/foundation/functions/get-rem' as rem;
+@use 'src/styles/foundation/mixins/media-query';
+// @use 'src/styles/foundation/mixins/hover';
+// @use 'src/styles/foundation/mixins/arrow';
+// @use 'src/styles/foundation/mixins/clearfix';
+// @use 'src/styles/foundation/mixins/leading-trim';
+// @use 'src/styles/foundation/mixins/triangle';
+// @use 'src/styles/foundation/mixins/underLine';
+// @use 'src/styles/foundation/mixins/visibility-hidden';
+
+/* ========================================
+Swich Mode Button Style
+======================================== */
+
+.swich-mode__button {
+  width: 60px;
+  height: 38px;
+  cursor: pointer;
+  border-radius: 9999px;
+  display: inline-flex;
+  transition: background 0.2s 0s ease;
+
+  @include media-query.media-query(md) {
+    width: 100px;
+  }
+}
+
+.swich-mode__button--on {
+  background: rgba(37, 150, 253, 0.8);
+}
+
+.swich-mode__button--off {
+  background: rgba(255, 255, 255, 0.8);
+}
+
+.swich-mode__ring {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 34px;
+  height: 34px;
+  border-radius: 50%;
+  background-color: #fff;
+  pointer-events: none;
+  transition-timing-function: cubic-bezier(0.4, 0, 0.2, 1);
+  transition-duration: 0.2s;
+  font-size: rem.get-rem(18px);
+  font-weight: bold;
+  color: #000;
+}
+
+.swich-mode__ring--on {
+  transform: translateX(calc(60px - 36px)) translateY(2px);
+  &::after {
+    content: '🌛';
+  }
+
+  @include media-query.media-query(md) {
+    transform: translateX(calc(100px - 36px)) translateY(2px);
+  }
+}
+
+.swich-mode__ring--off {
+  transform: translateX(2px) translateY(2px);
+  &::after {
+    content: '🌞';
+  }
+}

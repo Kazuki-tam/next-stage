@@ -46,6 +46,7 @@
   "dependencies": {
     "@headlessui/react": "^1.5.0",
     "clsx": "^1.1.1",
+    "jotai": "^1.6.1",
     "micromodal": "^0.4.10",
     "next": "12.1.0",
     "next-pwa": "^5.4.6",
