@@ -191,7 +191,7 @@ You have to edit `next-seo.config.js`, `next-sitemap.js`, and `manifest.webmanif
 - UI: [Headless UI](https://headlessui.dev/)
 - Slider: [Swiper](https://swiperjs.com/)
 - Modal: [Micromodal.js](https://micromodal.vercel.app/)
-- Share: [react-share](https://github.com/nygardk/react-share)
+- State: [Jotai](https://jotai.org/)
 - Intersection Observer: [react-intersection-observer](https://github.com/thebuilder/react-intersection-observer)
 
 ## Notes

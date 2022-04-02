@@ -1,9 +1,9 @@
 import { useAtom } from 'jotai'
 import Link from 'next/link'
 import type { VFC } from 'react'
-import { useCallback } from 'react'
 
 import { sideBarExpandAtom } from '@/globalStates/atom'
+import { useCloseBackDrop } from '@/hooks/useCloseBackDrop'
 
 import { globalNavMenu } from '../../constants/globalNavMenu'
 import { HamburgerMenuButton } from '../button/hamburgerMenu/HamburgerMenuButton'
@@ -11,10 +11,8 @@ import { SwichModeButton } from '../button/swichMode/SwichModeButton'
 import styles from './Header.module.scss'
 
 export const Header: VFC = () => {
-  const [sidebarExpand, setSidebarExpand] = useAtom(sideBarExpandAtom)
-  const handleBackDrop = useCallback(() => {
-    setSidebarExpand(false)
-  }, [setSidebarExpand])
+  const [sidebarExpand] = useAtom(sideBarExpandAtom)
+  const closeBackDrop = useCloseBackDrop()
   return (
     <header className={styles['header']}>
       <nav className={styles['header-nav']}>
@@ -44,7 +42,7 @@ export const Header: VFC = () => {
         </div>
         <div
           role="presentation"
-          onTouchStart={handleBackDrop}
+          onTouchStart={closeBackDrop}
           className={`${styles['header-sidebar__backdrop']} ${sidebarExpand ? styles['open'] : styles['close']}`}
         ></div>
         <div className={`${styles['header-sidebar']} ${sidebarExpand ? styles['open'] : styles['close']}`}>
