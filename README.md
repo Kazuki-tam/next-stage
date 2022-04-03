@@ -111,7 +111,7 @@ Fix and format your code.
 yarn lint:fix
 ```
 
-Open Docs about Next.js.
+Open README about Next-Stage.
 
 ```bash
 yarn docs
@@ -125,6 +125,12 @@ yarn docsAll
 
 <details>
 <summary>Other docs commands</summary>
+Open Docs about Next.js.
+
+```bash
+yarn docs
+```
+
 Open docs about React.
 
 ```bash
