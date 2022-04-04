@@ -7,8 +7,6 @@ This template is helpful for web designers and web front-end developers.
 
 ## Status
 
-This template is still in development.
-
 [![Release (latest by date)](https://img.shields.io/github/v/release/Kazuki-tam/next-stage)](https://github.com/Kazuki-tam/next-stage/releases/tag/v0.0.1)
 [![Issues](https://img.shields.io/github/issues/Kazuki-tam/next-stage)](https://github.com/Kazuki-tam/next-stage/issues)
 ![Maintenance](https://img.shields.io/maintenance/yes/2022)
@@ -39,6 +37,7 @@ This template is still in development.
 - [husky](https://typicode.github.io/husky/#/)
 - [lint-staged](https://github.com/okonet/lint-staged#readme)
 - [Jest](https://jestjs.io/)
+- [Playwright](https://playwright.dev/)
 - [ESLint](https://eslint.org/)
 - [Prettier](https://prettier.io/)
 - [TypeScript](https://www.typescriptlang.org/)
@@ -128,7 +127,7 @@ yarn docsAll
 Open Docs about Next.js.
 
 ```bash
-yarn docs
+yarn docs:next
 ```
 
 Open docs about React.
