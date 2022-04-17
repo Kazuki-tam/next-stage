@@ -1,4 +1,12 @@
-@use 'src/styles/foundation/functions/get-rem' as rem;
+@use 'src/styles/foundation/functions/get-rem' as *;
+// @use 'src/styles/foundation/mixins/media-query' as *;
+// @use 'src/styles/foundation/mixins/hover' as *;
+// @use 'src/styles/foundation/mixins/arrow' as *;
+// @use 'src/styles/foundation/mixins/clearfix' as *;
+// @use 'src/styles/foundation/mixins/leading-trim' as *;
+// @use 'src/styles/foundation/mixins/triangle' as *;
+// @use 'src/styles/foundation/mixins/underLine' as *;
+// @use 'src/styles/foundation/mixins/visibility-hidden' as *;
 
 /* ========================================
 Base Text Style
@@ -7,19 +15,19 @@ Base Text Style
 // Size
 // =========================================
 .text--small {
-  font-size: rem.get-rem(14px);
+  font-size: get-rem(14px);
 }
 
 .text--medium {
-  font-size: rem.get-rem(16px);
+  font-size: get-rem(16px);
 }
 
 .text--large {
-  font-size: rem.get-rem(20px);
+  font-size: get-rem(20px);
 }
 
 .text--extraLarge {
-  font-size: rem.get-rem(24px);
+  font-size: get-rem(24px);
 }
 
 // =========================================

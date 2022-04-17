@@ -1,4 +1,4 @@
-@use '../foundation/functions/get-rem' as rem;
+@use '../foundation/functions/get-rem' as *;
 
 /* ========================================
   Top Page Style
@@ -6,7 +6,7 @@
 
 .top_heading--lev1 {
   text-align: center;
-  font-size: rem.get-rem(60px);
+  font-size: get-rem(60px);
   font-weight: bold;
   padding: 0 20px;
   line-height: 1;
