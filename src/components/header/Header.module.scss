@@ -1,12 +1,12 @@
-@use 'src/styles/foundation/functions/get-rem' as rem;
-@use 'src/styles/foundation/mixins/media-query';
-@use 'src/styles/foundation/mixins/hover';
-@use 'src/styles/foundation/mixins/arrow';
-// @use 'src/styles/foundation/mixins/clearfix';
-// @use 'src/styles/foundation/mixins/leading-trim';
-// @use 'src/styles/foundation/mixins/triangle';
-// @use 'src/styles/foundation/mixins/underLine';
-// @use 'src/styles/foundation/mixins/visibility-hidden';
+@use 'src/styles/foundation/functions/get-rem' as *;
+@use 'src/styles/foundation/mixins/media-query' as *;
+@use 'src/styles/foundation/mixins/hover' as *;
+@use 'src/styles/foundation/mixins/arrow' as *;
+// @use 'src/styles/foundation/mixins/clearfix' as *;
+// @use 'src/styles/foundation/mixins/leading-trim' as *;
+// @use 'src/styles/foundation/mixins/triangle' as *;
+// @use 'src/styles/foundation/mixins/underLine' as *;
+// @use 'src/styles/foundation/mixins/visibility-hidden' as *;
 
 /* ========================================
 Header Component Style
@@ -24,7 +24,7 @@ Header Component Style
 // Logo
 .header-nav__logo {
   a {
-    font-size: rem.get-rem(20px);
+    font-size: get-rem(20px);
     font-weight: bold;
     color: var(--color-text-tertiary);
   }
@@ -36,14 +36,14 @@ Header Component Style
   align-items: center;
   flex-direction: row-reverse;
 
-  @include media-query.media-query(md) {
+  @include media-query(md) {
     flex-direction: row;
   }
 }
 
 .header-nav__list {
   display: none;
-  @include media-query.media-query(md) {
+  @include media-query(md) {
     display: flex;
     align-items: center;
   }
@@ -52,17 +52,17 @@ Header Component Style
 .header-nav__item {
   margin-left: 20px;
 
-  @include media-query.media-query(md) {
+  @include media-query(md) {
     margin-left: 30px;
   }
 }
 
 // Link
 .header-nav__link {
-  font-size: rem.get-rem(16px);
+  font-size: get-rem(16px);
   color: var(--color-text-inverted);
 
-  @include hover.hover() {
+  @include hover() {
     color: var(--color-text-tertiary);
     transition: color 0.2s;
   }
@@ -71,7 +71,7 @@ Header Component Style
 // Dark mode button
 .header-nav__button-wrapper {
   display: none;
-  @include media-query.media-query(md) {
+  @include media-query(md) {
     display: block;
     margin-left: 30px;
   }
@@ -81,7 +81,7 @@ Header Component Style
 .header-nav__hambarger-wrapper {
   margin-left: 20px;
 
-  @include media-query.media-query(md) {
+  @include media-query(md) {
     display: none;
   }
 }
@@ -109,7 +109,7 @@ Header Component Style
     transform: translateX(0);
   }
 
-  @include media-query.media-query(md) {
+  @include media-query(md) {
     display: none;
   }
 }
@@ -142,15 +142,15 @@ Header Component Style
   width: 100%;
   padding: 20px;
   color: var(--color-text-inverted);
-  font-size: rem.get-rem(20px);
+  font-size: get-rem(20px);
   position: relative;
 
   &::after {
     content: '';
     display: inline-block;
-    @include arrow.arrow(rightward, rem.get-rem(12px), rem.get-rem(12px), 2px, #fff);
+    @include arrow(rightward, get-rem(12px), get-rem(12px), 2px, #fff);
     position: absolute;
-    top: calc(50% - rem.get-rem(6px));
+    top: calc(50% - get-rem(6px));
     right: 20px;
   }
 }
