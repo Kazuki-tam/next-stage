@@ -8,10 +8,10 @@ exports[`renders correctly header 1`] = `
     className="header-nav"
   >
     <div
-      className="header-nav-logo"
+      className="header-nav__logo"
     >
       <a
-        className="header-nav-link"
+        className="header-nav__link"
         href="/"
         onClick={[Function]}
         onMouseEnter={[Function]}
@@ -19,34 +19,169 @@ exports[`renders correctly header 1`] = `
         🚀 Next-Stage
       </a>
     </div>
-    <ul
-      className="header-nav-list"
+    <div
+      className="header-nav-menu"
     >
-      <li
-        className="header-nav-item"
+      <div
+        className="header-nav__hambarger-wrapper"
       >
-        <a
-          className="header-nav-link"
-          href="/"
+        <button
+          aria-checked={false}
+          aria-haspopup="true"
+          className="hamburger-menu__button hamburger-menu__button--close"
+          id="headlessui-switch-1"
           onClick={[Function]}
-          onMouseEnter={[Function]}
+          onKeyPress={[Function]}
+          onKeyUp={[Function]}
+          role="switch"
+          tabIndex={0}
+          type="button"
         >
-          Home
-        </a>
-      </li>
-      <li
-        className="header-nav-item"
+          <span
+            className="u-sr-only"
+          >
+            Enable Side bar
+          </span>
+          <span
+            className="hamburger-menu__icon hamburger-menu__icon--close"
+          />
+        </button>
+      </div>
+      <ul
+        className="header-nav__list"
       >
-        <a
-          className="header-nav-link"
-          href="/sample"
-          onClick={[Function]}
-          onMouseEnter={[Function]}
+        <li
+          className="header-nav__item"
         >
-          Sample
-        </a>
-      </li>
-    </ul>
+          <a
+            className="header-nav__link"
+            href="/"
+            onClick={[Function]}
+            onMouseEnter={[Function]}
+          >
+            Home
+          </a>
+        </li>
+        <li
+          className="header-nav__item"
+        >
+          <a
+            className="header-nav__link"
+            href="/sample"
+            onClick={[Function]}
+            onMouseEnter={[Function]}
+          >
+            Sample
+          </a>
+        </li>
+      </ul>
+      <div
+        className="header-nav__button-wrapper"
+      >
+        <button
+          aria-checked={false}
+          className="swich-mode__button swich-mode__button--off"
+          id="headlessui-switch-2"
+          onClick={[Function]}
+          onKeyPress={[Function]}
+          onKeyUp={[Function]}
+          role="switch"
+          tabIndex={0}
+          type="button"
+        >
+          <span
+            className="u-sr-only"
+          >
+            Enable dark mode
+          </span>
+          <span
+            className="swich-mode__ring swich-mode__ring--off"
+          />
+        </button>
+      </div>
+    </div>
+    <div
+      className="header-sidebar__backdrop close"
+      onTouchStart={[Function]}
+      role="presentation"
+    />
+    <div
+      className="header-sidebar close"
+    >
+      <div
+        className="header-nav__hambarger-wrapper--close"
+      >
+        <button
+          aria-checked={false}
+          className="swich-mode__button swich-mode__button--off"
+          id="headlessui-switch-3"
+          onClick={[Function]}
+          onKeyPress={[Function]}
+          onKeyUp={[Function]}
+          role="switch"
+          tabIndex={0}
+          type="button"
+        >
+          <span
+            className="u-sr-only"
+          >
+            Enable dark mode
+          </span>
+          <span
+            className="swich-mode__ring swich-mode__ring--off"
+          />
+        </button>
+        <button
+          aria-checked={false}
+          aria-haspopup="true"
+          className="hamburger-menu__button hamburger-menu__button--close"
+          id="headlessui-switch-4"
+          onClick={[Function]}
+          onKeyPress={[Function]}
+          onKeyUp={[Function]}
+          role="switch"
+          tabIndex={0}
+          type="button"
+        >
+          <span
+            className="u-sr-only"
+          >
+            Enable Side bar
+          </span>
+          <span
+            className="hamburger-menu__icon hamburger-menu__icon--close"
+          />
+        </button>
+      </div>
+      <ul
+        className="header-sidebar__list"
+      >
+        <li
+          className="header-sidebar__item"
+        >
+          <a
+            className="header-sidebar__link"
+            href="/"
+            onClick={[Function]}
+            onMouseEnter={[Function]}
+          >
+            Home
+          </a>
+        </li>
+        <li
+          className="header-sidebar__item"
+        >
+          <a
+            className="header-sidebar__link"
+            href="/sample"
+            onClick={[Function]}
+            onMouseEnter={[Function]}
+          >
+            Sample
+          </a>
+        </li>
+      </ul>
+    </div>
   </nav>
 </header>
 `;

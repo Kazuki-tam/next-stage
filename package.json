@@ -21,6 +21,7 @@
     "lint": "npm-run-all next:lint eslint format",
     "lint:fix": "npm-run-all next:lint eslint:fix format:fix",
     "next:lint": "next lint",
+    "test": "npm-run-all --parallel unit e2e",
     "unit": "jest",
     "unit:u": "jest -u",
     "e2e": "playwright test",
