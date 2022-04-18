@@ -2,7 +2,7 @@
 
 ![og-image](https://user-images.githubusercontent.com/36143987/160264953-c95e8c13-9296-483c-ab8c-90a1e0ba9f2c.jpg)
 
-Next-Stage is a starter template with Next.js.  
+Next-Stage is a starter template with Next.js.
 This template is helpful for web designers and web front-end developers.
 
 ## Status
@@ -184,7 +184,7 @@ You need to set up a measurement ID in an env file if you would like to use Goog
 Create a `.env.production` file on the root of the project.
 
 ```
-NEXT_PUBLIC_GA_ID=123
+NEXT_PUBLIC_GA_ID=MEASUREMENT-ID
 ```
 
 ## SEO Settings
@@ -201,7 +201,7 @@ You have to edit `next-seo.config.js`, `next-sitemap.js`, and `manifest.webmanif
 
 ## Notes
 
-This starter template doesn't support Internet Explorer.  
+This starter template doesn't support Internet Explorer.
 Feel free to use this template.
 
 ## License
