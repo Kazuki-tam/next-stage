@@ -6,7 +6,9 @@ export default function Home() {
     <div className="flex flex-col items-center justify-center min-h-screen p-8 pb-20 gap-12 bg-[#1a1a1a] text-white">
       <main className="flex flex-col gap-8 items-center max-w-3xl w-full text-center">
         <div className="flex flex-col items-center gap-4 mt-16">
-          <h1 className="text-6xl font-bold mt-4 bg-gradient-to-r from-[#0284c7] via-[#0ea5e9] to-[#38bdf8] text-transparent bg-clip-text gradient-title drop-shadow-[0_2px_2px_rgba(0,0,0,0.8)]">Next-Stage</h1>
+          <div className="py-2">
+            <h1 className="text-6xl font-bold bg-gradient-to-r from-[#0284c7] via-[#0ea5e9] to-[#38bdf8] text-transparent bg-clip-text gradient-title drop-shadow-[0_2px_2px_rgba(0,0,0,0.8)] leading-[1.3]">Next-Stage</h1>
+          </div>
           <p className="text-2xl font-light mt-2">Next.js starter template</p>
         </div>
 
