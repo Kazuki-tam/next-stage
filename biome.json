@@ -24,7 +24,8 @@
     "indentWidth": 2,
     "lineWidth": 100,
     "formatWithErrors": false,
-    "include": ["**/*.{js,jsx,ts,tsx,json,css}"]
+    "include": ["**/*.{js,jsx,ts,tsx,json,css}"],
+    "useEditorconfig": true
   },
   "organizeImports": {
     "enabled": true
