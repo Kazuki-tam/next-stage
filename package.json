@@ -15,6 +15,7 @@
   "dependencies": {
     "class-variance-authority": "^0.7.1",
     "clsx": "^2.1.1",
+    "hono": "^4.7.2",
     "lucide-react": "^0.476.0",
     "next": "15.2.0",
     "react": "^19.0.0",
