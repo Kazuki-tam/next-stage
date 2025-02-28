@@ -20,7 +20,7 @@ export default function Home() {
               <li>TypeScript for type safety</li>
               <li>Tailwind CSS for styling</li>
               <li>Shadcn UI components</li>
-              <li>Hono.js for API routes</li>
+              <li>Hono for API routes</li>
               <li>Zod for validation</li>
               <li>Biome for linting and formatting</li>
             </ul>
@@ -49,6 +49,41 @@ export default function Home() {
                 Next.js Docs
               </Link>
             </div>
+          </div>
+        </div>
+
+        <div className="flex flex-col gap-4 w-full">
+          <div className="flex flex-wrap gap-4 justify-center">
+            <Link
+              href="https://nextjs.org/docs"
+              target="_blank"
+              rel="noopener noreferrer"
+              className="px-6 py-3 bg-[#333] rounded-lg hover:bg-[#444] transition-colors"
+            >
+              Next.js Docs
+            </Link>
+            <Link
+              href="https://ui.shadcn.com"
+              target="_blank"
+              rel="noopener noreferrer"
+              className="px-6 py-3 bg-[#333] rounded-lg hover:bg-[#444] transition-colors"
+            >
+              Shadcn UI
+            </Link>
+            <Link
+              href="https://hono.dev"
+              target="_blank"
+              rel="noopener noreferrer"
+              className="px-6 py-3 bg-[#333] rounded-lg hover:bg-[#444] transition-colors"
+            >
+              Hono
+            </Link>
+            <Link
+              href="/examples"
+              className="px-6 py-3 bg-[#0ea5e9] rounded-lg hover:bg-[#0284c7] transition-colors"
+            >
+              View Examples
+            </Link>
           </div>
         </div>
       </main>
