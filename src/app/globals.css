@@ -124,6 +124,23 @@
     @apply border-border outline-ring/50;
   }
   body {
-    @apply bg-background text-foreground;
+    @apply bg-[#1a1a1a] text-white dark:bg-background dark:text-foreground;
+  }
+  /* Animated gradient title */
+  .gradient-title {
+    background-size: 200% 200%;
+    animation: gradient-animation 5s ease infinite;
+  }
+
+  @keyframes gradient-animation {
+    0% {
+      background-position: 0% 50%;
+    }
+    50% {
+      background-position: 100% 50%;
+    }
+    100% {
+      background-position: 0% 50%;
+    }
   }
 }
