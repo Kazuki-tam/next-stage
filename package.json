@@ -1,5 +1,6 @@
 {
   "name": "next-stage",
+  "description": "A modern, type-safe Next.js starter template designed for AI-driven development",
   "version": "0.1.0",
   "private": true,
   "scripts": {

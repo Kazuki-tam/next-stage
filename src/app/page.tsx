@@ -13,13 +13,14 @@ export default function Home() {
             <div className="py-2">
               <h1 className="text-7xl font-bold bg-gradient-to-r from-[var(--blue-dark)] via-[var(--blue-primary)] to-[var(--blue-light)] text-transparent bg-clip-text gradient-title drop-shadow-[0_2px_2px_rgba(0,0,0,0.8)] leading-[1.2]">Next-Stage</h1>
             </div>
-            <p className="text-2xl font-light mt-2 max-w-2xl">A modern, type-safe Next.js starter template with enhanced API capabilities</p>
+            <p className="text-2xl font-light mt-2 max-w-2xl">A modern, type-safe Next.js starter template designed for AI-driven development</p>
             <div className="flex gap-4 mt-4">
               <Link
-                href="/examples"
+                href="https://github.com/new?template_name=next-stage"
+                target="_blank"
                 className="flex items-center gap-2 bg-[var(--blue-primary)] hover:bg-[var(--blue-dark)] text-white px-6 py-3 rounded-md font-medium transition-colors duration-200 shadow-lg hover:shadow-xl"
               >
-                View Examples <ArrowRight size={18} />
+                Use this template <ExternalLink size={18} />
               </Link>
               <Link
                 href="https://github.com/Kazuki-tam/next-stage"
@@ -33,35 +34,58 @@ export default function Home() {
           </div>
 
           {/* Features Section */}
-          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6 w-full mt-8">
+          <div className="grid grid-cols-1 md:grid-cols-2 gap-6 w-full mt-8">
+            {/* Feature Cards */}
+            {/* Type-Safe Development */}
             <div className="bg-[#111] p-8 rounded-xl border border-[#333] hover:border-[var(--blue-primary)] transition-all duration-300 hover:shadow-[0_0_15px_var(--blue-shadow)] group flex flex-col h-full">
-              <div className="bg-[var(--blue-bg-light)] p-3 rounded-lg w-fit mb-4 border border-[var(--blue-border-light)] group-hover:bg-[var(--blue-bg-light)] transition-all duration-300">
-                <Code className="text-[var(--blue-primary)]" size={24} />
+              <div className="flex flex-col h-full">
+                <div className="bg-[var(--blue-bg-light)] p-3 rounded-lg w-12 h-12 flex items-center justify-center mb-4 border border-[var(--blue-border-light)] group-hover:bg-[var(--blue-bg-light)] transition-all duration-300">
+                  <Code className="text-[var(--blue-primary)]" size={20} />
+                </div>
+                <h2 className="text-xl font-semibold mb-3 text-white group-hover:text-[var(--blue-primary)] transition-all duration-300">Type-Safe Development</h2>
+                <p className="text-gray-400 text-left flex-grow">
+                  Built with TypeScript and Zod for end-to-end type safety from API routes to frontend components.
+                </p>
               </div>
-              <h2 className="text-xl font-semibold mb-3 text-white group-hover:text-[var(--blue-primary)] transition-all duration-300">Type-Safe Development</h2>
-              <p className="text-gray-400 text-left flex-grow">
-                Built with TypeScript and Zod for end-to-end type safety from API routes to frontend components.
-              </p>
             </div>
-            
+
+            {/* AI Editor Ready */}
             <div className="bg-[#111] p-8 rounded-xl border border-[#333] hover:border-[var(--blue-primary)] transition-all duration-300 hover:shadow-[0_0_15px_var(--blue-shadow)] group flex flex-col h-full">
-              <div className="bg-[var(--blue-bg-light)] p-3 rounded-lg w-fit mb-4 border border-[var(--blue-border-light)] group-hover:bg-[var(--blue-bg-light)] transition-all duration-300">
-                <Database className="text-[var(--blue-primary)]" size={24} />
+              <div className="flex flex-col h-full">
+                <div className="bg-[var(--blue-bg-light)] p-3 rounded-lg w-12 h-12 flex items-center justify-center mb-4 border border-[var(--blue-border-light)] group-hover:bg-[var(--blue-bg-light)] transition-all duration-300">
+                  <FileCode className="text-[var(--blue-primary)]" size={20} />
+                </div>
+                <h2 className="text-xl font-semibold mb-3 text-white group-hover:text-[var(--blue-primary)] transition-all duration-300">AI Editor Ready</h2>
+                <p className="text-gray-400 text-left flex-grow">
+                  Pre-configured development convention files for AI-powered editors like Windsurf and Cursor to accelerate your development workflow.
+                </p>
               </div>
-              <h2 className="text-xl font-semibold mb-3 text-white group-hover:text-[var(--blue-primary)] transition-all duration-300">Hono API Integration</h2>
-              <p className="text-gray-400 text-left flex-grow">
-                Leverage Hono's powerful middleware and routing capabilities for building robust API endpoints.
-              </p>
             </div>
-            
+
+            {/* Hono API Integration */}
             <div className="bg-[#111] p-8 rounded-xl border border-[#333] hover:border-[var(--blue-primary)] transition-all duration-300 hover:shadow-[0_0_15px_var(--blue-shadow)] group flex flex-col h-full">
-              <div className="bg-[var(--blue-bg-light)] p-3 rounded-lg w-fit mb-4 border border-[var(--blue-border-light)] group-hover:bg-[var(--blue-bg-light)] transition-all duration-300">
-                <Shield className="text-[var(--blue-primary)]" size={24} />
+              <div className="flex flex-col h-full">
+                <div className="bg-[var(--blue-bg-light)] p-3 rounded-lg w-12 h-12 flex items-center justify-center mb-4 border border-[var(--blue-border-light)] group-hover:bg-[var(--blue-bg-light)] transition-all duration-300">
+                  <Database className="text-[var(--blue-primary)]" size={20} />
+                </div>
+                <h2 className="text-xl font-semibold mb-3 text-white group-hover:text-[var(--blue-primary)] transition-all duration-300">Hono API Integration</h2>
+                <p className="text-gray-400 text-left flex-grow">
+                  Leverage Hono's powerful middleware and routing capabilities for building robust API endpoints.
+                </p>
               </div>
-              <h2 className="text-xl font-semibold mb-3 text-white group-hover:text-[var(--blue-primary)] transition-all duration-300">Validation & Security</h2>
-              <p className="text-gray-400 text-left flex-grow">
-                Built-in form validation with React Hook Form and Zod ensures data integrity and security.
-              </p>
+            </div>
+
+            {/* Validation & Security */}
+            <div className="bg-[#111] p-8 rounded-xl border border-[#333] hover:border-[var(--blue-primary)] transition-all duration-300 hover:shadow-[0_0_15px_var(--blue-shadow)] group flex flex-col h-full">
+              <div className="flex flex-col h-full">
+                <div className="bg-[var(--blue-bg-light)] p-3 rounded-lg w-12 h-12 flex items-center justify-center mb-4 border border-[var(--blue-border-light)] group-hover:bg-[var(--blue-bg-light)] transition-all duration-300">
+                  <Shield className="text-[var(--blue-primary)]" size={20} />
+                </div>
+                <h2 className="text-xl font-semibold mb-3 text-white group-hover:text-[var(--blue-primary)] transition-all duration-300">Validation & Security</h2>
+                <p className="text-gray-400 text-left flex-grow">
+                  Built-in form validation with React Hook Form and Zod ensures data integrity and security.
+                </p>
+              </div>
             </div>
           </div>
 
@@ -127,6 +151,10 @@ export default function Home() {
                   </li>
                   <li className="flex items-center gap-2">
                     <span className="w-2 h-2 bg-[var(--blue-primary)] rounded-full" />
+                    AI editor convention files (Windsurf, Cursor)
+                  </li>
+                  <li className="flex items-center gap-2">
+                    <span className="w-2 h-2 bg-[var(--blue-primary)] rounded-full" />
                     Optimized for performance
                   </li>
                   <li className="flex items-center gap-2">
@@ -136,7 +164,7 @@ export default function Home() {
                 </ul>
               </div>
             </div>
-            
+
             <div className="mt-8 pt-6 border-t border-[#333] flex flex-wrap gap-4 justify-center">
               <Link
                 className="flex items-center gap-2 px-4 py-2 bg-[#222] hover:bg-[#333] rounded-md font-medium border border-[#444] transition-colors"
