@@ -3,11 +3,11 @@ import type { Metadata } from 'next'
 import { MainContent } from './_components/main-content'
 
 export const metadata: Metadata = {
-  title: 'Examples | Next-Stage',
-  description: 'Example implementations using Hono, Zod, and Shadcn UI',
+  title: 'Todo Example | Next-Stage',
+  description: 'Todo application example using Hono, Zod, and Shadcn UI',
 }
 
-export default function ExamplesPage() {
+export default function TodoExamplePage() {
   return (
     <SiteLayout>
       <MainContent />

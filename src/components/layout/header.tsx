@@ -5,7 +5,7 @@ import { usePathname } from 'next/navigation'
 
 export function Header() {
   const pathname = usePathname()
-  
+
   return (
     <header className="border-b border-[#333] py-4">
       <div className="container mx-auto px-4">
@@ -29,14 +29,14 @@ export function Header() {
               </li>
               <li>
                 <Link
-                  href="/examples"
+                  href="/todo-example"
                   className={`${
-                    pathname === '/examples'
+                    pathname === '/todo-example'
                       ? 'text-white font-medium'
                       : 'text-gray-400 hover:text-white'
                   }`}
                 >
-                  Examples
+                  Todo Example
                 </Link>
               </li>
             </ul>

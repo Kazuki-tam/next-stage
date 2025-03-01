@@ -1,4 +1,4 @@
-import type { User, UserWithId } from './user'
+import type { TodoWithId } from './todo'
 
 // Base API response type
 export type ApiResponse<T = unknown> = {
@@ -10,9 +10,9 @@ export type ApiResponse<T = unknown> = {
   data?: T
 }
 
-// User-related API response types
-export type UserResponse = ApiResponse<UserWithId>
-export type UsersResponse = ApiResponse<UserWithId[]>
+// Todo-related API response types
+export type TodoResponse = ApiResponse<TodoWithId>
+export type TodosResponse = ApiResponse<TodoWithId[]>
 
 // Error response type
 export type ApiError = {
@@ -31,7 +31,7 @@ export type ApiSuccess<T> = {
 }
 
 // Specific error types
-export type DuplicateEmailError = ApiError & {
-  errorType: 'duplicate_email'
-  field: 'email'
+export type DuplicateTitleError = ApiError & {
+  errorType: 'duplicate_title'
+  field: 'title'
 }
