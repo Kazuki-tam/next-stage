@@ -1,6 +1,6 @@
-import { Metadata } from 'next'
-import { SiteLayout } from '../components/site-layout'
-import { MainContent } from './components/main-content'
+import { SiteLayout } from '@/components/layout/site-layout'
+import type { Metadata } from 'next'
+import { MainContent } from './_components/main-content'
 
 export const metadata: Metadata = {
   title: 'Examples | Next-Stage',

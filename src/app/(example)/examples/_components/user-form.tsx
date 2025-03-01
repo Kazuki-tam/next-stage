@@ -1,21 +1,11 @@
 'use client'
 
+import { Button } from '@/components/ui/button'
+import { Card, CardContent, CardFooter, CardHeader, CardTitle } from '@/components/ui/card'
+import { Input } from '@/components/ui/input'
+import { type FormErrors, type User, userSchema } from '@/types/user'
 import { useState } from 'react'
 import { z } from 'zod'
-import { Button } from '@/components/ui/button'
-import { Input } from '@/components/ui/input'
-import { Card, CardHeader, CardTitle, CardContent, CardFooter } from '@/components/ui/card'
-
-// Define the user schema with Zod (same as in API)
-const userSchema = z.object({
-  name: z.string().min(3, { message: 'Name must be at least 3 characters' }).max(50),
-  email: z.string().email({ message: 'Please enter a valid email address' }),
-  age: z.number().int().min(18, { message: 'You must be at least 18 years old' }).optional(),
-})
-
-type FormErrors = {
-  [key: string]: string[]
-}
 
 interface UserFormProps {
   onUserCreated?: () => void;
@@ -37,10 +27,10 @@ export function UserForm({ onUserCreated }: UserFormProps) {
 
     try {
       // Validate form data with Zod
-      const validatedData = userSchema.parse({
+      const validatedData: User = userSchema.parse({
         name,
         email,
-        age: age ? parseInt(age) : undefined,
+        age: age ? Number.parseInt(age) : undefined,
       })
 
       // Submit to API
@@ -60,25 +50,34 @@ export function UserForm({ onUserCreated }: UserFormProps) {
         setName('')
         setEmail('')
         setAge('')
-        
+
         // Notify parent component that a user was created
         if (onUserCreated) {
           onUserCreated()
         }
       } else {
-        setSubmitResult({ success: false, message: result.message || 'Failed to create user' })
+        // Handle specific API errors
+        if (result.error === 'duplicate_email') {
+          const formattedErrors: FormErrors = {}
+          formattedErrors[result.field] = [result.message]
+          setErrors(formattedErrors)
+        } else {
+          setSubmitResult({ success: false, message: result.message || 'Failed to create user' })
+        }
       }
     } catch (error) {
       if (error instanceof z.ZodError) {
         // Format Zod validation errors
         const formattedErrors: FormErrors = {}
-        error.errors.forEach((err) => {
+
+        for (const err of error.errors) {
           const path = err.path[0] as string
           if (!formattedErrors[path]) {
             formattedErrors[path] = []
           }
           formattedErrors[path].push(err.message)
-        })
+        }
+
         setErrors(formattedErrors)
       } else {
         setSubmitResult({ success: false, message: 'An unexpected error occurred' })
@@ -145,8 +144,8 @@ export function UserForm({ onUserCreated }: UserFormProps) {
             )}
           </div>
 
-          <Button 
-            type="submit" 
+          <Button
+            type="submit"
             disabled={isSubmitting}
             className="bg-[#0ea5e9] hover:bg-[#0284c7] text-white w-full"
           >

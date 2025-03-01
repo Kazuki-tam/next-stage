@@ -1,5 +1,5 @@
-import { UserFormContainer } from '../user-form-container'
-import { UserListContainer } from '../user-list-container'
+import { UserFormContainer } from './user-form-container'
+import { UserListContainer } from './user-list-container'
 
 export function MainContent() {
   return (

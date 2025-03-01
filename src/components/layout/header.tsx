@@ -19,10 +19,10 @@ export function Header() {
                 <Link
                   href="/"
                   className={`${
-                    pathname === '/' 
-                      ? 'text-[#0ea5e9] hover:text-[#38bdf8]' 
-                      : 'text-gray-300 hover:text-white'
-                  } transition-colors`}
+                    pathname === '/'
+                      ? 'text-white font-medium'
+                      : 'text-gray-400 hover:text-white'
+                  }`}
                 >
                   Home
                 </Link>
@@ -31,10 +31,10 @@ export function Header() {
                 <Link
                   href="/examples"
                   className={`${
-                    pathname === '/examples' 
-                      ? 'text-[#0ea5e9] hover:text-[#38bdf8]' 
-                      : 'text-gray-300 hover:text-white'
-                  } transition-colors`}
+                    pathname === '/examples'
+                      ? 'text-white font-medium'
+                      : 'text-gray-400 hover:text-white'
+                  }`}
                 >
                   Examples
                 </Link>

@@ -1,6 +1,6 @@
+import { SiteLayout } from "@/components/layout/site-layout";
 import Image from "next/image";
 import Link from "next/link";
-import { SiteLayout } from "./components/site-layout";
 
 export default function Home() {
   return (

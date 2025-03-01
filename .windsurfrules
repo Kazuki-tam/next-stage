@@ -1,11 +1,75 @@
+
+# Basic Operating Principles
+1. **Receiving and Understanding Instructions**
+   - Carefully interpret user instructions
+   - Ask specific questions when clarification is needed
+   - Clearly understand technical constraints and requirements
+
+2. **Deep Analysis and Planning**
+   ```markdown
+   ## Task Analysis
+   - Purpose: [Final goal of the task]
+   - Technical Requirements: [Technology stack and constraints]
+   - Implementation Steps: [Specific steps]
+   - Risks: [Potential issues]
+   - Quality Standards: [Standards to be met]
+   ```
+
+3. **Implementation Plan Development**
+   ```markdown
+   ## Implementation Plan
+   1. [Specific Step 1]
+      - Detailed implementation content
+      - Anticipated challenges and countermeasures
+   2. [Specific Step 2]
+      ...
+   ```
+
+4. **Phased Implementation and Verification**
+   - Verify after completing each step
+   - Immediate response to issues
+   - Comparison with quality standards
+
+5. **Continuous Feedback**
+   - Regular reporting of implementation progress
+   - Confirmation at critical decision points
+   - Prompt reporting of issues
+
+---
+
+# Quality Management Protocol
+## 1. Code Quality
+- Strict TypeScript type checking
+- Full compliance with ESLint rules
+- Maintaining code consistency
+
+## 2. Performance
+- Prevention of unnecessary re-rendering
+- Efficient data fetching
+- Bundle size optimization
+
+## 3. Security
+- Strict validation of input values
+- Appropriate error handling
+- Secure management of sensitive information
+
+## 4. UI/UX
+- Ensuring responsive design
+- Compliance with accessibility standards
+- Maintaining consistent design system
+
+---
+
 # Project Conventions
 
 ## Technology Stack
+- **Package Manager**: Bun
 - **Framework**: Next.js 15.2.0 with App Router
-- **Language**: TypeScript 5+
+- **Language**: TypeScript
 - **UI Components**: Shadcn UI, Radix UI
 - **Styling**: Tailwind CSS
-- **API & Middleware**: Hono.js
+- **API & Middleware**: Hono
+- **Form Management**: React Hook Form
 - **Form Validation**: Zod
 - **Linting & Formatting**: Biome
 
@@ -23,6 +87,44 @@
 - Group related components in feature-based directories
 - Keep API routes organized by domain in the `app/api` directory
 - Separate Hono middleware in a dedicated `middleware` directory
+
+### Directory Structure
+- Implement colocation by organizing page-specific components, actions, and hooks within the page directory:
+
+```
+src
+|
++-- app        # Next.js routing files (standard Next.js structure)
+|   |
+|   +-- page-name/
+|       |
+|       +-- page.tsx
+|       +-- _components/  # Page-specific components
+|       +-- _actions/     # Page-specific actions
+|       +-- _hooks/       # Page-specific hooks
+|
++-- components # Cross-cutting UI components (not domain-specific)
+|
++-- hooks      # Cross-cutting, domain-independent hooks
+|
++-- providers  # Application providers
+|
++-- utils      # General utility functions
+|
++-- constants  # Application-wide constants
+|
++-- types      # Shared type definitions
+|
++-- styles     # CSS and styling related files
+|
++-- lib        # Shared library code and standardized processes
+|
++-- tests      # Automated testing files
+```
+
+- Use underscore prefix (_components, _actions, _hooks) for page-specific directories to clearly distinguish them from route segments
+- Keep cross-cutting, domain-independent components, hooks, and utilities in the top-level directories
+- Prioritize colocation to improve maintainability and reduce unnecessary imports
 
 ### TypeScript Usage
 - Use TypeScript for all code; prefer interfaces over types
@@ -51,6 +153,13 @@
 - Use dynamic loading for non-critical components
 - Optimize images: use WebP format, include size data, implement lazy loading
 - Implement proper caching strategies for API routes
+
+### Form Handling
+- Use React Hook Form for managing form state and validation
+- Integrate Zod schemas with React Hook Form for type-safe form validation
+- Implement form error handling consistently across the application
+- Use controlled components with React Hook Form for complex form interactions
+- Create reusable form components for common patterns
 
 ## Hono Integration
 
