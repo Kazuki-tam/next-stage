@@ -9,13 +9,15 @@ interface FeatureCardProps {
 
 export function FeatureCard({ icon: Icon, title, description }: FeatureCardProps) {
   return (
-    <div className={styles.cards.feature}>
-      <div className="flex flex-col h-full">
-        <div className={styles.iconContainer}>
-          <Icon className="text-[var(--blue-primary)]" size={20} />
-        </div>
-        <h2 className={styles.text.cardTitle}>{title}</h2>
-        <p className="text-gray-400 text-left flex-grow">
+    <div className={`${styles.cards.feature} py-6`}>
+      <div className="flex flex-col">
+        <h2 className={styles.text.cardTitle}>
+          <span className="inline-flex items-center gap-2">
+            <Icon className="text-[var(--blue-primary)]" size={20} /> 
+            {title}
+          </span>
+        </h2>
+        <p className="text-gray-400 text-left">
           {description}
         </p>
       </div>
