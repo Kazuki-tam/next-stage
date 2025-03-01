@@ -63,8 +63,8 @@ export function TodoForm() {
         <CardDescription className="text-gray-400">Create a new task to track</CardDescription>
       </CardHeader>
       <CardContent className="relative">
-        <Form {...form} className="animate-fadeIn">
-          <form onSubmit={form.handleSubmit(onSubmit)} className="space-y-4">
+        <Form {...form}>
+          <form onSubmit={form.handleSubmit(onSubmit)} className="space-y-4 animate-fadeIn">
             <FormField
               control={form.control}
               name="title"

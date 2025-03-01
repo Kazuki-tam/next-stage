@@ -4,222 +4,270 @@ import type { AppType } from '@/app/(example)/api/[[...route]]/route'
 import type { ApiError, ApiResponse, ApiSuccess, TodoResponse } from '@/types/api'
 import type { Todo, TodoWithId } from '@/types/todo'
 import { hc } from 'hono/client'
-import { useCallback, useEffect, useState } from 'react'
+import { useCallback, useEffect, useRef, useState } from 'react'
 
-// Create a type-safe client using Hono's RPC
-// Explicitly type the client to avoid 'unknown' type errors
-const client = hc<AppType>('/') as {
+// Define operation types for better type safety
+type TodoOperation = 'create' | 'update' | 'delete' | 'fetch' | 'toggle' | null
+
+/**
+ * Hono RPCを使用したクライアント
+ * 
+ * 利点:
+ * 1. エンドポイントのパスを文字列で指定する必要がなく、タイプミスを防止できる
+ * 2. APIの構造に合わせたメソッドチェーンでコードが読みやすくなる
+ * 3. サーバーとクライアント間で型の一貫性が保たれる
+ * 4. HTTPメソッドが自動的に選択される ($get, $post, $put, $delete, $patch)
+ */
+
+// Honoクライアントの型定義
+// 標準のFetch APIのResponseを拡張して使用
+interface TodoClient {
   api: {
     todos: {
-      $get: () => Promise<Response>;
-      $post: (options: { json: Todo }) => Promise<Response>;
+      $get(): Promise<Response>;
+      $post(options: { json: Todo }): Promise<Response>;
+    } & {
       [id: string]: {
-        $put: (options: { param: { id: string }; json: Todo }) => Promise<Response>;
-        $delete: (options: { param: { id: string } }) => Promise<Response>;
+        $put(options: { json: Todo }): Promise<Response>;
+        $delete(): Promise<Response>;
         toggle: {
-          $patch: (options: { param: { id: string } }) => Promise<Response>;
+          $patch(): Promise<Response>;
         };
       };
     };
   };
 }
 
+// 型安全なクライアントの作成
+const client = hc<AppType>('/') as unknown as TodoClient;
+
 // Helper function for error handling
-const handleApiError = (error: unknown): ApiError => {
-  const errorMessage = error instanceof Error ? error.message : 'An unexpected error occurred'
+const handleApiError = (error: unknown, customMessage?: string): ApiError => {
+  const errorMessage = error instanceof Error ? error.message : customMessage || 'An unexpected error occurred'
   console.error('API Error:', error)
   return { success: false, message: errorMessage }
 }
 
+/**
+ * Custom hook for managing todos with CRUD operations
+ * @returns Todo state and operations
+ */
 export function useTodos() {
+  // State management
   const [todos, setTodos] = useState<TodoWithId[]>([])
   const [isLoading, setIsLoading] = useState(false)
   const [hasError, setHasError] = useState<string | null>(null)
-  const [currentOperation, setCurrentOperation] = useState<'create' | 'update' | 'delete' | 'fetch' | 'toggle' | null>(null)
+  const [currentOperation, setCurrentOperation] = useState<TodoOperation>(null)
   const [lastUpdated, setLastUpdated] = useState<Date>(new Date())
+  
+  // Use a ref to track loading state for the interval without causing re-renders
+  const isLoadingRef = useRef(isLoading)
 
-  const fetchTodos = useCallback(async (silent = false) => {
-    if (!silent) {
+  /**
+   * Sets loading state and operation type
+   * @param operation The current operation type
+   * @param loading Whether to set loading state
+   */
+  const setLoadingState = useCallback((operation: TodoOperation, loading: boolean) => {
+    if (loading) {
       setIsLoading(true)
-      setCurrentOperation('fetch')
+      setCurrentOperation(operation)
+      setHasError(null)
+    } else {
+      setIsLoading(false)
+      setCurrentOperation(null)
     }
-    setHasError(null)
+  }, [])
+
+  /**
+   * Processes API response and handles common error patterns
+   * @param response The fetch Response object
+   * @param errorMessage Custom error message
+   * @returns Parsed JSON response
+   */
+  const processApiResponse = useCallback(async <T>(response: Response, _errorMessage: string): Promise<T> => {
+    const result = await response.json() as T
     
+    if (!response.ok) {
+      const apiResult = result as unknown as ApiResponse<unknown>
+      // Check for specific error types that should be returned directly
+      if (apiResult.errorType === 'duplicate_title') {
+        return result
+      }
+      throw new Error(apiResult.message || `Error: ${response.status}`)
+    }
+    
+    return result
+  }, [])
+
+  /**
+   * Fetches all todos from the API
+   * @param silent If true, doesn't show loading state (used for background refreshes)
+   */
+  const fetchTodos = useCallback(async (silent = false): Promise<void> => {
+    if (!silent) {
+      setLoadingState('fetch', true)
+    }
+
     try {
       const response = await client.api.todos.$get()
-      
+
       if (!response.ok) {
         throw new Error(`Error: ${response.status}`)
       }
-      
-      const data = await response.json()
+
+      const data = await response.json() as ApiSuccess<TodoWithId[]>
       setTodos(data.data || [])
       setLastUpdated(new Date())
     } catch (error) {
-      setHasError(error instanceof Error ? error.message : 'Failed to fetch todos')
+      setHasError('Failed to fetch todos')
       console.error('Error fetching todos:', error)
     } finally {
       if (!silent) {
-        setIsLoading(false)
-        setCurrentOperation(null)
+        setLoadingState(null, false)
       }
     }
-  }, [])
-  
-  // Auto-refresh todos when component mounts and after operations
-  useEffect(() => {
-    // Initial fetch
-    fetchTodos(false) // Not silent - show loading state
-    
-    // Set up polling for real-time updates (every 30 seconds)
-    const intervalId = setInterval(() => {
-      // Only auto-refresh if no operation is in progress
-      if (!isLoading) {
-        fetchTodos(true) // Silent refresh
-      }
-    }, 30000)
-    
-    return () => clearInterval(intervalId)
-  }, [])
+  }, [setLoadingState])
 
+  /**
+   * Creates a new todo
+   * @param todoData Todo data to create
+   * @returns API response with the created todo or error
+   */
   const createTodo = useCallback(async (todoData: Todo): Promise<TodoResponse> => {
-    setIsLoading(true)
-    setHasError(null)
-    setCurrentOperation('create')
-    
+    setLoadingState('create', true)
+
     try {
       const response = await client.api.todos.$post({
         json: todoData
       })
+
+      const result = await processApiResponse<TodoResponse>(response, 'Failed to create todo')
       
-      const result = await response.json()
-      
-      if (!response.ok) {
-        // Handle specific errors (e.g., duplicate title)
-        if (result.errorType === 'duplicate_title') {
-          return { 
-            success: false, 
-            message: result.message, 
-            field: result.field, 
-            errorType: result.errorType 
-          }
-        }
-        
-        // Other errors
-        throw new Error(result.message || `Error: ${response.status}`)
+      if (response.ok) {
+        // Refresh the todo list after successful creation
+        await fetchTodos()
+        return { success: true, data: result.data } as ApiSuccess<TodoWithId>
       }
       
-      // Refresh the todo list after successful creation
-      await fetchTodos()
-      
-      return { success: true, data: result.data } as ApiSuccess<TodoWithId>
+      return result
     } catch (error) {
       setHasError('Failed to create todo')
-      return handleApiError(error)
+      return handleApiError(error, 'Failed to create todo')
     } finally {
-      setIsLoading(false)
-      setCurrentOperation(null)
+      setLoadingState(null, false)
     }
-  }, [fetchTodos])
+  }, [fetchTodos, setLoadingState, processApiResponse])
 
+  /**
+   * Updates an existing todo
+   * @param id Todo ID to update
+   * @param todoData Updated todo data
+   * @returns API response with the updated todo or error
+   */
   const updateTodo = useCallback(async (id: string, todoData: Todo): Promise<TodoResponse> => {
-    setIsLoading(true)
-    setHasError(null)
-    setCurrentOperation('update')
-    
+    setLoadingState('update', true)
+
     try {
       const response = await client.api.todos[id].$put({
-        param: { id },
         json: todoData
       })
+
+      const result = await processApiResponse<TodoResponse>(response, 'Failed to update todo')
       
-      const result = await response.json()
-      
-      if (!response.ok) {
-        // Handle specific errors (e.g., duplicate title)
-        if (result.errorType === 'duplicate_title') {
-          return { 
-            success: false, 
-            message: result.message, 
-            field: result.field, 
-            errorType: result.errorType 
-          }
-        }
-        
-        // Other errors
-        throw new Error(result.message || `Error: ${response.status}`)
+      if (response.ok) {
+        // Refresh the todo list after successful update
+        await fetchTodos()
+        return { success: true, data: result.data } as ApiSuccess<TodoWithId>
       }
       
-      // Refresh the todo list after successful update
-      await fetchTodos()
-      
-      return { success: true, data: result.data } as ApiSuccess<TodoWithId>
+      return result
     } catch (error) {
       setHasError('Failed to update todo')
-      return handleApiError(error)
+      return handleApiError(error, 'Failed to update todo')
     } finally {
-      setIsLoading(false)
-      setCurrentOperation(null)
+      setLoadingState(null, false)
     }
-  }, [fetchTodos])
+  }, [fetchTodos, setLoadingState, processApiResponse])
 
+  /**
+   * Toggles the completed status of a todo
+   * @param id Todo ID to toggle
+   * @returns API response with the toggled todo or error
+   */
   const toggleTodo = useCallback(async (id: string): Promise<TodoResponse> => {
-    setIsLoading(true)
-    setHasError(null)
-    setCurrentOperation('toggle')
-    
+    setLoadingState('toggle', true)
+
     try {
-      const response = await client.api.todos[id].toggle.$patch({
-        param: { id }
-      })
+      const response = await client.api.todos[id].toggle.$patch()
+
+      const result = await processApiResponse<TodoResponse>(response, 'Failed to toggle todo status')
       
-      const result = await response.json()
-      
-      if (!response.ok) {
-        throw new Error(result.message || `Error: ${response.status}`)
+      if (response.ok) {
+        // Refresh the todo list after successful toggle
+        await fetchTodos()
+        return { success: true, data: result.data } as ApiSuccess<TodoWithId>
       }
       
-      // Refresh the todo list after successful toggle
-      await fetchTodos()
-      
-      return { success: true, data: result.data } as ApiSuccess<TodoWithId>
+      return result
     } catch (error) {
       setHasError('Failed to toggle todo status')
-      return handleApiError(error)
+      return handleApiError(error, 'Failed to toggle todo status')
     } finally {
-      setIsLoading(false)
-      setCurrentOperation(null)
+      setLoadingState(null, false)
     }
-  }, [fetchTodos])
+  }, [fetchTodos, setLoadingState, processApiResponse])
 
+  /**
+   * Deletes a todo
+   * @param id Todo ID to delete
+   * @returns API response indicating success or error
+   */
   const deleteTodo = useCallback(async (id: string): Promise<ApiResponse<void>> => {
-    setIsLoading(true)
-    setHasError(null)
-    setCurrentOperation('delete')
-    
+    setLoadingState('delete', true)
+
     try {
-      const response = await client.api.todos[id].$delete({
-        param: { id }
-      })
+      const response = await client.api.todos[id].$delete()
+
+      const result = await processApiResponse<ApiResponse<void>>(response, 'Failed to delete todo')
       
-      const result = await response.json()
-      
-      if (!response.ok) {
-        throw new Error(result.message || `Error: ${response.status}`)
+      if (response.ok) {
+        // Refresh the todo list after successful deletion
+        await fetchTodos()
+        return { success: true } as ApiSuccess<void>
       }
       
-      // Refresh the todo list after successful deletion
-      await fetchTodos()
-      
-      return { success: true } as ApiSuccess<void>
+      return result
     } catch (error) {
       setHasError('Failed to delete todo')
-      return handleApiError(error)
+      return handleApiError(error, 'Failed to delete todo')
     } finally {
-      setIsLoading(false)
-      setCurrentOperation(null)
+      setLoadingState(null, false)
     }
-  }, [fetchTodos])
+  }, [fetchTodos, setLoadingState, processApiResponse])
+
+  // Update ref when isLoading changes
+  useEffect(() => {
+    isLoadingRef.current = isLoading
+  }, [isLoading])
+
+  // Auto-refresh todos when component mounts and after operations
+  // biome-ignore lint/correctness/useExhaustiveDependencies: <explanation>
+  useEffect(() => {
+    // Initial fetch
+    fetchTodos(false) // Not silent - show loading state
+
+    // Set up polling for real-time updates (every 30 seconds)
+    const intervalId = setInterval(() => {
+      // Only auto-refresh if no operation is in progress
+      if (!isLoadingRef.current) {
+        fetchTodos(true) // Silent refresh
+      }
+    }, 30000)
+
+    return () => clearInterval(intervalId)
+    // eslint-disable-next-line react-hooks/exhaustive-deps
+  }, [])
 
   return {
     todos,
