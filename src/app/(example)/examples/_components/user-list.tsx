@@ -20,13 +20,13 @@ export function UserList({ refreshTrigger = 0 }: UserListProps) {
   const [userToDelete, setUserToDelete] = useState<UserWithId | null>(null)
   const [editFormData, setEditFormData] = useState<{ name: string; email: string; age: string }>({ name: '', email: '', age: '' })
   const [errors, setErrors] = useState<FormErrors>({})
-  const [submitResult, setSubmitResult] = useState<{ success?: boolean; message?: string }>({})  
+  const [submitResult, setSubmitResult] = useState<{ success?: boolean; message?: string }>({})
 
   // Initial fetch on component mount
   useEffect(() => {
     fetchUsers()
   }, [fetchUsers])
-  
+
   // Refetch when refreshTrigger changes
   useEffect(() => {
     if (refreshTrigger > 0) {
@@ -81,7 +81,14 @@ export function UserList({ refreshTrigger = 0 }: UserListProps) {
           setSubmitResult({})
         }, 1500)
       } else {
-        setSubmitResult({ success: false, message: result.error || 'Failed to update user' })
+        // メールアドレス重複エラーの処理
+        if (result.errorType === 'duplicate_email' && result.field) {
+          const formattedErrors: FormErrors = {}
+          formattedErrors[result.field] = [result.error]
+          setErrors(formattedErrors)
+        } else {
+          setSubmitResult({ success: false, message: result.error || 'Failed to update user' })
+        }
       }
     } catch (error) {
       if (error instanceof z.ZodError) {
@@ -134,8 +141,8 @@ export function UserList({ refreshTrigger = 0 }: UserListProps) {
           ) : (
             <div className="space-y-4">
               {users.map((user) => (
-                <div 
-                  key={user.id} 
+                <div
+                  key={user.id}
                   className="p-4 rounded bg-[#2a2a2a] border border-[#333] flex justify-between items-start"
                 >
                   <div>
@@ -146,19 +153,19 @@ export function UserList({ refreshTrigger = 0 }: UserListProps) {
                     )}
                   </div>
                   <div className="flex space-x-2">
-                    <Button 
-                      variant="ghost" 
-                      size="icon" 
+                    <Button
+                      variant="ghost"
+                      size="icon"
                       onClick={() => handleEditClick(user)}
-                      className="h-8 w-8 text-gray-400 hover:text-[#38bdf8] hover:bg-[#333]"
+                      className="text-gray-400 hover:text-[#38bdf8] hover:bg-[#333]"
                     >
                       <Pencil size={16} />
                     </Button>
-                    <Button 
-                      variant="ghost" 
-                      size="icon" 
+                    <Button
+                      variant="ghost"
+                      size="icon"
                       onClick={() => handleDeleteClick(user)}
-                      className="h-8 w-8 text-gray-400 hover:text-red-500 hover:bg-[#333]"
+                      className="text-gray-400 hover:text-red-500 hover:bg-[#333]"
                     >
                       <Trash2 size={16} />
                     </Button>

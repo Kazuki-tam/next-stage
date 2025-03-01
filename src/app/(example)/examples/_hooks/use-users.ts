@@ -49,6 +49,17 @@ export function useUsers() {
       const result = await response.json()
       
       if (!response.ok) {
+        // 特定のエラーを処理する（メールアドレスの重複など）
+        if (result.error === 'duplicate_email') {
+          return { 
+            success: false, 
+            error: result.message, 
+            field: result.field, 
+            errorType: result.error 
+          }
+        }
+        
+        // その他のエラー
         throw new Error(result.message || `Error: ${response.status}`)
       }
       

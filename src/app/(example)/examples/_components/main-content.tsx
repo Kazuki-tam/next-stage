@@ -30,7 +30,7 @@ export function MainContent() {
               <li><span className="font-medium">Frontend:</span> Next.js, React, Shadcn UI</li>
               <li><span className="font-medium">API:</span> Hono routes with Next.js App Router</li>
               <li><span className="font-medium">Validation:</span> Zod schema validation</li>
-              <li><span className="font-medium">State Management:</span> React hooks and context</li>
+              <li><span className="font-medium">State Management:</span> React Hook Form</li>
             </ul>
           </div>
         </div>

@@ -1,45 +1,53 @@
 'use client'
 
 import { Button } from '@/components/ui/button'
-import { Card, CardContent, CardFooter, CardHeader, CardTitle } from '@/components/ui/card'
+import { Card, CardContent, CardHeader, CardTitle } from '@/components/ui/card'
 import { Input } from '@/components/ui/input'
-import { type FormErrors, type User, userSchema } from '@/types/user'
+import { type User, userSchema } from '@/types/user'
+import { zodResolver } from '@hookform/resolvers/zod'
 import { useState } from 'react'
-import { z } from 'zod'
+import { useForm } from 'react-hook-form'
+import type { SubmitHandler } from 'react-hook-form'
+import type { z } from 'zod'
 
 interface UserFormProps {
   onUserCreated?: () => void;
 }
 
+// Define the form input type based on Zod schema
+type UserFormInputs = z.infer<typeof userSchema>
+
 export function UserForm({ onUserCreated }: UserFormProps) {
-  const [name, setName] = useState('')
-  const [email, setEmail] = useState('')
-  const [age, setAge] = useState('')
-  const [errors, setErrors] = useState<FormErrors>({})
   const [isSubmitting, setIsSubmitting] = useState(false)
   const [submitResult, setSubmitResult] = useState<{ success?: boolean; message?: string }>({})
 
-  const handleSubmit = async (e: React.FormEvent) => {
-    e.preventDefault()
-    setErrors({})
+  // Initialize React Hook Form with Zod resolver
+  const {
+    register,
+    handleSubmit,
+    formState: { errors },
+    reset,
+  } = useForm<UserFormInputs>({
+    resolver: zodResolver(userSchema),
+    defaultValues: {
+      name: '',
+      email: '',
+      age: undefined,
+    },
+  })
+
+  const onSubmit: SubmitHandler<UserFormInputs> = async (data) => {
     setSubmitResult({})
     setIsSubmitting(true)
 
     try {
-      // Validate form data with Zod
-      const validatedData: User = userSchema.parse({
-        name,
-        email,
-        age: age ? Number.parseInt(age) : undefined,
-      })
-
       // Submit to API
       const response = await fetch('/api/users', {
         method: 'POST',
         headers: {
           'Content-Type': 'application/json',
         },
-        body: JSON.stringify(validatedData),
+        body: JSON.stringify(data),
       })
 
       const result = await response.json()
@@ -47,41 +55,19 @@ export function UserForm({ onUserCreated }: UserFormProps) {
       if (response.ok) {
         setSubmitResult({ success: true, message: 'User created successfully!' })
         // Reset form
-        setName('')
-        setEmail('')
-        setAge('')
+        reset()
 
         // Notify parent component that a user was created
         if (onUserCreated) {
           onUserCreated()
         }
       } else {
-        // Handle specific API errors
-        if (result.error === 'duplicate_email') {
-          const formattedErrors: FormErrors = {}
-          formattedErrors[result.field] = [result.message]
-          setErrors(formattedErrors)
-        } else {
-          setSubmitResult({ success: false, message: result.message || 'Failed to create user' })
-        }
+        // Handle API errors
+        setSubmitResult({ success: false, message: result.message || 'Failed to create user' })
       }
     } catch (error) {
-      if (error instanceof z.ZodError) {
-        // Format Zod validation errors
-        const formattedErrors: FormErrors = {}
-
-        for (const err of error.errors) {
-          const path = err.path[0] as string
-          if (!formattedErrors[path]) {
-            formattedErrors[path] = []
-          }
-          formattedErrors[path].push(err.message)
-        }
-
-        setErrors(formattedErrors)
-      } else {
-        setSubmitResult({ success: false, message: 'An unexpected error occurred' })
-      }
+      setSubmitResult({ success: false, message: 'An unexpected error occurred' })
+      console.error('Form submission error:', error)
     } finally {
       setIsSubmitting(false)
     }
@@ -93,20 +79,19 @@ export function UserForm({ onUserCreated }: UserFormProps) {
         <CardTitle className="text-[#0ea5e9]">Create User</CardTitle>
       </CardHeader>
       <CardContent>
-        <form onSubmit={handleSubmit} className="space-y-4">
+        <form onSubmit={handleSubmit(onSubmit)} className="space-y-4">
           <div>
             <label htmlFor="name" className="block text-sm font-medium mb-1">
               Name
             </label>
             <Input
               id="name"
-              value={name}
-              onChange={(e) => setName(e.target.value)}
+              {...register('name')}
               className="bg-[#333] border-[#444] text-white"
               placeholder="Enter your name"
             />
             {errors.name && (
-              <p className="mt-1 text-sm text-red-500">{errors.name[0]}</p>
+              <p className="mt-1 text-sm text-red-500">{errors.name.message}</p>
             )}
           </div>
 
@@ -117,13 +102,12 @@ export function UserForm({ onUserCreated }: UserFormProps) {
             <Input
               id="email"
               type="email"
-              value={email}
-              onChange={(e) => setEmail(e.target.value)}
+              {...register('email')}
               className="bg-[#333] border-[#444] text-white"
               placeholder="Enter your email"
             />
             {errors.email && (
-              <p className="mt-1 text-sm text-red-500">{errors.email[0]}</p>
+              <p className="mt-1 text-sm text-red-500">{errors.email.message}</p>
             )}
           </div>
 
@@ -134,13 +118,19 @@ export function UserForm({ onUserCreated }: UserFormProps) {
             <Input
               id="age"
               type="number"
-              value={age}
-              onChange={(e) => setAge(e.target.value)}
+              {...register('age', { 
+                setValueAs: (value) => {
+                  // 空の入力の場合はundefinedを返す
+                  if (value === '' || value === null) return undefined;
+                  // 数値に変換
+                  return Number(value);
+                }
+              })}
               className="bg-[#333] border-[#444] text-white"
               placeholder="Enter your age"
             />
             {errors.age && (
-              <p className="mt-1 text-sm text-red-500">{errors.age[0]}</p>
+              <p className="mt-1 text-sm text-red-500">{errors.age.message}</p>
             )}
           </div>
 
