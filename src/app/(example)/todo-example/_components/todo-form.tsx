@@ -1,16 +1,16 @@
 'use client'
 
-import React from 'react'
 import { Button } from '@/components/ui/button'
 import { Card, CardContent, CardDescription, CardHeader, CardTitle } from '@/components/ui/card'
 import { Form, FormControl, FormDescription, FormField, FormItem, FormLabel, FormMessage } from '@/components/ui/form'
 import { Input } from '@/components/ui/input'
 import { Select, SelectContent, SelectItem, SelectTrigger, SelectValue } from '@/components/ui/select'
 import { Textarea } from '@/components/ui/textarea'
-import type { Todo, Priority } from '@/types/todo'
+import type { Priority, Todo } from '@/types/todo'
 import { todoSchema } from '@/types/todo'
 import { zodResolver } from '@hookform/resolvers/zod'
 import { Loader2 } from 'lucide-react'
+import React from 'react'
 import { useForm } from 'react-hook-form'
 import { toast } from 'sonner'
 import { useTodoContext } from '../_context/todo-context'
@@ -18,7 +18,7 @@ import { useTodoContext } from '../_context/todo-context'
 export function TodoForm() {
   const { createTodo, isLoading, currentOperation } = useTodoContext()
 
-  // デフォルト値を定数として定義
+  // Set default values for the form
   const defaultValues: Todo = {
     title: '',
     description: '',
@@ -38,7 +38,7 @@ export function TodoForm() {
 
     if (result.success) {
       toast.success('Todo created successfully')
-      // 成功したら完全にフォームをリセット
+      // Reset the form to its initial state
       form.reset(defaultValues)
     } else {
       // Handle specific field errors
