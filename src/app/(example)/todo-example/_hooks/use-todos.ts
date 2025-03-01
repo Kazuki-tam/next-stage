@@ -10,17 +10,17 @@ import { useCallback, useEffect, useRef, useState } from 'react'
 type TodoOperation = 'create' | 'update' | 'delete' | 'fetch' | 'toggle' | null
 
 /**
- * Hono RPCを使用したクライアント
+ * Client using Hono RPC
  * 
- * 利点:
- * 1. エンドポイントのパスを文字列で指定する必要がなく、タイプミスを防止できる
- * 2. APIの構造に合わせたメソッドチェーンでコードが読みやすくなる
- * 3. サーバーとクライアント間で型の一貫性が保たれる
- * 4. HTTPメソッドが自動的に選択される ($get, $post, $put, $delete, $patch)
+ * Benefits:
+ * 1. No need to specify endpoint paths as strings, preventing typos
+ * 2. Method chaining based on API structure makes code more readable
+ * 3. Type consistency between server and client
+ * 4. HTTP methods are automatically selected ($get, $post, $put, $delete, $patch)
  */
 
-// Honoクライアントの型定義
-// 標準のFetch APIのResponseを拡張して使用
+// Hono client type definition
+// Using standard Fetch API Response
 interface TodoClient {
   api: {
     todos: {
@@ -38,7 +38,7 @@ interface TodoClient {
   };
 }
 
-// 型安全なクライアントの作成
+// Create type-safe client
 const client = hc<AppType>('/') as unknown as TodoClient;
 
 // Helper function for error handling
@@ -146,7 +146,8 @@ export function useTodos() {
       
       if (response.ok) {
         // Refresh the todo list after successful creation
-        await fetchTodos()
+        await fetchTodos(true)
+        
         return { success: true, data: result.data } as ApiSuccess<TodoWithId>
       }
       
@@ -177,7 +178,17 @@ export function useTodos() {
       
       if (response.ok) {
         // Refresh the todo list after successful update
-        await fetchTodos()
+        await fetchTodos(true)
+        
+        // If successful, update the local state immediately for better UX
+        if (result.success && result.data) {
+          setTodos(prevTodos => 
+            prevTodos.map(todo => 
+              todo.id === id ? (result.data as TodoWithId) : todo
+            )
+          )
+        }
+        
         return { success: true, data: result.data } as ApiSuccess<TodoWithId>
       }
       
@@ -205,7 +216,17 @@ export function useTodos() {
       
       if (response.ok) {
         // Refresh the todo list after successful toggle
-        await fetchTodos()
+        await fetchTodos(true)
+        
+        // If successful, update the local state immediately for better UX
+        if (result.success && result.data) {
+          setTodos(prevTodos => 
+            prevTodos.map(todo => 
+              todo.id === id ? (result.data as TodoWithId) : todo
+            )
+          )
+        }
+        
         return { success: true, data: result.data } as ApiSuccess<TodoWithId>
       }
       
@@ -233,7 +254,13 @@ export function useTodos() {
       
       if (response.ok) {
         // Refresh the todo list after successful deletion
-        await fetchTodos()
+        await fetchTodos(true)
+        
+        // If successful, update the local state immediately for better UX
+        if (result.success) {
+          setTodos(prevTodos => prevTodos.filter(todo => todo.id !== id))
+        }
+        
         return { success: true } as ApiSuccess<void>
       }
       
@@ -252,18 +279,18 @@ export function useTodos() {
   }, [isLoading])
 
   // Auto-refresh todos when component mounts and after operations
-  // biome-ignore lint/correctness/useExhaustiveDependencies: <explanation>
+  // biome-ignore lint/correctness/useExhaustiveDependencies: Intentionally only running on mount
   useEffect(() => {
     // Initial fetch
     fetchTodos(false) // Not silent - show loading state
 
-    // Set up polling for real-time updates (every 30 seconds)
+    // Set up polling for real-time updates (every 5 seconds)
     const intervalId = setInterval(() => {
       // Only auto-refresh if no operation is in progress
       if (!isLoadingRef.current) {
         fetchTodos(true) // Silent refresh
       }
-    }, 30000)
+    }, 5000) // Reduced from 30000 to 5000 for more frequent updates
 
     return () => clearInterval(intervalId)
     // eslint-disable-next-line react-hooks/exhaustive-deps

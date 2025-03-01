@@ -1,40 +1,36 @@
 'use client'
 
+import React from 'react'
 import { Button } from '@/components/ui/button'
 import { Card, CardContent, CardDescription, CardHeader, CardTitle } from '@/components/ui/card'
 import { Form, FormControl, FormDescription, FormField, FormItem, FormLabel, FormMessage } from '@/components/ui/form'
 import { Input } from '@/components/ui/input'
 import { Select, SelectContent, SelectItem, SelectTrigger, SelectValue } from '@/components/ui/select'
 import { Textarea } from '@/components/ui/textarea'
-import type { Todo } from '@/types/todo'
+import type { Todo, Priority } from '@/types/todo'
 import { todoSchema } from '@/types/todo'
 import { zodResolver } from '@hookform/resolvers/zod'
 import { Loader2 } from 'lucide-react'
-import { useEffect } from 'react'
 import { useForm } from 'react-hook-form'
 import { toast } from 'sonner'
-import { useTodos } from '../_hooks/use-todos'
+import { useTodoContext } from '../_context/todo-context'
 
 export function TodoForm() {
-  const { createTodo, isLoading, currentOperation } = useTodos()
+  const { createTodo, isLoading, currentOperation } = useTodoContext()
+
+  // デフォルト値を定数として定義
+  const defaultValues: Todo = {
+    title: '',
+    description: '',
+    priority: 'medium' as Priority,
+    completed: false,
+  }
 
   // Define the form with React Hook Form and Zod validation
   const form = useForm<Todo>({
     resolver: zodResolver(todoSchema),
-    defaultValues: {
-      title: '',
-      description: '',
-      priority: 'medium',
-      completed: false,
-    },
+    defaultValues,
   })
-
-  // Reset form when submission is successful
-  useEffect(() => {
-    if (!isLoading && currentOperation === 'create') {
-      form.reset()
-    }
-  }, [isLoading, currentOperation, form])
 
   // Handle form submission
   const onSubmit = async (data: Todo) => {
@@ -42,6 +38,8 @@ export function TodoForm() {
 
     if (result.success) {
       toast.success('Todo created successfully')
+      // 成功したら完全にフォームをリセット
+      form.reset(defaultValues)
     } else {
       // Handle specific field errors
       if (result.field && result.errorType === 'duplicate_title') {
@@ -106,7 +104,7 @@ export function TodoForm() {
                   <FormLabel className="text-white">Priority</FormLabel>
                   <Select
                     onValueChange={field.onChange}
-                    defaultValue={field.value}
+                    value={field.value}
                   >
                     <FormControl>
                       <SelectTrigger className="bg-[#222] border-[#444] text-white focus:border-[var(--blue-primary)] focus:ring-[var(--blue-primary)]">

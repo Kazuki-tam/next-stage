@@ -1,3 +1,4 @@
+import { TodoProvider } from '../_context/todo-context'
 import { TodoFormContainer } from './todo-form-container'
 import { TodoListContainer } from './todo-list-container'
 
@@ -35,11 +36,13 @@ export function MainContent() {
           </div>
         </div>
 
-        <div className="grid grid-cols-1 md:grid-cols-2 gap-8">
-          {/* Client components wrapped in containers for hydration */}
-          <TodoFormContainer />
-          <TodoListContainer />
-        </div>
+        <TodoProvider>
+          <div className="grid grid-cols-1 md:grid-cols-2 gap-8">
+            {/* Client components wrapped in containers for hydration */}
+            <TodoFormContainer />
+            <TodoListContainer />
+          </div>
+        </TodoProvider>
       </div>
     </main>
   )

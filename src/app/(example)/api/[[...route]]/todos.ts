@@ -1,12 +1,12 @@
-import { type Todo, type TodoWithId, todoSchema, todoWithIdSchema } from '@/types/todo'
+import { type TodoWithId, todoSchema } from '@/types/todo'
 import { zValidator } from '@hono/zod-validator'
 import { Hono } from 'hono'
 import { v4 as uuidv4 } from 'uuid'
 
-// Sample todo data
+// Sample todo data with fixed IDs to prevent duplicate keys on server restart
 const sampleTodos: TodoWithId[] = [
   {
-    id: uuidv4(),
+    id: "sample-todo-1",
     title: 'Learn Next.js',
     description: 'Complete the Next.js documentation',
     completed: true,
@@ -15,7 +15,7 @@ const sampleTodos: TodoWithId[] = [
     updatedAt: new Date().toISOString(),
   },
   {
-    id: uuidv4(),
+    id: "sample-todo-2",
     title: 'Build a Todo App',
     description: 'Create a Todo app with Next.js and Hono',
     completed: false,

@@ -16,10 +16,10 @@ import React from 'react'
 import { useEffect, useState } from 'react'
 import { useForm } from 'react-hook-form'
 import { toast } from 'sonner'
-import { useTodos } from '../_hooks/use-todos'
+import { useTodoContext } from '../_context/todo-context'
 
 export function TodoList() {
-  const { todos, isLoading, currentOperation, lastUpdated, updateTodo, deleteTodo, toggleTodo } = useTodos()
+  const { todos = [], isLoading, currentOperation, lastUpdated, updateTodo, deleteTodo, toggleTodo } = useTodoContext()
   const [isEditDialogOpen, setIsEditDialogOpen] = useState(false)
   const [selectedTodo, setSelectedTodo] = useState<TodoWithId | null>(null)
   const [isDeleteDialogOpen, setIsDeleteDialogOpen] = useState(false)
@@ -100,17 +100,17 @@ export function TodoList() {
     await toggleTodo(todo.id)
   }
 
-  // Get priority color class
+  // Get color based on priority
   const getPriorityColor = (priority: string) => {
     switch (priority) {
       case 'high':
-        return 'text-red-500 bg-red-950/30 border border-red-900/50 px-2 py-0.5 rounded-full'
+        return 'text-red-400 bg-red-950/30 px-2 py-0.5 rounded-full'
       case 'medium':
-        return 'text-yellow-500 bg-yellow-950/30 border border-yellow-900/50 px-2 py-0.5 rounded-full'
+        return 'text-yellow-400 bg-yellow-950/30 px-2 py-0.5 rounded-full'
       case 'low':
-        return 'text-green-500 bg-green-950/30 border border-green-900/50 px-2 py-0.5 rounded-full'
+        return 'text-green-400 bg-green-950/30 px-2 py-0.5 rounded-full'
       default:
-        return 'text-[var(--blue-primary)] bg-[var(--blue-bg-light)] border border-[var(--blue-border-light)] px-2 py-0.5 rounded-full'
+        return 'text-gray-400'
     }
   }
 
@@ -133,7 +133,7 @@ export function TodoList() {
             </div>
           ) : (
             <div className="space-y-4">
-              {todos.map((todo) => (
+              {Array.isArray(todos) && todos.map((todo) => (
                 <div
                   key={todo.id}
                   className={`p-4 border border-[#333] hover:border-[var(--blue-border-light)] rounded-lg transition-all duration-300 animate-fadeIn hover:shadow-md ${
