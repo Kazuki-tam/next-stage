@@ -13,11 +13,12 @@
     "check:ci": "biome ci ."
   },
   "dependencies": {
+    "@radix-ui/react-dialog": "^1.1.6",
     "@types/uuid": "^10.0.0",
     "class-variance-authority": "^0.7.1",
     "clsx": "^2.1.1",
     "hono": "^4.7.2",
-    "lucide-react": "^0.476.0",
+    "lucide-react": "^0.477.0",
     "next": "15.2.0",
     "react": "^19.0.0",
     "react-dom": "^19.0.0",

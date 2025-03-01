@@ -17,15 +17,16 @@ users.get('/', (c) => {
   return c.json(sampleUsers)
 })
 
-// Get user by index
+// Get user by ID
 users.get('/:id', (c) => {
-  const id = Number.parseInt(c.req.param('id'))
+  const id = c.req.param('id')
+  const user = sampleUsers.find(user => user.id === id)
 
-  if (Number.isNaN(id) || id < 0 || id >= sampleUsers.length) {
-    return c.json({ error: 'User not found' }, 404)
+  if (!user) {
+    return c.json({ success: false, message: 'User not found' }, 404)
   }
 
-  return c.json(sampleUsers[id])
+  return c.json({ success: true, user })
 })
 
 // Create a new user with Zod validation
@@ -65,4 +66,80 @@ users.post('/', zValidator('json', userSchema), async (c) => {
       error: String(error)
     }, 500)
   }
+})
+
+// Update a user with Zod validation
+users.put('/:id', zValidator('json', userSchema), async (c) => {
+  try {
+    const id = c.req.param('id')
+    const data = c.req.valid('json')
+    
+    // Find the user index
+    const userIndex = sampleUsers.findIndex(user => user.id === id)
+    
+    if (userIndex === -1) {
+      return c.json({
+        success: false,
+        message: 'User not found'
+      }, 404)
+    }
+    
+    // Check if email already exists (but ignore the current user)
+    const emailExists = sampleUsers.some((user, index) => 
+      index !== userIndex && user.email === data.email
+    )
+    
+    if (emailExists) {
+      return c.json({
+        success: false,
+        message: 'A user with this email already exists',
+        field: 'email',
+        error: 'duplicate_email'
+      }, 400)
+    }
+    
+    // Update the user
+    const updatedUser: UserWithId = {
+      ...data,
+      id: sampleUsers[userIndex].id // Preserve the original ID
+    }
+    
+    // In a real app, you would update in a database
+    sampleUsers[userIndex] = updatedUser
+    
+    return c.json({
+      success: true,
+      message: 'User updated successfully',
+      user: updatedUser
+    })
+  } catch (error) {
+    return c.json({
+      success: false,
+      message: 'Failed to update user',
+      error: String(error)
+    }, 500)
+  }
+})
+
+// Delete a user
+users.delete('/:id', (c) => {
+  const id = c.req.param('id')
+  
+  // Find the user index
+  const userIndex = sampleUsers.findIndex(user => user.id === id)
+  
+  if (userIndex === -1) {
+    return c.json({
+      success: false,
+      message: 'User not found'
+    }, 404)
+  }
+  
+  // In a real app, you would delete from a database
+  sampleUsers.splice(userIndex, 1)
+  
+  return c.json({
+    success: true,
+    message: 'User deleted successfully'
+  })
 })
