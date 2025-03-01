@@ -43,6 +43,14 @@
   --sidebar-accent-foreground: oklch(0.205 0 0);
   --sidebar-border: oklch(0.922 0 0);
   --sidebar-ring: oklch(0.708 0 0);
+  
+  /* ブルーカラーシステム */
+  --blue-light: #38bdf8;
+  --blue-primary: #0ea5e9;
+  --blue-dark: #0284c7;
+  --blue-bg-light: rgba(14, 165, 233, 0.1);
+  --blue-border-light: rgba(14, 165, 233, 0.2);
+  --blue-shadow: rgba(14, 165, 233, 0.15);
 }
 
 .dark {
@@ -99,6 +107,14 @@
   --color-destructive-foreground: var(--destructive-foreground);
   --color-border: var(--border);
   --color-input: var(--input);
+  
+  /* ブルーカラーシステム */
+  --color-blue-light: var(--blue-light);
+  --color-blue-primary: var(--blue-primary);
+  --color-blue-dark: var(--blue-dark);
+  --color-blue-bg-light: var(--blue-bg-light);
+  --color-blue-border-light: var(--blue-border-light);
+  --color-blue-shadow: var(--blue-shadow);
   --color-ring: var(--ring);
   --color-chart-1: var(--chart-1);
   --color-chart-2: var(--chart-2);
