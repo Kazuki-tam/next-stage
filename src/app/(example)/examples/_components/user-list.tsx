@@ -4,10 +4,13 @@ import { Button } from '@/components/ui/button'
 import { Card, CardContent, CardHeader, CardTitle } from '@/components/ui/card'
 import { Dialog, DialogContent, DialogFooter, DialogHeader, DialogTitle } from '@/components/ui/dialog'
 import { Input } from '@/components/ui/input'
-import { type FormErrors, type User, type UserWithId, userSchema } from '@/types/user'
+import { type User, type UserWithId, userSchema } from '@/types/user'
+import { zodResolver } from '@hookform/resolvers/zod'
 import { Pencil, Trash2 } from 'lucide-react'
 import { useEffect, useState } from 'react'
-import { z } from 'zod'
+import { useForm } from 'react-hook-form'
+import type { SubmitHandler } from 'react-hook-form'
+import type { z } from 'zod'
 import { useUsers } from '../_hooks/use-users'
 
 interface UserListProps {
@@ -18,9 +21,24 @@ export function UserList({ refreshTrigger = 0 }: UserListProps) {
   const { users, isLoading, hasError, fetchUsers, updateUser, deleteUser, currentOperation } = useUsers()
   const [userToEdit, setUserToEdit] = useState<UserWithId | null>(null)
   const [userToDelete, setUserToDelete] = useState<UserWithId | null>(null)
-  const [editFormData, setEditFormData] = useState<{ name: string; email: string; age: string }>({ name: '', email: '', age: '' })
-  const [errors, setErrors] = useState<FormErrors>({})
   const [submitResult, setSubmitResult] = useState<{ success?: boolean; message?: string }>({})
+  
+  // React Hook Form for edit form
+  const {
+    register,
+    handleSubmit,
+    formState: { errors },
+    reset,
+    setValue,
+    setError,
+  } = useForm<User>({
+    resolver: zodResolver(userSchema),
+    defaultValues: {
+      name: '',
+      email: '',
+      age: undefined,
+    },
+  })
 
   // Initial fetch on component mount
   useEffect(() => {
@@ -37,41 +55,31 @@ export function UserList({ refreshTrigger = 0 }: UserListProps) {
   // Set form data when a user is selected for editing
   useEffect(() => {
     if (userToEdit) {
-      setEditFormData({
-        name: userToEdit.name,
-        email: userToEdit.email,
-        age: userToEdit.age?.toString() || '',
-      })
+      // Reset form with user data
+      setValue('name', userToEdit.name)
+      setValue('email', userToEdit.email)
+      setValue('age', userToEdit.age)
     }
-  }, [userToEdit])
+  }, [userToEdit, setValue])
 
   const handleEditClick = (user: UserWithId) => {
     setUserToEdit(user)
-    setErrors({})
     setSubmitResult({})
+    // Form will be reset with user data in the useEffect
   }
 
   const handleDeleteClick = (user: UserWithId) => {
     setUserToDelete(user)
   }
 
-  const handleEditSubmit = async (e: React.FormEvent) => {
-    e.preventDefault()
-    setErrors({})
+  const onSubmit: SubmitHandler<User> = async (data) => {
     setSubmitResult({})
 
     if (!userToEdit) return
 
     try {
-      // Validate form data with Zod
-      const validatedData: User = userSchema.parse({
-        name: editFormData.name,
-        email: editFormData.email,
-        age: editFormData.age ? Number.parseInt(editFormData.age) : undefined,
-      })
-
-      // Update user
-      const result = await updateUser(userToEdit.id, validatedData)
+      // Update user - validation is handled by React Hook Form + Zod
+      const result = await updateUser(userToEdit.id, data)
 
       if (result.success) {
         setSubmitResult({ success: true, message: 'User updated successfully!' })
@@ -79,34 +87,25 @@ export function UserList({ refreshTrigger = 0 }: UserListProps) {
         setTimeout(() => {
           setUserToEdit(null)
           setSubmitResult({})
+          reset() // Reset form
         }, 1500)
       } else {
-        // メールアドレス重複エラーの処理
+        // Handle duplicate email error
         if (result.errorType === 'duplicate_email' && result.field) {
-          const formattedErrors: FormErrors = {}
-          formattedErrors[result.field] = [result.error]
-          setErrors(formattedErrors)
+          // React Hook Form will handle the error display
+          // This is a manual way to set an error on a specific field
+          // @ts-ignore - type issue with setError but works correctly
+          setError(result.field, { 
+            type: 'manual',
+            message: result.error 
+          })
         } else {
           setSubmitResult({ success: false, message: result.error || 'Failed to update user' })
         }
       }
     } catch (error) {
-      if (error instanceof z.ZodError) {
-        // Format Zod validation errors
-        const formattedErrors: FormErrors = {}
-
-        for (const err of error.errors) {
-          const path = err.path[0] as string
-          if (!formattedErrors[path]) {
-            formattedErrors[path] = []
-          }
-          formattedErrors[path].push(err.message)
-        }
-
-        setErrors(formattedErrors)
-      } else {
-        setSubmitResult({ success: false, message: 'An unexpected error occurred' })
-      }
+      console.error('Error updating user:', error)
+      setSubmitResult({ success: false, message: 'An unexpected error occurred' })
     }
   }
 
@@ -183,20 +182,19 @@ export function UserList({ refreshTrigger = 0 }: UserListProps) {
           <DialogHeader>
             <DialogTitle className="text-[#0ea5e9]">Edit User</DialogTitle>
           </DialogHeader>
-          <form onSubmit={handleEditSubmit} className="space-y-4 py-4">
+          <form onSubmit={handleSubmit(onSubmit)} className="space-y-4 py-4">
             <div>
               <label htmlFor="edit-name" className="block text-sm font-medium mb-1">
                 Name
               </label>
               <Input
                 id="edit-name"
-                value={editFormData.name}
-                onChange={(e) => setEditFormData({ ...editFormData, name: e.target.value })}
+                {...register('name')}
                 className="bg-[#333] border-[#444] text-white"
                 placeholder="Enter name"
               />
               {errors.name && (
-                <p className="mt-1 text-sm text-red-500">{errors.name[0]}</p>
+                <p className="mt-1 text-sm text-red-500">{errors.name.message}</p>
               )}
             </div>
 
@@ -207,13 +205,12 @@ export function UserList({ refreshTrigger = 0 }: UserListProps) {
               <Input
                 id="edit-email"
                 type="email"
-                value={editFormData.email}
-                onChange={(e) => setEditFormData({ ...editFormData, email: e.target.value })}
+                {...register('email')}
                 className="bg-[#333] border-[#444] text-white"
                 placeholder="Enter email"
               />
               {errors.email && (
-                <p className="mt-1 text-sm text-red-500">{errors.email[0]}</p>
+                <p className="mt-1 text-sm text-red-500">{errors.email.message}</p>
               )}
             </div>
 
@@ -224,13 +221,19 @@ export function UserList({ refreshTrigger = 0 }: UserListProps) {
               <Input
                 id="edit-age"
                 type="number"
-                value={editFormData.age}
-                onChange={(e) => setEditFormData({ ...editFormData, age: e.target.value })}
+                {...register('age', { 
+                  setValueAs: (value) => {
+                    // Return undefined for empty inputs
+                    if (value === '' || value === null) return undefined;
+                    // Convert to number
+                    return Number(value);
+                  }
+                })}
                 className="bg-[#333] border-[#444] text-white"
                 placeholder="Enter age"
               />
               {errors.age && (
-                <p className="mt-1 text-sm text-red-500">{errors.age[0]}</p>
+                <p className="mt-1 text-sm text-red-500">{errors.age.message}</p>
               )}
             </div>
 
@@ -252,7 +255,7 @@ export function UserList({ refreshTrigger = 0 }: UserListProps) {
               <Button
                 type="submit"
                 disabled={isLoading && currentOperation === 'update'}
-                className="bg-[#0ea5e9] hover:bg-[#0284c7] text-white"
+                className="bg-[#0ea5e9] hover:bg-[#0284c7] text-white min-w-[110px]"
               >
                 {isLoading && currentOperation === 'update' ? 'Updating...' : 'Update User'}
               </Button>
@@ -285,7 +288,7 @@ export function UserList({ refreshTrigger = 0 }: UserListProps) {
               type="button"
               onClick={handleDeleteConfirm}
               disabled={isLoading && currentOperation === 'delete'}
-              className="bg-red-600 hover:bg-red-700 text-white"
+              className="bg-red-600 hover:bg-red-700 text-white min-w-[90px]"
             >
               {isLoading && currentOperation === 'delete' ? 'Deleting...' : 'Delete'}
             </Button>

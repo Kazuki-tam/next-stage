@@ -1,7 +1,15 @@
 'use client'
 
+import type { ApiError, ApiResponse, ApiSuccess, UserResponse } from '@/types/api'
 import type { User, UserWithId } from '@/types/user'
 import { useCallback, useState } from 'react'
+
+// Helper function for error handling
+const handleApiError = (error: unknown): ApiError => {
+  const errorMessage = error instanceof Error ? error.message : 'An unexpected error occurred'
+  console.error('API Error:', error)
+  return { success: false, message: errorMessage }
+}
 
 export function useUsers() {
   const [users, setUsers] = useState<UserWithId[]>([])
@@ -32,7 +40,7 @@ export function useUsers() {
     }
   }, [])
 
-  const updateUser = useCallback(async (id: string, userData: User) => {
+  const updateUser = useCallback(async (id: string, userData: User): Promise<UserResponse> => {
     setIsLoading(true)
     setHasError(null)
     setCurrentOperation('update')
@@ -49,7 +57,7 @@ export function useUsers() {
       const result = await response.json()
       
       if (!response.ok) {
-        // 特定のエラーを処理する（メールアドレスの重複など）
+        // Handle specific errors (e.g., duplicate email)
         if (result.error === 'duplicate_email') {
           return { 
             success: false, 
@@ -59,25 +67,24 @@ export function useUsers() {
           }
         }
         
-        // その他のエラー
+        // Other errors
         throw new Error(result.message || `Error: ${response.status}`)
       }
       
       // Refresh the user list after successful update
       await fetchUsers()
       
-      return { success: true, data: result.user }
+      return { success: true, data: result.user } as ApiSuccess<UserWithId>
     } catch (error) {
-      setHasError(error instanceof Error ? error.message : 'Failed to update user')
-      console.error('Error updating user:', error)
-      return { success: false, error: error instanceof Error ? error.message : 'Failed to update user' }
+      setHasError('Failed to update user')
+      return handleApiError(error)
     } finally {
       setIsLoading(false)
       setCurrentOperation(null)
     }
   }, [fetchUsers])
 
-  const deleteUser = useCallback(async (id: string) => {
+  const deleteUser = useCallback(async (id: string): Promise<ApiResponse<void>> => {
     setIsLoading(true)
     setHasError(null)
     setCurrentOperation('delete')
@@ -96,11 +103,10 @@ export function useUsers() {
       // Refresh the user list after successful deletion
       await fetchUsers()
       
-      return { success: true }
+      return { success: true } as ApiSuccess<void>
     } catch (error) {
-      setHasError(error instanceof Error ? error.message : 'Failed to delete user')
-      console.error('Error deleting user:', error)
-      return { success: false, error: error instanceof Error ? error.message : 'Failed to delete user' }
+      setHasError('Failed to delete user')
+      return handleApiError(error)
     } finally {
       setIsLoading(false)
       setCurrentOperation(null)

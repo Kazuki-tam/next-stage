@@ -120,9 +120,9 @@ export function UserForm({ onUserCreated }: UserFormProps) {
               type="number"
               {...register('age', { 
                 setValueAs: (value) => {
-                  // 空の入力の場合はundefinedを返す
+                  // Return undefined for empty inputs
                   if (value === '' || value === null) return undefined;
-                  // 数値に変換
+                  // Convert to number
                   return Number(value);
                 }
               })}
@@ -137,7 +137,7 @@ export function UserForm({ onUserCreated }: UserFormProps) {
           <Button
             type="submit"
             disabled={isSubmitting}
-            className="bg-[#0ea5e9] hover:bg-[#0284c7] text-white w-full"
+            className="bg-[#0ea5e9] hover:bg-[#0284c7] text-white w-full min-h-[40px]"
           >
             {isSubmitting ? 'Submitting...' : 'Create User'}
           </Button>
