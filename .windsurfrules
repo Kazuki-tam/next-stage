@@ -191,34 +191,17 @@ export const PUT = handle(app);
 export const DELETE = handle(app);
 ```
 
+### RPC Implementation
+- Implement RPC (Remote Procedure Call) functionality to share request/response types between server and client
+- Create a centralized type definition system for API contracts in the `src/types/api` directory
+- Use Hono's type system to enforce type safety in API handlers
+- Generate client-side hooks that leverage the shared type definitions
+- Ensure all API endpoints have corresponding type definitions for both request and response
+
 ### Middleware
 - Create reusable middleware for authentication, logging, and error handling
 - Use Hono's middleware composition for complex request processing
 - Implement rate limiting for public-facing APIs
-
-```typescript
-// Example: middleware/auth.ts
-import { Context, Next } from 'hono';
-import { verify } from 'jsonwebtoken';
-
-export function authMiddleware() {
-  return async (c: Context, next: Next) => {
-    const token = c.req.header('Authorization')?.split(' ')[1];
-
-    if (!token) {
-      return c.json({ message: 'Unauthorized' }, 401);
-    }
-
-    try {
-      const decoded = verify(token, process.env.JWT_SECRET!);
-      c.set('user', decoded);
-      await next();
-    } catch {
-      return c.json({ message: 'Invalid token' }, 401);
-    }
-  };
-}
-```
 
 ### API Security
 - Validate all input with Zod schemas

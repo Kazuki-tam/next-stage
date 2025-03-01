@@ -19,7 +19,7 @@ import { toast } from 'sonner'
 import { useTodos } from '../_hooks/use-todos'
 
 export function TodoList() {
-  const { todos, isLoading, currentOperation, lastUpdated, fetchTodos, updateTodo, deleteTodo, toggleTodo } = useTodos()
+  const { todos, isLoading, currentOperation, lastUpdated, updateTodo, deleteTodo, toggleTodo } = useTodos()
   const [isEditDialogOpen, setIsEditDialogOpen] = useState(false)
   const [selectedTodo, setSelectedTodo] = useState<TodoWithId | null>(null)
   const [isDeleteDialogOpen, setIsDeleteDialogOpen] = useState(false)
@@ -34,9 +34,6 @@ export function TodoList() {
       completed: false,
     },
   })
-
-  // TodoListコンポーネントではfetchTodosを呼び出さない
-  // useTodos内のuseEffectで自動的に呼び出される
 
   // Update form values when selected todo changes
   useEffect(() => {
