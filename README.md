@@ -1,209 +1,102 @@
 # Next-Stage
 
-![og-image](https://user-images.githubusercontent.com/36143987/160264953-c95e8c13-9296-483c-ab8c-90a1e0ba9f2c.jpg)
-
-Next-Stage is a starter template with Next.js.
-This template is helpful for web designers and web front-end developers.
-
-## Status
-
-[![Release (latest by date)](https://img.shields.io/github/v/release/Kazuki-tam/next-stage)](https://github.com/Kazuki-tam/next-stage/releases/tag/v0.0.1)
-[![Issues](https://img.shields.io/github/issues/Kazuki-tam/next-stage)](https://github.com/Kazuki-tam/next-stage/issues)
-![Maintenance](https://img.shields.io/maintenance/yes/2022)
-![Release date](https://img.shields.io/github/release-date/Kazuki-tam/next-stage)
+A modern Next.js starter template with App Router, TypeScript, Tailwind CSS, Shadcn UI, and more.
 
 ## Features
 
-- Great developer experience with [Next.js](https://nextjs.org/)
-- Lint the project code with [ESLint](https://eslint.org/)
-- Built-in test runner with [Jest](https://jestjs.io/) and [Playwright](https://playwright.dev/)
-- Organizing UI systems with [Storybook](https://storybook.js.org/)
-- Managing SEO with [Next SEO](https://github.com/garmeeh/next-seo#readme)
-- Generating sitemaps with [next-sitemap](https://github.com/iamvishnusankar/next-sitemap#readme)
-- Creating UI components faster with [Headless UI](https://headlessui.dev/)
-- Tracking page views with [Google Analytics](https://analytics.google.com/)
-- PWA support
-- Lint the project code when you commit in local
-- Out of the box useful SCSS functions and Mixins
+- **Framework**: Next.js 15.2.0 with App Router
+- **Language**: TypeScript 5+
+- **UI Components**: Shadcn UI, Radix UI
+- **Styling**: Tailwind CSS
+- **API & Middleware**: Hono.js
+- **Form Validation**: Zod
+- **Linting & Formatting**: Biome
 
-## Requirements
+## Getting Started
 
-- [Node v16+](https://nodejs.org/en/)
+### Environment Setup
 
-## Main Dependencies
-
-- [Next.js](https://nextjs.org/)
-- [Yarn](https://yarnpkg.com/)
-- [husky](https://typicode.github.io/husky/#/)
-- [lint-staged](https://github.com/okonet/lint-staged#readme)
-- [Jest](https://jestjs.io/)
-- [Playwright](https://playwright.dev/)
-- [ESLint](https://eslint.org/)
-- [Prettier](https://prettier.io/)
-- [TypeScript](https://www.typescriptlang.org/)
-- [Sass](https://sass-lang.com/)
-- [Storybook](https://storybook.js.org/)
-
-## How to use
-
-First, install this project's dependencies.
+1. Copy the `.env.example` file to `.env.local`:
 
 ```bash
-yarn install
+cp .env.example .env.local
 ```
+
+2. Update the environment variables in `.env.local` as needed.
+
+### Development
 
 Run the development server:
 
 ```bash
+# Using npm
+npm run dev
+
+# Using yarn
 yarn dev
+
+# Using pnpm
+pnpm dev
+
+# Using bun
+bun dev
 ```
 
 Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
 
-## Available Commands
+You can start editing the page by modifying `src/app/page.tsx`. The page auto-updates as you edit the file.
 
-Start your project in development mode.
+This project uses [`next/font`](https://nextjs.org/docs/app/building-your-application/optimizing/fonts) to automatically optimize and load [Geist](https://vercel.com/font), a custom font family for Vercel.
+
+## Project Structure
+
+```
+├── public/             # Static assets
+├── src/
+│   ├── app/            # App router routes
+│   │   ├── api/        # API routes using Hono.js
+│   │   └── ...         # Page routes
+│   ├── components/     # UI components
+│   ├── lib/            # Utility functions
+│   └── middleware/     # Hono middleware
+├── .env.example        # Example environment variables
+├── .env.local          # Local environment variables (gitignored)
+└── ...                 # Config files
+```
+
+## Code Quality with Biome
+
+This project uses [Biome](https://biomejs.dev/) for linting and formatting. Biome is a fast, modern JavaScript/TypeScript toolchain that replaces ESLint and Prettier.
+
+### Available Commands
 
 ```bash
-yarn dev
+# Run Biome linter
+npm run lint:biome
+
+# Format code with Biome
+npm run format
+
+# Run both linting and formatting with auto-fixes
+npm run check
+
+# Run Biome in CI mode (fails if there are any issues)
+npm run check:ci
 ```
 
-Start Storybook in development mode.
+### VS Code Integration
 
-```bash
-yarn dev:sb
-```
+This project includes VS Code settings to automatically format code on save using Biome. Make sure to install the [Biome VS Code extension](https://marketplace.visualstudio.com/items?itemName=biomejs.biome) for the best experience.
 
-Start all development tasks in development mode.
+## Learn More
 
-```bash
-yarn devAll
-```
+To learn more about Next.js, take a look at the following resources:
 
-Build your project for production.
+- [Next.js Documentation](https://nextjs.org/docs) - learn about Next.js features and API.
+- [Learn Next.js](https://nextjs.org/learn) - an interactive Next.js tutorial.
 
-```bash
-yarn build
-```
+## Deploy on Vercel
 
-Build Storybook.
+The easiest way to deploy your Next.js app is to use the [Vercel Platform](https://vercel.com/new) from the creators of Next.js.
 
-```bash
-yarn build:sb
-```
-
-Build your all project.
-
-```bash
-yarn buildAll
-```
-
-Lint your code.
-
-```bash
-yarn lint
-```
-
-Fix and format your code.
-
-```bash
-yarn lint:fix
-```
-
-Open README about Next-Stage.
-
-```bash
-yarn docs
-```
-
-Open all docs.
-
-```bash
-yarn docsAll
-```
-
-<details>
-<summary>Other docs commands</summary>
-Open Docs about Next.js.
-
-```bash
-yarn docs:next
-```
-
-Open docs about React.
-
-```bash
-yarn docs:react
-```
-
-Open docs about TypeScript.
-
-```bash
-yarn docs:ts
-```
-
-Open docs about Storybook.
-
-```bash
-yarn docs:sb
-```
-
-Open docs about Jest.
-
-```bash
-yarn docs:jest
-```
-
-Open docs about Playwright.
-
-```bash
-yarn docs:pw
-```
-
-</details>
-
-<details>
-<summary>Other support commands</summary>
-Install missing TypeScript typings.
-
-```bash
-yarn postInstall
-```
-
-Check the package's license.
-
-```bash
-yarn checkLicense
-```
-
-</details>
-
-## Google Analytics
-
-You need to set up a measurement ID in an env file if you would like to use Google Analytics.
-Create a `.env.production` file on the root of the project.
-
-```
-NEXT_PUBLIC_GA_ID=MEASUREMENT-ID
-```
-
-## SEO Settings
-
-You have to edit `next-seo.config.js`, `next-sitemap.js`, and `manifest.webmanifest` at least before you get started with your project.
-
-## Libraries
-
-- UI: [Headless UI](https://headlessui.dev/)
-- Slider: [Swiper](https://swiperjs.com/)
-- Modal: [Micromodal.js](https://micromodal.vercel.app/)
-- State: [Jotai](https://jotai.org/)
-- Intersection Observer: [react-intersection-observer](https://github.com/thebuilder/react-intersection-observer)
-
-## Notes
-
-This starter template doesn't support Internet Explorer.
-Feel free to use this template.
-
-## License
-
-MIT
+Check out the [Next.js deployment documentation](https://nextjs.org/docs/app/building-your-application/deploying) for more details.
