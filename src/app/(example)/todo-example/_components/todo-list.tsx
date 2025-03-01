@@ -122,7 +122,7 @@ export function TodoList() {
           <CardTitle className="text-white">Todo List</CardTitle>
           <CardDescription className="text-gray-400">Manage your tasks</CardDescription>
         </CardHeader>
-        <CardContent className="relative max-h-[500px] overflow-y-auto scrollbar-thin scrollbar-thumb-gray-700 scrollbar-track-transparent pr-2">
+        <CardContent className="relative max-h-[500px] overflow-y-auto scrollbar-thin scrollbar-thumb-gray-700 scrollbar-track-transparent">
           {isLoading && currentOperation === 'fetch' ? (
             <div className="flex justify-center items-center py-8">
               <Loader2 className="h-8 w-8 animate-spin text-[var(--blue-primary)]" />

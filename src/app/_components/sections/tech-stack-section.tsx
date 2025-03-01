@@ -14,7 +14,7 @@ export function TechStackSection() {
         <div>
           <h3 className={styles.text.categoryTitle}>Frontend</h3>
           <ul className="space-y-2 text-gray-300">
-            <TechListItem text="Next.js 15.2.0 with App Router" />
+            <TechListItem text="Next.js with App Router" />
             <TechListItem text="TypeScript for type safety" />
             <TechListItem text="Tailwind CSS for styling" />
             <TechListItem text="Shadcn UI components" />
@@ -42,6 +42,14 @@ export function TechStackSection() {
       </div>
 
       <div className="mt-8 pt-6 border-t border-[#333] flex flex-wrap gap-4 justify-center">
+        <Link
+          className={styles.buttons.link}
+          href="https://bun.sh/docs"
+          target="_blank"
+          rel="noopener noreferrer"
+        >
+          Bun <ExternalLink size={16} />
+        </Link>
         <Link
           className={styles.buttons.link}
           href="https://nextjs.org/docs"
@@ -75,11 +83,12 @@ export function TechStackSection() {
           Zod <ExternalLink size={16} />
         </Link>
         <Link
-          className={styles.buttons.accent}
-          href="/examples"
+          className={styles.buttons.link}
+          href="https://react-hook-form.com/"
+          target="_blank"
           rel="noopener noreferrer"
         >
-          View Examples <ArrowRight size={16} />
+          React Hook Form <ExternalLink size={16} />
         </Link>
       </div>
     </div>

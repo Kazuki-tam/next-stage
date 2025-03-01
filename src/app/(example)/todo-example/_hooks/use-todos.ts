@@ -290,7 +290,7 @@ export function useTodos() {
       if (!isLoadingRef.current) {
         fetchTodos(true) // Silent refresh
       }
-    }, 5000) // Reduced from 30000 to 5000 for more frequent updates
+    }, 30000) // 30 seconds
 
     return () => clearInterval(intervalId)
     // eslint-disable-next-line react-hooks/exhaustive-deps
