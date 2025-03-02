@@ -21,7 +21,7 @@ export const viewport: Viewport = {
   maximumScale: 1.0,
   userScalable: false,
 }
- 
+
 export const metadata: Metadata = {
   title: {
     template: `%s | ${siteInfo.title}`,
@@ -29,9 +29,6 @@ export const metadata: Metadata = {
   },
   description: siteInfo.description,
   metadataBase: new URL(process.env.NEXT_PUBLIC_APP_URL || "http://localhost:3000"),
-  icons: {
-    icon: "/favicon.svg",
-  },
   openGraph: {
     title: siteInfo.title,
     description: siteInfo.description,
