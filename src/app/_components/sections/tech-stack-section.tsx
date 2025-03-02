@@ -1,5 +1,5 @@
+import { styles } from "@/app/_styles/index";
 import { TechListItem } from "@/components/ui/tech-list-item";
-import { styles } from "@/lib/styles";
 import { ArrowRight, ExternalLink, FileCode } from "lucide-react";
 import Link from "next/link";
 
@@ -34,7 +34,7 @@ export function TechStackSection() {
           <ul className="space-y-2 text-gray-300">
             <TechListItem text="Bun package manager" />
             <TechListItem text="Biome for linting and formatting" />
-            <TechListItem text="AI editor convention files (Windsurf, Cursor)" />
+            <TechListItem text="AI editor convention files" />
             <TechListItem text="Optimized for performance" />
             <TechListItem text="Responsive design" />
           </ul>

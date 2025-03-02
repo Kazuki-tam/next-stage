@@ -1,4 +1,4 @@
-import { styles } from "@/lib/styles";
+import { styles } from "@/app/_styles/index";
 import { ExternalLink } from "lucide-react";
 import Link from "next/link";
 
@@ -16,7 +16,7 @@ export function HeroSection() {
           target="_blank"
           className={styles.buttons.primary}
         >
-          Use this template <ExternalLink size={18} />
+          Get Started
         </Link>
         <Link
           href="https://github.com/Kazuki-tam/next-stage"
@@ -24,7 +24,7 @@ export function HeroSection() {
           rel="noopener noreferrer"
           className={styles.buttons.secondary}
         >
-          GitHub <ExternalLink size={18} />
+          GitHub Repo
         </Link>
       </div>
     </div>

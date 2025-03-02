@@ -1,5 +1,6 @@
 import { Toaster } from "@/components/ui/sonner";
-import type { Metadata } from "next";
+import { siteInfo } from "@/config/site";
+import type { Metadata, Viewport } from "next";
 import { Geist, Geist_Mono } from "next/font/google";
 import "./globals.css";
 
@@ -13,29 +14,40 @@ const geistMono = Geist_Mono({
   subsets: ["latin"],
 });
 
+export const viewport: Viewport = {
+  themeColor: 'black',
+  width: 'device-width',
+  initialScale: 1.0,
+  maximumScale: 1.0,
+  userScalable: false,
+}
+ 
 export const metadata: Metadata = {
-  title: "Next-Stage | Next.js starter template",
-  description: "A modern Next.js starter template with App Router, TypeScript, Tailwind CSS, Shadcn UI, and more.",
+  title: {
+    template: `%s | ${siteInfo.title}`,
+    default: siteInfo.title,
+  },
+  description: siteInfo.description,
   metadataBase: new URL(process.env.NEXT_PUBLIC_APP_URL || "http://localhost:3000"),
   icons: {
     icon: "/favicon.svg",
   },
   openGraph: {
-    title: "Next-Stage | Next.js starter template",
-    description: "A modern Next.js starter template with App Router, TypeScript, Tailwind CSS, Shadcn UI, and more.",
+    title: siteInfo.title,
+    description: siteInfo.description,
     images: [
       {
         url: "/og-image.png",
         width: 1200,
         height: 630,
-        alt: "Next-Stage",
+        alt: "Next-Stage Logo",
       },
     ],
   },
   twitter: {
     card: "summary_large_image",
-    title: "Next-Stage | Next.js starter template",
-    description: "A modern Next.js starter template with App Router, TypeScript, Tailwind CSS, Shadcn UI, and more.",
+    title: siteInfo.title,
+    description: siteInfo.description,
     images: ["/og-image.png"],
   },
 };
