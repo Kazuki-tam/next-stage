@@ -54,7 +54,7 @@ If you want to start with a clean slate without the example files, you can remov
 
 ```bash
 # Remove the example directory
-rm -rf src/app/(example)
+rm -rf src/app/'(example)'/  
 ```
 
 This will delete all sample files and allow you to start building your application from scratch.
