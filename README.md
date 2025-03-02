@@ -48,7 +48,16 @@ Open [http://localhost:3000](http://localhost:3000) with your browser to see the
 
 You can start editing the page by modifying `src/app/page.tsx`. The page auto-updates as you edit the file.
 
-This project uses [`next/font`](https://nextjs.org/docs/app/building-your-application/optimizing/fonts) to automatically optimize and load [Geist](https://vercel.com/font), a custom font family for Vercel.
+### Clean Start (Optional)
+
+If you want to start with a clean slate without the example files, you can remove the example directory:
+
+```bash
+# Remove the example directory
+rm -rf src/app/(example)
+```
+
+This will delete all sample files and allow you to start building your application from scratch.
 
 ## Project Structure
 
