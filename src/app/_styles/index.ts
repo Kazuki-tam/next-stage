@@ -22,8 +22,8 @@ export const styles = {
   
   // Text styles
   text: {
-    title: "text-7xl font-bold bg-gradient-to-r from-[var(--blue-dark)] via-[var(--blue-primary)] to-[var(--blue-light)] text-transparent bg-clip-text gradient-title drop-shadow-[0_2px_2px_rgba(0,0,0,0.8)] leading-[1.2]",
-    subtitle: "text-2xl font-light mt-2 max-w-2xl",
+    title: "text-5xl md:text-7xl font-bold bg-gradient-to-r from-[var(--blue-dark)] via-[var(--blue-primary)] to-[var(--blue-light)] text-transparent bg-clip-text gradient-title drop-shadow-[0_2px_2px_rgba(0,0,0,0.8)] leading-[1.2]",
+    subtitle: "text-2xl sm:text-3xl font-light mt-2 max-w-2xl",
     sectionTitle: "text-2xl font-semibold mb-6 text-white inline-flex items-center gap-2",
     cardTitle: "text-xl font-semibold mb-2 text-white group-hover:text-[var(--blue-primary)] transition-all duration-300 flex items-center",
     categoryTitle: "text-lg font-medium mb-3 text-[var(--blue-primary)]"
@@ -31,7 +31,7 @@ export const styles = {
   
   // Layout
   layout: {
-    main: "flex flex-col items-center justify-center flex-1 p-8 pb-20 gap-12",
+    main: "flex flex-col items-center justify-center flex-1 py-8 px-4 pb-20 gap-12",
     container: "flex flex-col gap-12 items-center max-w-4xl w-full text-center",
     grid: "grid grid-cols-1 md:grid-cols-2 gap-6 w-full mt-8",
     techGrid: "grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6 text-left"

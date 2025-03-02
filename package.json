@@ -2,7 +2,8 @@
   "name": "next-stage",
   "description": "A modern, type-safe Next.js starter template designed for AI-driven development",
   "version": "0.1.0",
-  "private": true,
+  "author": "Kazuki Yonemoto (https://dev.to/tim_yone)",
+  "license": "MIT",
   "scripts": {
     "dev": "next dev --turbopack",
     "build": "next build",

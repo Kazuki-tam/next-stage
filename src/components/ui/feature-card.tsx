@@ -1,4 +1,4 @@
-import { styles } from "@/lib/styles";
+import { styles } from "@/app/_styles/index";
 import type { LucideIcon } from "lucide-react";
 
 interface FeatureCardProps {
