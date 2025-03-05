@@ -1,3 +1,4 @@
+import { TriangleAlert } from 'lucide-react'
 import { TodoProvider } from '../_context/todo-context'
 import { TodoFormContainer } from './todo-form-container'
 import { TodoListContainer } from './todo-list-container'
@@ -39,6 +40,7 @@ export function MainContent() {
         <div className="grid grid-cols-1 md:grid-cols-2 gap-8">
           <div className="col-span-1 md:col-span-2 bg-amber-900/20 border border-amber-500/30 rounded-lg p-4 mb-4">
             <p className="text-amber-200 flex items-center">
+              <TriangleAlert className="w-4 h-4 mr-2 flex-shrink-0" />
               Please note that any content you post may be visible to other users.
             </p>
           </div>

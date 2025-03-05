@@ -1,4 +1,4 @@
-import type { TodoWithId } from './todo'
+import type { TodoWithId } from "./todo"
 
 // Base API response type
 export type ApiResponse<T = unknown> = {
@@ -32,6 +32,6 @@ export type ApiSuccess<T> = {
 
 // Specific error types
 export type DuplicateTitleError = ApiError & {
-  errorType: 'duplicate_title'
-  field: 'title'
+  errorType: "duplicate_title"
+  field: "title"
 }

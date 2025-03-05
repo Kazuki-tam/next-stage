@@ -1,4 +1,3 @@
-import { styles } from "@/app/_styles/index";
 import { SiteLayout } from "@/components/layout/site-layout";
 import { FeaturesSection } from "./_components/sections/features-section";
 import { HeroSection } from "./_components/sections/hero-section";

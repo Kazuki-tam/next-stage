@@ -8,12 +8,11 @@
     "dev": "next dev --turbopack",
     "build": "next build",
     "start": "next start",
-    "lint": "next lint",
+    "lint": "bun run lint:markup && bun run lint:biome",
+    "lint:markup": "markuplint \"./src/**/*.{jsx,tsx}\"",
     "lint:biome": "biome lint .",
     "format": "biome format . --write",
-    "check": "biome check . --write",
-    "check:ci": "biome ci .",
-    "markuplint": "markuplint \"./src/**/*.{jsx,tsx}\""
+    "check": "biome check . --write && bun run lint:markup"
   },
   "dependencies": {
     "@hono/zod-validator": "^0.4.3",

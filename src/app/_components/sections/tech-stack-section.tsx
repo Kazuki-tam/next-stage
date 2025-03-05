@@ -1,6 +1,6 @@
 import { TechListItem } from "@/app/_components/sections/tech-list-item";
 import { styles } from "@/app/_styles/index";
-import { ArrowRight, ExternalLink, FileCode } from "lucide-react";
+import { ExternalLink, FileCode } from "lucide-react";
 import Link from "next/link";
 
 export function TechStackSection() {
@@ -55,13 +55,10 @@ export function TechStackSection() {
               <TechListItem text="Biome for linting and formatting" />
             </li>
             <li className="flex items-center gap-2">
+              <TechListItem text="Markuplint for linting HTML" />
+            </li>
+            <li className="flex items-center gap-2">
               <TechListItem text="AI editor convention files" />
-            </li>
-            <li className="flex items-center gap-2">
-              <TechListItem text="Optimized for performance" />
-            </li>
-            <li className="flex items-center gap-2">
-              <TechListItem text="Responsive design" />
             </li>
           </ul>
         </div>
@@ -83,6 +80,14 @@ export function TechStackSection() {
           rel="noopener noreferrer"
         >
           Next.js <ExternalLink size={16} />
+        </Link>
+        <Link
+          className={styles.buttons.link}
+          href="https://tailwindcss.com/"
+          target="_blank"
+          rel="noopener noreferrer"
+        >
+          Tailwind CSS <ExternalLink size={16} />
         </Link>
         <Link
           className={styles.buttons.link}
@@ -115,6 +120,22 @@ export function TechStackSection() {
           rel="noopener noreferrer"
         >
           React Hook Form <ExternalLink size={16} />
+        </Link>
+        <Link
+          className={styles.buttons.link}
+          href="https://markuplint.dev/"
+          target="_blank"
+          rel="noopener noreferrer"
+        >
+          Markuplint <ExternalLink size={16} />
+        </Link>
+        <Link
+          className={styles.buttons.link}
+          href="https://biomejs.dev/"
+          target="_blank"
+          rel="noopener noreferrer"
+        >
+          Biome <ExternalLink size={16} />
         </Link>
       </div>
     </div>

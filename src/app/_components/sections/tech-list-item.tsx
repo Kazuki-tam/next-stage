@@ -1,4 +1,4 @@
-interface TechListItemProps {
+type TechListItemProps = {
   text: string;
 }
 

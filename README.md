@@ -11,7 +11,7 @@ A modern, type-safe Next.js starter template designed for AI-driven development.
 - **API & Middleware**: Hono
 - **Form Management**: React Hook Form
 - **Form Validation**: Zod
-- **Linting & Formatting**: Biome
+- **Linting & Formatting**: Biome, Markuplint
 
 ## Getting Started
 Before you start, make sure you have the following installed:
@@ -78,15 +78,23 @@ This will delete all sample files and allow you to start building your applicati
 └── ...                 # Config files
 ```
 
-## Code Quality with Biome
+## Code Quality with Biome and Markuplint
 
-This project uses [Biome](https://biomejs.dev/) for linting and formatting. Biome is a fast, modern JavaScript/TypeScript toolchain that replaces ESLint and Prettier.
+This project uses [Biome](https://biomejs.dev/) for linting and formatting JavaScript/TypeScript code. Biome is a fast, modern JavaScript/TypeScript toolchain that replaces ESLint and Prettier.
+
+Additionally, [Markuplint](https://markuplint.dev/) is used for linting JSX/TSX markup to ensure high-quality, accessible, and consistent UI components.
 
 ### Available Commands
 
 ```bash
-# Run Biome linter
+# Run all linters (Markuplint and Biome)
 bun run lint
+
+# Run only Markuplint
+bun run lint:markup
+
+# Run only Biome linter
+bun run lint:biome
 
 # Format code with Biome
 bun run format
@@ -121,6 +129,8 @@ To learn more about Next.js, take a look at the following resources:
 - [Tailwind CSS](https://tailwindcss.com/) - a utility-first CSS framework for rapidly building custom designs.
 - [React Hook Form](https://react-hook-form.com/) - performant, flexible, and extensible forms with easy-to-use validation.
 - [Zod](https://zod.dev/) - TypeScript-first schema declaration and validation library.
+- [Biome](https://biomejs.dev/) - a fast, modern JavaScript/TypeScript toolchain that replaces ESLint and Prettier.
+- [Markuplint](https://markuplint.dev/) - a linter for HTML, JSX, and other markup languages to ensure high-quality, accessible UI components.
 
 ## Deploy on Vercel
 
