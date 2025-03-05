@@ -147,10 +147,11 @@ export function TodoList() {
                         onCheckedChange={() => handleToggleStatus(todo)}
                         disabled={isLoading && currentOperation === 'toggle'}
                         className="mt-1 transition-all duration-200 hover:scale-110 cursor-pointer flex-shrink-0"
+                        aria-label={`${todo.completed ? 'Completed' : 'Incomplete'} task: ${todo.title}`}
                       />
                       <div className="space-y-1 flex-1 min-w-0 overflow-hidden">
                         <div className="flex items-center gap-2 flex-wrap">
-                          <h4 className={`font-medium truncate max-w-full ${todo.completed ? 'line-through text-gray-400' : 'text-white'}`}>
+                          <h4 className={`font-medium truncate max-w-full ${todo.completed ? 'line-through text-gray-300' : 'text-white'}`}>
                             {todo.title}
                           </h4>
                           <span className={`text-xs font-medium flex-shrink-0 ${getPriorityColor(todo.priority)}`}>
@@ -158,7 +159,7 @@ export function TodoList() {
                           </span>
                         </div>
                         {todo.description && (
-                          <p className={`text-sm truncate ${todo.completed ? 'text-gray-500 line-through' : 'text-gray-300'}`}>
+                          <p className={`text-sm truncate ${todo.completed ? 'text-gray-300 line-through' : 'text-gray-300'}`}>
                             {todo.description}
                           </p>
                         )}
@@ -296,6 +297,7 @@ export function TodoList() {
                       <Checkbox
                         checked={field.value}
                         onCheckedChange={field.onChange}
+                        aria-label="Mark as completed"
                       />
                     </FormControl>
                     <div className="space-y-1 leading-none">
