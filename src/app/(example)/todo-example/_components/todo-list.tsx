@@ -119,7 +119,7 @@ export function TodoList() {
       <Card className="w-full bg-[#111] border-[#333]">
 
         <CardHeader>
-          <CardTitle className="text-white">Todo List</CardTitle>
+          <CardTitle as="h2" className="text-white">Todo List</CardTitle>
           <CardDescription className="text-gray-400">Manage your tasks</CardDescription>
         </CardHeader>
         <CardContent className="relative max-h-[500px] overflow-y-auto scrollbar-thin scrollbar-thumb-gray-700 scrollbar-track-transparent">
@@ -151,9 +151,9 @@ export function TodoList() {
                       />
                       <div className="space-y-1 flex-1 min-w-0 overflow-hidden">
                         <div className="flex items-center gap-2 flex-wrap">
-                          <h4 className={`font-medium truncate max-w-full ${todo.completed ? 'line-through text-gray-300' : 'text-white'}`}>
+                          <h3 className={`font-medium truncate max-w-full ${todo.completed ? 'line-through text-gray-300' : 'text-white'}`}>
                             {todo.title}
-                          </h4>
+                          </h3>
                           <span className={`text-xs font-medium flex-shrink-0 ${getPriorityColor(todo.priority)}`}>
                             {todo.priority.charAt(0).toUpperCase() + todo.priority.slice(1)}
                           </span>
@@ -219,7 +219,9 @@ export function TodoList() {
         <DialogContent className="sm:max-w-[425px] bg-[#111] border-[#333] text-white">
 
           <DialogHeader>
-            <DialogTitle className="text-white">Edit Todo</DialogTitle>
+            <DialogTitle asChild className="text-white">
+              <h3>Edit Todo</h3>
+            </DialogTitle>
             <DialogDescription className="text-gray-400">
               Make changes to your todo item here.
             </DialogDescription>
@@ -338,7 +340,9 @@ export function TodoList() {
         <DialogContent className="sm:max-w-[425px] bg-[#111] border-[#333] text-white">
 
           <DialogHeader>
-            <DialogTitle className="text-white">Confirm Deletion</DialogTitle>
+            <DialogTitle asChild className="text-white">
+              <h3>Confirm Deletion</h3>
+            </DialogTitle>
             <DialogDescription className="text-gray-400">
               Are you sure you want to delete this todo? This action cannot be undone.
             </DialogDescription>

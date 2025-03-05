@@ -1,5 +1,5 @@
+import { TechListItem } from "@/app/_components/sections/tech-list-item";
 import { styles } from "@/app/_styles/index";
-import { TechListItem } from "@/components/ui/tech-list-item";
 import { ArrowRight, ExternalLink, FileCode } from "lucide-react";
 import Link from "next/link";
 
@@ -14,29 +14,55 @@ export function TechStackSection() {
         <div>
           <h3 className={styles.text.categoryTitle}>Frontend</h3>
           <ul className="space-y-2 text-gray-300">
-            <TechListItem text="Next.js with App Router" />
-            <TechListItem text="TypeScript for type safety" />
-            <TechListItem text="Tailwind CSS for styling" />
-            <TechListItem text="Shadcn UI components" />
+            <li className="flex items-center gap-2">
+              <TechListItem text="Next.js with App Router" />
+            </li>
+            <li className="flex items-center gap-2">
+              <TechListItem text="TypeScript for type safety" />
+            </li>
+            <li className="flex items-center gap-2">
+              <TechListItem text="Tailwind CSS for styling" />
+            </li>
+            <li className="flex items-center gap-2">
+              <TechListItem text="Shadcn UI components" />
+            </li>
           </ul>
         </div>
         <div>
           <h3 className={styles.text.categoryTitle}>Backend & API</h3>
           <ul className="space-y-2 text-gray-300">
-            <TechListItem text="Hono for API routes" />
-            <TechListItem text="Zod for validation" />
-            <TechListItem text="React Hook Form integration" />
-            <TechListItem text="Type-safe API responses" />
+            <li className="flex items-center gap-2">
+              <TechListItem text="Hono for API routes" />
+            </li>
+            <li className="flex items-center gap-2">
+              <TechListItem text="Zod for validation" />
+            </li>
+            <li className="flex items-center gap-2">
+              <TechListItem text="React Hook Form integration" />
+            </li>
+            <li className="flex items-center gap-2">
+              <TechListItem text="Type-safe API responses" />
+            </li>
           </ul>
         </div>
         <div>
           <h3 className={styles.text.categoryTitle}>Development</h3>
           <ul className="space-y-2 text-gray-300">
-            <TechListItem text="Bun package manager" />
-            <TechListItem text="Biome for linting and formatting" />
-            <TechListItem text="AI editor convention files" />
-            <TechListItem text="Optimized for performance" />
-            <TechListItem text="Responsive design" />
+            <li className="flex items-center gap-2">
+              <TechListItem text="Bun package manager" />
+            </li>
+            <li className="flex items-center gap-2">
+              <TechListItem text="Biome for linting and formatting" />
+            </li>
+            <li className="flex items-center gap-2">
+              <TechListItem text="AI editor convention files" />
+            </li>
+            <li className="flex items-center gap-2">
+              <TechListItem text="Optimized for performance" />
+            </li>
+            <li className="flex items-center gap-2">
+              <TechListItem text="Responsive design" />
+            </li>
           </ul>
         </div>
       </div>
