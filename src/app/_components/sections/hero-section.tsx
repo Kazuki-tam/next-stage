@@ -1,10 +1,9 @@
 import { styles } from "@/app/_styles/index";
-import { ExternalLink } from "lucide-react";
 import Link from "next/link";
 
 export function HeroSection() {
   return (
-    <div className="flex flex-col items-center gap-6 mt-16 relative">
+    <div className="flex flex-col items-center gap-6 mt-5 relative">
       <div className="absolute inset-0 -z-10 h-full w-full bg-[radial-gradient(var(--blue-dark)_1px,transparent_1px)] opacity-20 [mask-image:radial-gradient(ellipse_50%_50%_at_50%_50%,#000_70%,transparent_100%)] [background-size:16px_16px]" />
       <div className="py-2">
         <h1 className={styles.text.title}>Next-Stage</h1>

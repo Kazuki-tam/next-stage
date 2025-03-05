@@ -125,7 +125,7 @@ export function TodoList() {
         <CardContent className="relative max-h-[500px] overflow-y-auto scrollbar-thin scrollbar-thumb-gray-700 scrollbar-track-transparent">
           {isLoading && currentOperation === 'fetch' ? (
             <div className="flex justify-center items-center py-8">
-              <Loader2 className="h-8 w-8 animate-spin text-[var(--blue-primary)]" />
+              <Loader2 className="h-8 w-8 animate-spin text-[var(--blue-text)]" />
             </div>
           ) : todos.length === 0 ? (
             <div className="text-center py-8 text-gray-300 animate-fadeIn">
@@ -173,7 +173,7 @@ export function TodoList() {
                         size="icon"
                         onClick={() => handleEditClick(todo)}
                         disabled={isLoading}
-                        className="hover:bg-[var(--blue-bg-light)] hover:text-[var(--blue-primary)] transition-all duration-200 hover:scale-110"
+                        className="hover:bg-[var(--blue-bg-light)] hover:text-[var(--blue-text)] transition-all duration-200 hover:scale-110"
                       >
                         <Edit className="h-4 w-4 text-gray-300" />
                         <span className="sr-only">Edit</span>

@@ -18,8 +18,8 @@ export const viewport: Viewport = {
   themeColor: 'black',
   width: 'device-width',
   initialScale: 1.0,
-  maximumScale: 1.0,
-  userScalable: false,
+  maximumScale: 5.0,
+  userScalable: true,
 }
 
 export const metadata: Metadata = {

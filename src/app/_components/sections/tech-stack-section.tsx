@@ -7,7 +7,7 @@ export function TechStackSection() {
   return (
     <div className={styles.cards.section}>
       <h2 className={styles.text.sectionTitle}>
-        <FileCode className="text-[var(--blue-primary)]" size={24} />
+        <FileCode className="text-[var(--blue-text)]" size={24} />
         Modern Tech Stack
       </h2>
       <div className={styles.layout.techGrid}>

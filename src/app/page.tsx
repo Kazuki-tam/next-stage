@@ -7,18 +7,16 @@ import { TechStackSection } from "./_components/sections/tech-stack-section";
 export default function Home() {
   return (
     <SiteLayout>
-      <main className={styles.layout.main}>
-        <div className={styles.layout.container}>
-          {/* Hero Section */}
-          <HeroSection />
+      <div className="flex flex-col gap-12 items-center max-w-4xl w-full text-center">
+        {/* Hero Section */}
+        <HeroSection />
 
-          {/* Features Section */}
-          <FeaturesSection />
+        {/* Features Section */}
+        <FeaturesSection />
 
-          {/* Tech Stack Section */}
-          <TechStackSection />
-        </div>
-      </main>
+        {/* Tech Stack Section */}
+        <TechStackSection />
+      </div>
     </SiteLayout>
   );
 }
