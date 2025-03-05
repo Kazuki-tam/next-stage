@@ -129,6 +129,7 @@ The easiest way to deploy your Next.js app is to use the [Vercel Platform](https
 Check out the [Next.js deployment documentation](https://nextjs.org/docs/app/building-your-application/deploying) for more details.
 
 ## References
-- [cursor.directory](https://cursor.directory/nextjs-react-typescript-cursor-rules)
+- [Awesome CursorRules](https://github.com/PatrickJS/awesome-cursorrules)
+- [cursor.directory](https://cursor.directory/)
 - [kinopeee/cursorrules](https://github.com/kinopeee/cursorrules)
 - [kinopeee/windsurfrules](https://github.com/kinopeee/windsurfrules)
