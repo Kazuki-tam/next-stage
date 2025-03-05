@@ -22,11 +22,11 @@ export const styles = {
   
   // Text styles
   text: {
-    title: "text-5xl md:text-7xl font-bold bg-gradient-to-r from-[var(--blue-dark)] via-[var(--blue-primary)] to-[var(--blue-light)] text-transparent bg-clip-text gradient-title drop-shadow-[0_2px_2px_rgba(0,0,0,0.8)] leading-[1.2]",
+    title: "text-5xl md:text-7xl font-bold text-[var(--blue-text)] leading-[1.2]",
     subtitle: "text-2xl sm:text-3xl font-light mt-2 max-w-2xl",
     sectionTitle: "text-2xl font-semibold mb-6 text-white inline-flex items-center gap-2",
-    cardTitle: "text-xl font-semibold mb-2 text-white group-hover:text-[var(--blue-primary)] transition-all duration-300 flex items-center",
-    categoryTitle: "text-lg font-medium mb-3 text-[var(--blue-primary)]"
+    cardTitle: "text-xl font-semibold mb-2 text-white group-hover:text-[var(--blue-text)] transition-all duration-300 flex items-center",
+    categoryTitle: "text-lg font-medium mb-3 text-[var(--blue-text)]"
   },
   
   // Layout

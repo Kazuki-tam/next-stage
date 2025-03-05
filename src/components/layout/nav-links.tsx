@@ -29,7 +29,7 @@ export function NavLinks() {
               : 'text-gray-400 hover:text-white'
           }`}
         >
-          Todo Example
+          Example
         </Link>
       </li>
     </ul>

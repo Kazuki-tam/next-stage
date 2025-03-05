@@ -57,7 +57,7 @@ export function TodoForm() {
     <Card className="w-full bg-[#111] border-[#333]">
 
       <CardHeader>
-        <CardTitle className="text-white">Add New Todo</CardTitle>
+        <CardTitle as="h2" className="text-white">Add New Todo</CardTitle>
         <CardDescription className="text-gray-400">Create a new task to track</CardDescription>
       </CardHeader>
       <CardContent className="relative">

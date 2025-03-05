@@ -8,11 +8,11 @@
     "dev": "next dev --turbopack",
     "build": "next build",
     "start": "next start",
-    "lint": "next lint",
+    "lint": "bun run lint:markup && bun run lint:biome",
+    "lint:markup": "markuplint \"./src/**/*.{jsx,tsx}\"",
     "lint:biome": "biome lint .",
     "format": "biome format . --write",
-    "check": "biome check . --write",
-    "check:ci": "biome ci ."
+    "check": "biome check . --write && bun run lint:markup"
   },
   "dependencies": {
     "@hono/zod-validator": "^0.4.3",
@@ -40,10 +40,13 @@
   },
   "devDependencies": {
     "@biomejs/biome": "1.9.4",
+    "@markuplint/jsx-parser": "^4.7.17",
+    "@markuplint/react-spec": "^4.5.17",
     "@tailwindcss/postcss": "^4",
     "@types/node": "^20",
     "@types/react": "^19",
     "@types/react-dom": "^19",
+    "markuplint": "^4.11.7",
     "tailwindcss": "^4",
     "typescript": "^5"
   }

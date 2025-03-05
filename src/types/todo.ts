@@ -1,11 +1,11 @@
-import { z } from 'zod'
+import { z } from "zod"
 
 // Define the todo schema with Zod
 export const todoSchema = z.object({
-  title: z.string().min(1, { message: 'Title is required' }).max(100, { message: 'Title must be less than 100 characters' }),
-  description: z.string().max(500, { message: 'Description must be less than 500 characters' }).optional(),
+  title: z.string().min(1, { message: "Title is required" }).max(100, { message: "Title must be less than 100 characters" }),
+  description: z.string().max(500, { message: "Description must be less than 500 characters" }).optional(),
   completed: z.boolean().default(false),
-  priority: z.enum(['low', 'medium', 'high']).default('medium'),
+  priority: z.enum(["low", "medium", "high"]).default("medium"),
 })
 
 // Define the todo schema with ID
@@ -22,7 +22,7 @@ export type Todo = z.infer<typeof todoSchema>
 export type TodoWithId = z.infer<typeof todoWithIdSchema>
 
 // Priority type
-export type Priority = 'low' | 'medium' | 'high'
+export type Priority = "low" | "medium" | "high"
 
 // Form errors type
 export type FormErrors = {

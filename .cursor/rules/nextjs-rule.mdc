@@ -14,7 +14,7 @@ alwaysApply: true
 - **API & Middleware**: Hono ^4.7.2
 - **Form Management**: React Hook Form ^7.54.2
 - **Form Validation**: Zod ^3.24.2
-- **Linting & Formatting**: Biome 1.9.4
+- **Linting & Formatting**: Biome 1.9.4, markuplint ^4.11.7
 
 ## Code Style and Structure
 
@@ -26,7 +26,7 @@ alwaysApply: true
 - Structure files: exported component, subcomponents, helpers, static content, types
 
 ### File Organization
-- Use lowercase with dashes for directories (e.g., `components/auth-wizard`)
+- Use lowercase with dashes for directories (e.g., `components/auth-user`)
 - Group related components in feature-based directories
 - Keep API routes organized by domain in the `app/api` directory
 - Separate Hono middleware in a dedicated `middleware` directory
@@ -70,18 +70,19 @@ src
 - Prioritize colocation to improve maintainability and reduce unnecessary imports
 
 ### TypeScript Usage
-- Use TypeScript for all code; prefer interfaces over types
+- Use TypeScript for all code; prefer types over types interfaces
 - Avoid enums; use const maps instead
 - Use functional components with TypeScript interfaces
 - Define strict types for API requests and responses
 - Use Zod schemas for validation and type inference
+- Use `satisfies` operator for type validation
 
 ### Syntax and Formatting
 - Use the "function" keyword for pure functions
 - Avoid unnecessary curly braces in conditionals; use concise syntax for simple statements
 - Use declarative JSX
 - Follow Biome formatting rules
-- Use single quotes for strings as configured in Biome
+- Use double quotes for strings as configured in Biome
 
 ## UI and Styling
 - Use Shadcn UI, Radix, and Tailwind for components and styling

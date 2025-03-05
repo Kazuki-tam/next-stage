@@ -13,7 +13,7 @@ export function FeatureCard({ icon: Icon, title, description }: FeatureCardProps
       <div className="flex flex-col">
         <h2 className={styles.text.cardTitle}>
           <span className="inline-flex items-center gap-2">
-            <Icon className="text-[var(--blue-primary)]" size={20} /> 
+            <Icon className="text-[var(--blue-text)]" size={20} /> 
             {title}
           </span>
         </h2>

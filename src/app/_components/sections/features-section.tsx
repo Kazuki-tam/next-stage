@@ -1,4 +1,4 @@
-import { FeatureCard } from "@/components/ui/feature-card";
+import { FeatureCard } from "@/app/_components/sections/feature-card";
 import { Code, Database, FileCode, Shield } from "lucide-react";
 
 export function FeaturesSection() {

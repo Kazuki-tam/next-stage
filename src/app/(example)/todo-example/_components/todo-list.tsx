@@ -119,13 +119,13 @@ export function TodoList() {
       <Card className="w-full bg-[#111] border-[#333]">
 
         <CardHeader>
-          <CardTitle className="text-white">Todo List</CardTitle>
+          <CardTitle as="h2" className="text-white">Todo List</CardTitle>
           <CardDescription className="text-gray-400">Manage your tasks</CardDescription>
         </CardHeader>
         <CardContent className="relative max-h-[500px] overflow-y-auto scrollbar-thin scrollbar-thumb-gray-700 scrollbar-track-transparent">
           {isLoading && currentOperation === 'fetch' ? (
             <div className="flex justify-center items-center py-8">
-              <Loader2 className="h-8 w-8 animate-spin text-[var(--blue-primary)]" />
+              <Loader2 className="h-8 w-8 animate-spin text-[var(--blue-text)]" />
             </div>
           ) : todos.length === 0 ? (
             <div className="text-center py-8 text-gray-300 animate-fadeIn">
@@ -147,18 +147,19 @@ export function TodoList() {
                         onCheckedChange={() => handleToggleStatus(todo)}
                         disabled={isLoading && currentOperation === 'toggle'}
                         className="mt-1 transition-all duration-200 hover:scale-110 cursor-pointer flex-shrink-0"
+                        aria-label={`${todo.completed ? 'Completed' : 'Incomplete'} task: ${todo.title}`}
                       />
                       <div className="space-y-1 flex-1 min-w-0 overflow-hidden">
                         <div className="flex items-center gap-2 flex-wrap">
-                          <h4 className={`font-medium truncate max-w-full ${todo.completed ? 'line-through text-gray-400' : 'text-white'}`}>
+                          <h3 className={`font-medium truncate max-w-full ${todo.completed ? 'line-through text-gray-300' : 'text-white'}`}>
                             {todo.title}
-                          </h4>
+                          </h3>
                           <span className={`text-xs font-medium flex-shrink-0 ${getPriorityColor(todo.priority)}`}>
                             {todo.priority.charAt(0).toUpperCase() + todo.priority.slice(1)}
                           </span>
                         </div>
                         {todo.description && (
-                          <p className={`text-sm truncate ${todo.completed ? 'text-gray-500 line-through' : 'text-gray-300'}`}>
+                          <p className={`text-sm truncate ${todo.completed ? 'text-gray-300 line-through' : 'text-gray-300'}`}>
                             {todo.description}
                           </p>
                         )}
@@ -173,7 +174,7 @@ export function TodoList() {
                         size="icon"
                         onClick={() => handleEditClick(todo)}
                         disabled={isLoading}
-                        className="hover:bg-[var(--blue-bg-light)] hover:text-[var(--blue-primary)] transition-all duration-200 hover:scale-110"
+                        className="hover:bg-[var(--blue-bg-light)] hover:text-[var(--blue-text)] transition-all duration-200 hover:scale-110"
                       >
                         <Edit className="h-4 w-4 text-gray-300" />
                         <span className="sr-only">Edit</span>
@@ -218,7 +219,9 @@ export function TodoList() {
         <DialogContent className="sm:max-w-[425px] bg-[#111] border-[#333] text-white">
 
           <DialogHeader>
-            <DialogTitle className="text-white">Edit Todo</DialogTitle>
+            <DialogTitle asChild className="text-white">
+              <h3>Edit Todo</h3>
+            </DialogTitle>
             <DialogDescription className="text-gray-400">
               Make changes to your todo item here.
             </DialogDescription>
@@ -296,6 +299,7 @@ export function TodoList() {
                       <Checkbox
                         checked={field.value}
                         onCheckedChange={field.onChange}
+                        aria-label="Mark as completed"
                       />
                     </FormControl>
                     <div className="space-y-1 leading-none">
@@ -336,7 +340,9 @@ export function TodoList() {
         <DialogContent className="sm:max-w-[425px] bg-[#111] border-[#333] text-white">
 
           <DialogHeader>
-            <DialogTitle className="text-white">Confirm Deletion</DialogTitle>
+            <DialogTitle asChild className="text-white">
+              <h3>Confirm Deletion</h3>
+            </DialogTitle>
             <DialogDescription className="text-gray-400">
               Are you sure you want to delete this todo? This action cannot be undone.
             </DialogDescription>

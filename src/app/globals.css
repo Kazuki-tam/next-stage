@@ -64,13 +64,14 @@
   --sidebar-border: oklch(0.922 0 0);
   --sidebar-ring: oklch(0.708 0 0);
 
-  /* ブルーカラーシステム */
+  /* Blue Color System */
   --blue-light: #38bdf8;
-  --blue-primary: #0ea5e9;
-  --blue-dark: #0284c7;
-  --blue-bg-light: rgba(14, 165, 233, 0.1);
-  --blue-border-light: rgba(14, 165, 233, 0.2);
-  --blue-shadow: rgba(14, 165, 233, 0.15);
+  --blue-primary: #00649e;
+  --blue-dark: #004c83;
+  --blue-text: #0ea5e9;
+  --blue-bg-light: rgba(2, 132, 199, 0.1);
+  --blue-border-light: rgba(2, 132, 199, 0.2);
+  --blue-shadow: rgba(2, 132, 199, 0.15);
 }
 
 .dark {
@@ -129,10 +130,11 @@
   --color-border: var(--border);
   --color-input: var(--input);
 
-  /* ブルーカラーシステム */
+  /* Blue Color System */
   --color-blue-light: var(--blue-light);
   --color-blue-primary: var(--blue-primary);
   --color-blue-dark: var(--blue-dark);
+  --color-blue-text: var(--blue-text);
   --color-blue-bg-light: var(--blue-bg-light);
   --color-blue-border-light: var(--blue-border-light);
   --color-blue-shadow: var(--blue-shadow);
