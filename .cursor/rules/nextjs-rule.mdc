@@ -82,6 +82,7 @@ src
 - Avoid unnecessary curly braces in conditionals; use concise syntax for simple statements
 - Use declarative JSX
 - Follow Biome formatting rules
+- Use double quotes for strings as configured in Biome
 
 ## UI and Styling
 - Use Shadcn UI, Radix, and Tailwind for components and styling
