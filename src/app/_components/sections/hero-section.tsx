@@ -11,7 +11,7 @@ export function HeroSection() {
       <p className={styles.text.subtitle}>A modern, type-safe Next.js starter template designed for AI-driven development</p>
       <div className="flex gap-4 mt-4">
         <Link
-          href="https://github.com/new?template_name=next-stage"
+          href="https://github.com/new?template_name=next-stage&template_owner=Kazuki-tam"
           target="_blank"
           className={styles.buttons.primary}
         >
@@ -28,4 +28,4 @@ export function HeroSection() {
       </div>
     </div>
   );
-} 
+}
