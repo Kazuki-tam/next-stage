@@ -120,7 +120,7 @@ This project is configured to use [Turbopack](https://turbo.build/pack) in devel
 
 ## Learn More
 
-To learn more about Next.js, take a look at the following resources:
+For more information about the tech stack powering this template, refer to these resources:
 
 - [Bun](https://bun.sh/) - an all-in-one JavaScript runtime & toolkit designed for speed, complete with a bundler, test runner, and Node.js-compatible package manager.
 - [Next.js](https://nextjs.org/docs) - a React framework for building full-stack applications.
