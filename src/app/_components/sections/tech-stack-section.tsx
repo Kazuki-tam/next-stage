@@ -24,7 +24,7 @@ export function TechStackSection() {
               <TechListItem text="Tailwind CSS for styling" />
             </li>
             <li className="flex items-center gap-2">
-              <TechListItem text="Shadcn UI components" />
+              <TechListItem text="shadcn/ui components" />
             </li>
           </ul>
         </div>
@@ -95,7 +95,7 @@ export function TechStackSection() {
           target="_blank"
           rel="noopener noreferrer"
         >
-          Shadcn UI <ExternalLink size={16} />
+          shadcn/ui <ExternalLink size={16} />
         </Link>
         <Link
           className={styles.buttons.link}

@@ -4,7 +4,7 @@ import { MainContent } from './_components/main-content'
 
 export const metadata: Metadata = {
   title: 'Todo Example',
-  description: 'Todo application example using Hono, Zod, and Shadcn UI',
+  description: 'Todo application example using Hono, Zod, and shadcn/ui',
 }
 
 export default function TodoExamplePage() {

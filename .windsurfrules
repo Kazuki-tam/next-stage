@@ -145,7 +145,7 @@ src
 - Use double quotes for strings as configured in Biome
 
 ## UI and Styling
-- Use Shadcn UI, Radix, and Tailwind for components and styling
+- Use shadcn/ui, Radix, and Tailwind for components and styling
 - Implement responsive design with Tailwind CSS; use a mobile-first approach
 - Maintain consistent spacing and color schemes
 - Use Tailwind's utility classes instead of custom CSS when possible

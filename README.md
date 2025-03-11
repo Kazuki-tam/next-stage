@@ -22,7 +22,7 @@ bun install
 
 Bun is an all-in-one JavaScript runtime & toolkit designed for speed, complete with a bundler, test runner, and Node.js-compatible package manager.
 
-This project uses Bun to manage dependencies and run scripts.
+This project uses [Bun](https://bun.sh/) to manage dependencies and run scripts.
 
 ### Environment Setup（Optional）
 If you want to use environment variables, follow these steps:
@@ -122,9 +122,10 @@ This project is configured to use [Turbopack](https://turbo.build/pack) in devel
 
 To learn more about Next.js, take a look at the following resources:
 
+- [Bun](https://bun.sh/) - an all-in-one JavaScript runtime & toolkit designed for speed, complete with a bundler, test runner, and Node.js-compatible package manager.
 - [Next.js](https://nextjs.org/docs) - a React framework for building full-stack applications.
 - [Hono](https://hono.dev/docs/) - a small, simple, and ultrafast web framework built on Web Standards.
-- [Shadcn UI](https://ui.shadcn.com/) - re-usable components built with Radix UI and Tailwind CSS.
+- [shadcn/ui](https://ui.shadcn.com/) - re-usable components built with Radix UI and Tailwind CSS.
 - [Radix UI](https://www.radix-ui.com/) - a collection of composable React components for building high-quality, accessible design systems and web apps.
 - [Tailwind CSS](https://tailwindcss.com/) - a utility-first CSS framework for rapidly building custom designs.
 - [React Hook Form](https://react-hook-form.com/) - performant, flexible, and extensible forms with easy-to-use validation.

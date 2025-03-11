@@ -12,7 +12,7 @@ export function MainContent() {
 
       <p className="text-gray-300 mb-8">
         This page demonstrates a complete Todo List application with CRUD operations using
-        Shadcn UI components, Hono API routes with RPC, and Zod validation.
+        shadcn/ui components, Hono API routes with RPC, and Zod validation.
       </p>
 
       <div className="grid grid-cols-1 md:grid-cols-2 gap-8 mb-8">
@@ -28,7 +28,7 @@ export function MainContent() {
         <div className="bg-[#222] border-[#333] p-4 rounded-lg">
           <h2 className="text-xl font-semibold text-[var(--blue-text)] mb-2">Technologies Used</h2>
           <ul className="list-disc list-inside space-y-2 text-gray-300">
-            <li><span className="font-medium">Frontend:</span> Next.js, React, Shadcn UI</li>
+            <li><span className="font-medium">Frontend:</span> Next.js, React, shadcn/ui</li>
             <li><span className="font-medium">API:</span> Hono routes with RPC type-sharing</li>
             <li><span className="font-medium">Validation:</span> Zod schema validation</li>
             <li><span className="font-medium">Form Management:</span> React Hook Form</li>
