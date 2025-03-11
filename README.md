@@ -6,7 +6,7 @@ A modern, type-safe Next.js starter template designed for AI-driven development.
 
 - **Framework**: Next.js with App Router
 - **Language**: TypeScript
-- **UI Components**: Shadcn UI, Radix UI
+- **UI Components**: shadcn/ui 
 - **Styling**: Tailwind CSS
 - **API & Middleware**: Hono
 - **Form Management**: React Hook Form
