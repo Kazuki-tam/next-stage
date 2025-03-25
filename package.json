@@ -12,6 +12,10 @@
     "lint:markup": "markuplint \"./src/**/*.{jsx,tsx}\"",
     "lint:biome": "biome lint .",
     "format": "biome format . --write",
+    "test:unit": "bun test \"**/*.test.ts\"",
+    "test:e2e": "bun playwright test",
+    "test:ui": "bun playwright test --ui",
+    "test:codegen": "bun playwright codegen",
     "check": "biome check . --write && bun run lint:markup"
   },
   "dependencies": {
@@ -42,6 +46,7 @@
     "@biomejs/biome": "1.9.4",
     "@markuplint/jsx-parser": "^4.7.17",
     "@markuplint/react-spec": "^4.5.17",
+    "@playwright/test": "^1.51.1",
     "@tailwindcss/postcss": "^4",
     "@types/node": "^20",
     "@types/react": "^19",
