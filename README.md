@@ -4,14 +4,14 @@ A modern, type-safe Next.js starter template designed for AI-driven development.
 
 ## Features
 
-- **Framework**: Next.js with App Router
+- **Framework**: Next.js with App Router, Hono
 - **Language**: TypeScript
-- **UI Components**: shadcn/ui 
+- **UI Components**: shadcn/ui
 - **Styling**: Tailwind CSS
-- **API & Middleware**: Hono
 - **Form Management**: React Hook Form
 - **Form Validation**: Zod
 - **Linting & Formatting**: Biome, Markuplint
+- **Testing**: Playwright, Bun
 
 ## Getting Started
 Before you start, make sure you have the following installed:
@@ -74,6 +74,7 @@ This will delete all sample files and allow you to start building your applicati
 │   ├── config/         # Configuration files
 │   ├── lib/            # Utility functions
 │   └── types/          # Type definitions
+├── e2e/                # E2E tests
 ├── .env.example        # Example environment variables
 └── ...                 # Config files
 ```
@@ -87,20 +88,29 @@ Additionally, [Markuplint](https://markuplint.dev/) is used for linting JSX/TSX 
 ### Available Commands
 
 ```bash
+# Run development server
+bun run dev
+
+# Run production build
+bun run build
+
 # Run all linters (Markuplint and Biome)
 bun run lint
 
-# Run only Markuplint
-bun run lint:markup
-
-# Run only Biome linter
-bun run lint:biome
-
-# Format code with Biome
-bun run format
-
 # Run both linting and formatting with auto-fixes
 bun run check
+
+# Run unit tests
+bun run test:unit
+
+# Run e2e tests
+bun run test:e2e
+
+# Run UI mode tests
+bun run test:e2e:ui
+
+# Run e2e codegen
+bun run test:codegen
 ```
 
 ## AI-Driven Development Rules
@@ -132,6 +142,7 @@ For more information about the tech stack powering this template, refer to these
 - [Zod](https://zod.dev/) - TypeScript-first schema declaration and validation library.
 - [Biome](https://biomejs.dev/) - a fast, modern JavaScript/TypeScript toolchain that replaces ESLint and Prettier.
 - [Markuplint](https://markuplint.dev/) - a linter for HTML, JSX, and other markup languages to ensure high-quality, accessible UI components.
+- [Playwright](https://playwright.dev/) - a browser automation tool for testing and debugging.
 
 ## Deploy on Vercel
 
