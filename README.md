@@ -123,11 +123,6 @@ Supported AI Editors:
 - [Windsurf Editor by Codeium](https://codeium.com/windsurf)
 - [GitHub Copilot](https://github.com/features/copilot)
 
-Check out these rule files before getting started:
-- `.cursor/rules/*` - Rules for Cursor editor
-- `.windsurfrules` - Rules for Windsurf editor
-- `.github/copilot-instructions.md` - Instructions for GitHub Copilot
-
 ### Generating Editor-Specific Rules
 
 You can generate editor-specific rule files from the base rules located in the `_llm-rules` directory using the following commands:
