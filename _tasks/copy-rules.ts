@@ -31,6 +31,7 @@ async function readAndProcessRules(): Promise<{ coreRuleContent: string; otherRu
     const contentWithoutFrontmatter = removeFrontmatter(content);
 
     if (!contentWithoutFrontmatter.trim()) {
+      // biome-ignore lint/suspicious/noConsoleLog: <explanation>
       console.log(`Skipping ${file} as it has no content besides frontmatter`);
       continue;
     }
@@ -64,6 +65,7 @@ async function processCursorRules() {
   // Create target directory if it doesn't exist
   if (!existsSync(targetDir)) {
     await mkdir(targetDir, { recursive: true });
+    // biome-ignore lint/suspicious/noConsoleLog: <explanation>
     console.log(`Created directory ${targetDir}`);
   }
 
@@ -82,6 +84,7 @@ async function processCursorRules() {
 
     const targetPath = `${targetDir}/${newFileName}${fileExtension}`;
     await Bun.write(targetPath, content);
+    // biome-ignore lint/suspicious/noConsoleLog: <explanation>
     console.log(`Copied ${file} to ${targetPath}`);
   }
 }
@@ -92,6 +95,7 @@ async function processWindsurfRules() {
   const targetPath = ".windsurfrules";
 
   await Bun.write(targetPath, mergedContent);
+  // biome-ignore lint/suspicious/noConsoleLog: <explanation>
   console.log(`Merged rule files and saved to ${targetPath}`);
 }
 
@@ -103,6 +107,7 @@ async function processCopilotRules() {
   const targetDir = ".github";
   if (!existsSync(targetDir)) {
     await mkdir(targetDir, { recursive: true });
+    // biome-ignore lint/suspicious/noConsoleLog: <explanation>
     console.log(`Created directory ${targetDir}`);
   }
 
@@ -110,6 +115,7 @@ async function processCopilotRules() {
   const targetPath = `${targetDir}/copilot-instructions.md`;
 
   await Bun.write(targetPath, mergedContent);
+  // biome-ignore lint/suspicious/noConsoleLog: <explanation>
   console.log(`Merged rule files and saved to ${targetPath}`);
 }
 

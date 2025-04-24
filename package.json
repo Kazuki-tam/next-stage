@@ -52,6 +52,7 @@
     "@markuplint/react-spec": "^4.5.17",
     "@playwright/test": "^1.51.1",
     "@tailwindcss/postcss": "^4",
+    "@types/bun": "^1.2.10",
     "@types/node": "^20",
     "@types/react": "^19",
     "@types/react-dom": "^19",
