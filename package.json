@@ -16,7 +16,11 @@
     "test:e2e": "bun playwright test",
     "test:e2e:ui": "bun playwright test --ui",
     "test:codegen": "bun playwright codegen",
-    "check": "biome check . --write && bun run lint:markup"
+    "check": "biome check . --write && bun run lint:markup",
+    "rules:cursor": "bun run _tasks/copy-rules.ts cursor",
+    "rules:windsurf": "bun run _tasks/copy-rules.ts windsurf",
+    "rules:copilot": "bun run _tasks/copy-rules.ts copilot",
+    "rules": "bun run _tasks/copy-rules.ts cursor && bun run _tasks/copy-rules.ts windsurf && bun run _tasks/copy-rules.ts copilot"
   },
   "dependencies": {
     "@hono/zod-validator": "^0.4.3",

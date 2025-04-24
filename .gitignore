@@ -45,3 +45,8 @@ node_modules/
 /playwright-report/
 /blob-report/
 /playwright/.cache/
+
+# LLM rules
+.windsurfrules
+.github/copilot-instructions.md
+.cursor/rules/*
