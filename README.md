@@ -75,6 +75,8 @@ This will delete all sample files and allow you to start building your applicati
 │   ├── lib/            # Utility functions
 │   └── types/          # Type definitions
 ├── e2e/                # E2E tests
+├── _llm-rules/         # Base rules for AI-assisted development
+├── _tasks/             # Task files
 ├── .env.example        # Example environment variables
 └── ...                 # Config files
 ```
@@ -119,10 +121,32 @@ This project supports AI-assisted development with predefined rules for writing 
 Supported AI Editors:
 - [Cursor](https://www.cursor.com/)
 - [Windsurf Editor by Codeium](https://codeium.com/windsurf)
+- [GitHub Copilot](https://github.com/features/copilot)
 
 Check out these rule files before getting started:
 - `.cursor/rules/*` - Rules for Cursor editor
 - `.windsurfrules` - Rules for Windsurf editor
+- `.github/copilot-instructions.md` - Instructions for GitHub Copilot
+
+### Generating Editor-Specific Rules
+
+You can generate editor-specific rule files from the base rules located in the `_llm-rules` directory using the following commands:
+
+```bash
+# Generate rules for Cursor editor
+bun run rules:cursor
+
+# Generate rules for Windsurf editor
+bun run rules:windsurf
+
+# Generate rules for GitHub Copilot (instructions)
+bun run rules:copilot
+
+# Generate rules for all supported editors
+bun run rules
+```
+
+These commands copy the base rules and adapt them for the specified editor's format (e.g., `.cursor/rules/cursor-*.mdc`, `.windsurfrules`, `.github/copilot-instructions.md`).
 
 ## Turbopack
 
@@ -154,4 +178,3 @@ Check out the [Next.js deployment documentation](https://nextjs.org/docs/app/bui
 - [Awesome CursorRules](https://github.com/PatrickJS/awesome-cursorrules)
 - [cursor.directory](https://cursor.directory/)
 - [kinopeee/cursorrules](https://github.com/kinopeee/cursorrules)
-- [kinopeee/windsurfrules](https://github.com/kinopeee/windsurfrules)
