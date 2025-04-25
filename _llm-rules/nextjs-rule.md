@@ -14,7 +14,7 @@ alwaysApply: true
 - **API & Middleware**: Hono ^4.7.7
 - **Form Management**: React Hook Form ^7.54.2
 - **Form Validation**: Zod ^3.24.2
-- **Linting & Formatting**: Biome 1.9.4, markuplint ^4.11.7
+- **Linting & Formatting**: Biome 1.9.4, markuplint ^4.12.0
 
 ## Code Style and Structure
 
