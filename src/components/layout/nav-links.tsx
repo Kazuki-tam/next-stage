@@ -5,7 +5,7 @@ import { usePathname } from 'next/navigation'
 
 export function NavLinks() {
   const pathname = usePathname()
-  
+
   return (
     <ul className="flex space-x-4">
       <li>
@@ -22,16 +22,14 @@ export function NavLinks() {
       </li>
       <li>
         <Link
-          href="/todo-example"
-          className={`${
-            pathname === '/todo-example'
-              ? 'text-white font-medium'
-              : 'text-gray-400 hover:text-white'
-          }`}
+          href="https://dev.to/tim_yone/next-stage-a-modern-nextjs-starter-template-for-ai-driven-development-238b"
+          className="text-gray-400 hover:text-white"
+          target="_blank"
+          rel="noopener noreferrer"
         >
-          Example
+          Doc
         </Link>
       </li>
     </ul>
   )
-} 
+}

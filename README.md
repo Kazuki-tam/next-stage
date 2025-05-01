@@ -48,17 +48,6 @@ Open [http://localhost:3000](http://localhost:3000) with your browser to see the
 
 You can start editing the page by modifying `src/app/page.tsx`. The page auto-updates as you edit the file.
 
-### Clean Start (Optional)
-
-If you want to start with a clean slate without the example files, you can remove the example directory:
-
-```bash
-# Remove the example directory
-rm -rf src/app/'(example)'/  
-```
-
-This will delete all sample files and allow you to start building your application from scratch.
-
 ## Project Structure
 
 ```
@@ -66,8 +55,7 @@ This will delete all sample files and allow you to start building your applicati
 ├── src/
 │   ├── app/            # App router routes
 │   │   ├── _components/  # App-specific components
-│   │   ├── _styles/      # App-specific styles
-│   │   └── (example)/    # Example route group
+│   │   └── _styles/      # App-specific styles
 │   ├── components/     # UI components
 │   │   ├── layout/     # Layout components
 │   │   └── ui/         # UI components from shadcn/ui
