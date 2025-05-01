@@ -64,6 +64,7 @@ You can start editing the page by modifying `src/app/page.tsx`. The page auto-up
 │   └── types/          # Type definitions
 ├── e2e/                # E2E tests
 ├── _llm-rules/         # Base rules for AI-assisted development
+├── _llm-docs/          # Base docs for AI-assisted development
 ├── _tasks/             # Task files
 ├── .env.example        # Example environment variables
 └── ...                 # Config files
