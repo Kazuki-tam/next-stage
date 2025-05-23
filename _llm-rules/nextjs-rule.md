@@ -8,13 +8,13 @@ alwaysApply: true
 
 ## Technology Stack
 - **Package Manager**: Bun 1.2.10
-- **Framework**: Next.js 15.3.1 with App Router
+- **Framework**: Next.js 15.3.2 with App Router
 - **Language**: TypeScript ^5
 - **UI Components**: shadcn/ui
 - **Styling**: Tailwind CSS ^4
 - **API & Middleware**: Hono ^4.7.7
-- **Form Management**: React Hook Form ^7.54.2
-- **Form Validation**: Zod ^3.24.2
+- **Form Management**: React Hook Form ^7.56.3
+- **Form Validation**: Zod ^3.25.23
 - **Linting & Formatting**: Biome 1.9.4, markuplint ^4.12.0
 
 ## Code Style and Structure
@@ -134,7 +134,6 @@ src
 - Implement CORS restrictions for production environments
 
 ## Key Conventions
-- Use 'nuqs' for URL search parameter state management
 - Optimize Web Vitals (LCP, CLS, FID)
 - Limit 'use client':
   - Favor server components and Next.js SSR
