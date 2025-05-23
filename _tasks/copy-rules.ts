@@ -90,13 +90,50 @@ async function processCursorRules() {
 }
 
 async function processWindsurfRules() {
-  const { coreRuleContent, otherRulesContent } = await readAndProcessRules();
-  const mergedContent = coreRuleContent + otherRulesContent;
-  const targetPath = ".windsurfrules";
+  const targetDir = ".windsurf/rules";
 
-  await Bun.write(targetPath, mergedContent);
-  // biome-ignore lint/suspicious/noConsoleLog: <explanation>
-  console.log(`Merged rule files and saved to ${targetPath}`);
+  // Create target directory if it doesn't exist
+  if (!existsSync(targetDir)) {
+    await mkdir(targetDir, { recursive: true });
+    // biome-ignore lint/suspicious/noConsoleLog: <explanation>
+    console.log(`Created directory ${targetDir}`);
+  }
+
+  // Get md files from _llm-rules directory
+  const ruleFiles = globSync("_llm-rules/*.md");
+
+  // Copy each file to target directory with trigger prefix based on alwaysApply
+  for (const file of ruleFiles) {
+    const fileName = path.basename(file, ".md");
+    const sourceFile = Bun.file(file);
+    const content = await sourceFile.text();
+    
+    // Parse frontmatter
+    let trigger = "manual"; // Default trigger
+    let frontmatterContent = "";
+    let mainContent = content;
+    
+    if (content.startsWith("---")) {
+      const secondDashIndex = content.indexOf("---", 3);
+      if (secondDashIndex !== -1) {
+        frontmatterContent = content.substring(3, secondDashIndex).trim();
+        mainContent = content.substring(secondDashIndex + 3).trim();
+        
+        // Check if alwaysApply is true
+        if (frontmatterContent.includes("alwaysApply: true")) {
+          trigger = "always_on";
+        }
+      }
+    }
+    
+    // Create new content with trigger prefix
+    const newContent = `---\ntrigger: ${trigger}\n---\n\n${mainContent}`;
+    
+    const targetPath = `${targetDir}/${fileName}.md`;
+    await Bun.write(targetPath, newContent);
+    // biome-ignore lint/suspicious/noConsoleLog: <explanation>
+    console.log(`Copied ${file} to ${targetPath} with trigger: ${trigger}`);
+  }
 }
 
 async function processCopilotRules() {

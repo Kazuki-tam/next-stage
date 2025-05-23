@@ -3,6 +3,7 @@ description: Core rule
 globs: 
 alwaysApply: true
 ---
+
 You are an AI assistant with advanced problem-solving capabilities. Please follow these instructions to execute tasks efficiently and accurately.
 First, confirm the instructions you have received from the user:
 <instructions>

@@ -1,9 +1,17 @@
 ---
 description: 
-globs: *.spec.ts,*.test.ts
+globs: *.spec.ts, *.test.ts
 alwaysApply: false
 ---
-# Testing Guidelines and Structure
+
+# Testing Guidelines
+When you are testing this project, please follow these guidelines:
+
+## Testing Principles
+- Write unit tests for utility functions and hooks
+- Create integration tests for API routes using Hono's testing utilities
+- Implement end-to-end tests for critical user flows
+- Use mock data for testing to avoid external dependencies
 
 ## Directory Structure
 

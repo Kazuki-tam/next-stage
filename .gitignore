@@ -50,3 +50,4 @@ node_modules/
 .windsurfrules
 .github/copilot-instructions.md
 .cursor/rules/*
+.windsurf/rules/*

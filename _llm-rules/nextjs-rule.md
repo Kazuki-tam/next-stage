@@ -3,6 +3,7 @@ description: Next.js coding rule
 globs: 
 alwaysApply: true
 ---
+
 # Next.js Project Conventions
 
 ## Technology Stack
@@ -113,25 +114,6 @@ src
 - Avoid creating "controller" classes; use direct handlers with proper typing
 - Use Hono's middleware for cross-cutting concerns
 
-```typescript
-// Example: app/api/[[...route]]/route.ts
-import { Hono } from 'hono';
-import { handle } from 'hono/vercel';
-import { books } from './books';
-import { authors } from './authors';
-
-const app = new Hono().basePath('/api');
-
-// Mount domain-specific routes
-app.route('/books', books);
-app.route('/authors', authors);
-
-export const GET = handle(app);
-export const POST = handle(app);
-export const PUT = handle(app);
-export const DELETE = handle(app);
-```
-
 ### RPC Implementation
 - Implement RPC (Remote Procedure Call) functionality to share request/response types between server and client
 - Create a centralized type definition system for API contracts in the `src/types/api` directory
@@ -151,23 +133,6 @@ export const DELETE = handle(app);
 - Use environment variables for secrets
 - Implement CORS restrictions for production environments
 
-```typescript
-// Example: Validation with Zod
-import { z } from 'zod';
-import { zValidator } from '@hono/zod-validator';
-
-const userSchema = z.object({
-  name: z.string().min(3).max(50),
-  email: z.string().email(),
-});
-
-app.post('/users', zValidator('json', userSchema), async (c) => {
-  const data = c.req.valid('json');
-  // Process validated data
-  return c.json({ success: true });
-});
-```
-
 ## Key Conventions
 - Use 'nuqs' for URL search parameter state management
 - Optimize Web Vitals (LCP, CLS, FID)
@@ -177,15 +142,3 @@ app.post('/users', zValidator('json', userSchema), async (c) => {
   - Avoid for data fetching or state management
 - Follow Next.js docs for Data Fetching, Rendering, and Routing
 - Use Biome for consistent code formatting and linting
-
-## Testing
-- Write unit tests for utility functions and hooks
-- Create integration tests for API routes using Hono's testing utilities
-- Implement end-to-end tests for critical user flows
-- Use mock data for testing to avoid external dependencies
-
-## Deployment
-- Use Vercel for production deployments
-- Implement proper environment variable management
-- Set up CI/CD pipelines for automated testing and deployment
-- Configure proper caching strategies for static assets
