@@ -131,7 +131,9 @@ bun run rules:copilot
 bun run rules
 ```
 
-These commands copy the base rules and adapt them for the specified editor's format (e.g., `.cursor/rules/cursor-*.mdc`, `.windsurf/rules/*.md`, `.github/copilot-instructions.md`, `CLAUDE.md`).
+These commands copy the base rules and adapt them for the specified editor's format (e.g., `.cursor/rules/cursor-*.mdc`, `.windsurf/rules/*.md`, `.github/copilot-instructions.md`).
+
+`CLAUDE.md` is for Claude Code. This file is not created by the `rules` command.
 
 ## Turbopack
 
