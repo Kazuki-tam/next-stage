@@ -108,6 +108,7 @@ bun run test:codegen
 This project supports AI-assisted development with predefined rules for writing clean, maintainable, and scalable code.
 
 Supported AI Editors:
+- [Claude Code](https://claude.ai/code)
 - [Cursor](https://www.cursor.com/)
 - [Windsurf Editor by Codeium](https://codeium.com/windsurf)
 - [GitHub Copilot](https://github.com/features/copilot)
@@ -130,7 +131,7 @@ bun run rules:copilot
 bun run rules
 ```
 
-These commands copy the base rules and adapt them for the specified editor's format (e.g., `.cursor/rules/cursor-*.mdc`, `.windsurfrules`, `.github/copilot-instructions.md`).
+These commands copy the base rules and adapt them for the specified editor's format (e.g., `.cursor/rules/cursor-*.mdc`, `.windsurf/rules/*.md`, `.github/copilot-instructions.md`, `CLAUDE.md`).
 
 ## Turbopack
 
