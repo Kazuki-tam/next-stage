@@ -69,7 +69,7 @@ async function processCursorRules() {
   // Create target directory if it doesn't exist
   if (!existsSync(targetDir)) {
     await mkdir(targetDir, { recursive: true });
-    // biome-ignore: Skipping files with no content
+    // biome-ignore: create-directory
     console.log(`Created directory ${targetDir}`);
   }
 
@@ -88,7 +88,7 @@ async function processCursorRules() {
 
     const targetPath = `${targetDir}/${newFileName}${fileExtension}`;
     await Bun.write(targetPath, content);
-    // biome-ignore: Skipping files with no content
+    // biome-ignore: Copying files
     console.log(`Copied ${file} to ${targetPath}`);
   }
 }
@@ -99,7 +99,7 @@ async function processWindsurfRules() {
   // Create target directory if it doesn't exist
   if (!existsSync(targetDir)) {
     await mkdir(targetDir, { recursive: true });
-    // biome-ignore: Skipping files with no content
+    // biome-ignore: create-directory
     console.log(`Created directory ${targetDir}`);
   }
 
@@ -135,7 +135,7 @@ async function processWindsurfRules() {
 
     const targetPath = `${targetDir}/${fileName}.md`;
     await Bun.write(targetPath, newContent);
-    // biome-ignore: Skipping files with no content
+    // biome-ignore: Copying files
     console.log(`Copied ${file} to ${targetPath} with trigger: ${trigger}`);
   }
 }
@@ -148,7 +148,7 @@ async function processCopilotRules() {
   const targetDir = ".github";
   if (!existsSync(targetDir)) {
     await mkdir(targetDir, { recursive: true });
-    // biome-ignore: Skipping files with no content
+    // biome-ignore: create-directory
     console.log(`Created directory ${targetDir}`);
   }
 
@@ -156,7 +156,7 @@ async function processCopilotRules() {
   const targetPath = `${targetDir}/copilot-instructions.md`;
 
   await Bun.write(targetPath, mergedContent);
-  // biome-ignore: Skipping files with no content
+  // biome-ignore: Copying files
   console.log(`Merged rule files and saved to ${targetPath}`);
 }
 
