@@ -1,5 +1,5 @@
-import { FeatureCard } from "@/app/_components/sections/feature-card";
 import { Code, Database, FileCode, Shield } from "lucide-react";
+import { FeatureCard } from "@/app/_components/sections/feature-card";
 
 export function FeaturesSection() {
   return (
@@ -9,19 +9,19 @@ export function FeaturesSection() {
         title="Type-Safe Development"
         description="Built with TypeScript and Zod for end-to-end type safety from API routes to frontend components."
       />
-      
+
       <FeatureCard
         icon={FileCode}
         title="AI Editor Ready"
         description="Pre-configured development convention files for AI-powered editors like Windsurf and Cursor to accelerate your development workflow."
       />
-      
+
       <FeatureCard
         icon={Database}
         title="Hono API Integration"
         description="Leverage Hono's powerful middleware and routing capabilities for building robust API endpoints."
       />
-      
+
       <FeatureCard
         icon={Shield}
         title="Validation & Security"
@@ -29,4 +29,4 @@ export function FeaturesSection() {
       />
     </div>
   );
-} 
+}

@@ -1,5 +1,5 @@
-import { styles } from "@/app/_styles/index";
 import Link from "next/link";
+import { styles } from "@/app/_styles/index";
 
 export function HeroSection() {
   return (
@@ -8,7 +8,9 @@ export function HeroSection() {
       <div className="py-2">
         <h1 className={styles.text.title}>Next-Stage</h1>
       </div>
-      <p className={styles.text.subtitle}>A modern, type-safe Next.js starter template designed for AI-driven development</p>
+      <p className={styles.text.subtitle}>
+        A modern, type-safe Next.js starter template designed for AI-driven development
+      </p>
       <div className="flex gap-4 mt-4">
         <Link
           href="https://github.com/new?template_name=next-stage&template_owner=Kazuki-tam"

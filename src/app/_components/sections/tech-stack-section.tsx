@@ -1,7 +1,7 @@
-import { TechListItem } from "@/app/_components/sections/tech-list-item";
-import { styles } from "@/app/_styles/index";
 import { ExternalLink, FileCode } from "lucide-react";
 import Link from "next/link";
+import { TechListItem } from "@/app/_components/sections/tech-list-item";
+import { styles } from "@/app/_styles/index";
 
 export function TechStackSection() {
   return (
@@ -140,4 +140,4 @@ export function TechStackSection() {
       </div>
     </div>
   );
-} 
+}

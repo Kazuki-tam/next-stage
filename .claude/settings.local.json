@@ -1,0 +1,96 @@
+{
+  "permissions": {
+    "allow": [
+      "Bash(bun install:*)",
+      "Bash(bun add:*)",
+      "Bash(bun remove:*)",
+      "Bash(bun update:*)",
+      "Bash(bun run dev:*)",
+      "Bash(bun run build:*)",
+      "Bash(bun run start:*)",
+      "Bash(bun run test:*)",
+      "Bash(bun run lint:*)",
+      "Bash(bun run format:*)",
+      "Bash(bun run check:*)",
+      "Bash(bun run rules:*)",
+      "Bash(bun run upgradeps:*)",
+      "Bash(mkdir:*)"
+    ],
+    "deny": [
+      "Read(.env)",
+      "Write(.env)",
+      "Read(.env.*)",
+      "Write(.env.*)",
+      "Read(**/*token*)",
+      "Read(**/*key*)",
+      "Read(**/*secret*)",
+      "Read(**/*password*)",
+      "Read(**/*credential*)",
+      "Write(**/*token*)",
+      "Write(**/*key*)",
+      "Write(**/*secret*)",
+      "Write(**/*password*)",
+      "Write(**/*credential*)",
+      "Bash(rm -rf /)",
+      "Bash(rm -rf ~)",
+      "Bash(rm -rf ~/*)",
+      "Bash(rm -rf /*)",
+      "Bash(rm -rf .)",
+      "Bash(rm -rf ..)",
+      "Bash(sudo:*)",
+      "Bash(su:*)",
+      "Bash(curl:*)",
+      "Bash(wget:*)",
+      "Bash(nc:*)",
+      "Bash(netcat:*)",
+      "Bash(ssh:*)",
+      "Bash(scp:*)",
+      "Bash(rsync:*)",
+      "Bash(ftp:*)",
+      "Bash(sftp:*)",
+      "Bash(psql:*)",
+      "Bash(mysql:*)",
+      "Bash(mongod:*)",
+      "Bash(redis:*)",
+      "Bash(sqlite:*)",
+      "Bash(chmod 777:*)",
+      "Bash(chown:*)",
+      "Bash(chgrp:*)",
+      "Bash(mount:*)",
+      "Bash(umount:*)",
+      "Bash(systemctl:*)",
+      "Bash(service:*)",
+      "Bash(apt:*)",
+      "Bash(yum:*)",
+      "Bash(dnf:*)",
+      "Bash(pacman:*)",
+      "Bash(brew:*)"
+    ]
+  },
+  "hooks": {
+    "PostToolUse": [
+      {
+        "matcher": "Write|Edit|MultiEdit",
+        "hooks": [
+          {
+            "type": "command",
+            "command": "echo 'Auto-formatting modified files...' && bun run format",
+            "timeout": 30
+          }
+        ]
+      }
+    ],
+    "Stop": [
+      {
+        "matcher": "",
+        "hooks": [
+          {
+            "type": "command",
+            "command": "echo 'Running quality checks...' && bun run check && echo 'Quality checks completed successfully!'",
+            "timeout": 60
+          }
+        ]
+      }
+    ]
+  }
+}

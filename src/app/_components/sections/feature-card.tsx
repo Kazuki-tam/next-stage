@@ -1,5 +1,5 @@
-import { styles } from "@/app/_styles/index";
 import type { LucideIcon } from "lucide-react";
+import { styles } from "@/app/_styles/index";
 
 interface FeatureCardProps {
   icon: LucideIcon;
@@ -13,14 +13,12 @@ export function FeatureCard({ icon: Icon, title, description }: FeatureCardProps
       <div className="flex flex-col">
         <h2 className={styles.text.cardTitle}>
           <span className="inline-flex items-center gap-2">
-            <Icon className="text-[var(--blue-text)]" size={20} /> 
+            <Icon className="text-[var(--blue-text)]" size={20} />
             {title}
           </span>
         </h2>
-        <p className="text-gray-400 text-left">
-          {description}
-        </p>
+        <p className="text-gray-400 text-left">{description}</p>
       </div>
     </div>
   );
-} 
+}

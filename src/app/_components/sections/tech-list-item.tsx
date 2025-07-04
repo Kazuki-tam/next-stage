@@ -1,6 +1,6 @@
 type TechListItemProps = {
   text: string;
-}
+};
 
 export function TechListItem({ text }: TechListItemProps) {
   return (
@@ -9,4 +9,4 @@ export function TechListItem({ text }: TechListItemProps) {
       {text}
     </>
   );
-} 
+}

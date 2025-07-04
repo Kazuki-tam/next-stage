@@ -5,5 +5,5 @@ export function Footer() {
         <p>Next.js starter template designed for AI-driven development</p>
       </div>
     </footer>
-  )
+  );
 }

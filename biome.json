@@ -1,5 +1,5 @@
 {
-  "$schema": "https://biomejs.dev/schemas/1.9.4/schema.json",
+  "$schema": "https://biomejs.dev/schemas/2.0.0/schema.json",
   "vcs": {
     "enabled": true,
     "clientKind": "git",
@@ -7,15 +7,16 @@
   },
   "files": {
     "ignoreUnknown": true,
-    "ignore": [
-      "node_modules",
-      ".next",
-      "dist",
-      "build",
-      "public",
-      ".vercel",
-      "coverage",
-      "**/*.min.js"
+    "includes": [
+      "**",
+      "!**/node_modules",
+      "!**/.next",
+      "!**/dist",
+      "!**/build",
+      "!**/public",
+      "!**/.vercel",
+      "!**/coverage",
+      "!**/*.min.js"
     ]
   },
   "formatter": {
@@ -24,12 +25,10 @@
     "indentWidth": 2,
     "lineWidth": 100,
     "formatWithErrors": false,
-    "include": ["**/*.{js,jsx,ts,tsx,json,css}"],
+    "includes": ["**/*.{js,jsx,ts,tsx,json,css}"],
     "useEditorconfig": true
   },
-  "organizeImports": {
-    "enabled": true
-  },
+  "assist": { "actions": { "source": { "organizeImports": "on" } } },
   "linter": {
     "enabled": true,
     "rules": {
@@ -40,7 +39,7 @@
       },
       "suspicious": {
         "recommended": true,
-        "noConsoleLog": "warn"
+        "noConsole": { "level": "warn", "options": { "allow": ["log"] } }
       },
       "performance": {
         "recommended": true
@@ -48,7 +47,17 @@
       "style": {
         "recommended": true,
         "noNegationElse": "off",
-        "useShorthandArrayType": "error"
+        "noParameterAssign": "error",
+        "useAsConstAssertion": "error",
+        "useDefaultParameterLast": "error",
+        "useEnumInitializers": "error",
+        "useSelfClosingElements": "error",
+        "useSingleVarDeclarator": "error",
+        "noUnusedTemplateLiteral": "error",
+        "useNumberNamespace": "error",
+        "noInferrableTypes": "error",
+        "noUselessElse": "error",
+        "useConsistentArrayType": { "level": "error", "options": { "syntax": "shorthand" } }
       },
       "complexity": {
         "recommended": true
