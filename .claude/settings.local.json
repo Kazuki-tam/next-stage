@@ -65,5 +65,31 @@
       "Bash(pacman:*)",
       "Bash(brew:*)"
     ]
+  },
+  "hooks": {
+    "PostToolUse": [
+      {
+        "matcher": "Write|Edit|MultiEdit",
+        "hooks": [
+          {
+            "type": "command",
+            "command": "echo 'Auto-formatting modified files...' && bun run format",
+            "timeout": 30
+          }
+        ]
+      }
+    ],
+    "Stop": [
+      {
+        "matcher": "",
+        "hooks": [
+          {
+            "type": "command",
+            "command": "echo 'Running quality checks...' && bun run check && echo 'Quality checks completed successfully!'",
+            "timeout": 60
+          }
+        ]
+      }
+    ]
   }
 }

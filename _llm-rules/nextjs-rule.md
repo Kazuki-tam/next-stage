@@ -7,15 +7,17 @@ alwaysApply: true
 # Next.js Project Conventions
 
 ## Technology Stack
-- **Package Manager**: Bun 1.2.10
-- **Framework**: Next.js 15.3.2 with App Router
-- **Language**: TypeScript ^5
-- **UI Components**: shadcn/ui
-- **Styling**: Tailwind CSS ^4
-- **API & Middleware**: Hono ^4.7.7
-- **Form Management**: React Hook Form ^7.56.3
-- **Form Validation**: Zod ^3.25.23
-- **Linting & Formatting**: Biome 1.9.4, markuplint ^4.12.0
+- **Package Manager**: Bun 1.2.18
+- **Framework**: Next.js 15.3.5 with App Router
+- **Language**: TypeScript 5.8.3
+- **UI Components**: shadcn/ui with Radix UI
+- **Styling**: Tailwind CSS 4.1.11
+- **API & Middleware**: Hono 4.8.3
+- **API Validation**: @hono/zod-validator 0.7.0
+- **Form Management**: React Hook Form 7.59.0
+- **Form Validation**: Zod 3.25.71
+- **Linting & Formatting**: Biome 2.0.0, markuplint 4.12.0
+- **Icons**: lucide-react 0.525.0
 
 ## Code Style and Structure
 
@@ -62,6 +64,9 @@ src
 +-- styles     # CSS and styling related files
 |
 +-- lib        # Shared library code and standardized processes
+|   |
+|   +-- mcp/   # MCP (Model Context Protocol) integration
+|   +-- rpc/   # RPC utilities for type-safe API calls
 |
 +-- tests      # Automated testing files
 ```
@@ -113,6 +118,7 @@ src
 - Organize routes by domain using Hono's `app.route()` method
 - Avoid creating "controller" classes; use direct handlers with proper typing
 - Use Hono's middleware for cross-cutting concerns
+- Validate request data using @hono/zod-validator
 
 ### RPC Implementation
 - Implement RPC (Remote Procedure Call) functionality to share request/response types between server and client
