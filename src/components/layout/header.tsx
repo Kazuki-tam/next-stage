@@ -1,6 +1,6 @@
-import { GitHubIcon } from '@/components/ui/icons'
-import Link from 'next/link'
-import { NavLinks } from './nav-links'
+import Link from "next/link";
+import { GitHubIcon } from "@/components/ui/icons";
+import { NavLinks } from "./nav-links";
 
 export function Header() {
   return (
@@ -14,9 +14,9 @@ export function Header() {
             <nav>
               <NavLinks />
             </nav>
-            <Link 
-              href="https://github.com/Kazuki-tam/next-stage" 
-              target="_blank" 
+            <Link
+              href="https://github.com/Kazuki-tam/next-stage"
+              target="_blank"
               rel="noopener noreferrer"
               className="text-gray-400 hover:text-white transition-colors"
               aria-label="GitHub"
@@ -27,5 +27,5 @@ export function Header() {
         </div>
       </div>
     </header>
-  )
-} 
+  );
+}

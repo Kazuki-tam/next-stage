@@ -1,10 +1,10 @@
-'use client'
+"use client";
 
-import Link from 'next/link'
-import { usePathname } from 'next/navigation'
+import Link from "next/link";
+import { usePathname } from "next/navigation";
 
 export function NavLinks() {
-  const pathname = usePathname()
+  const pathname = usePathname();
 
   return (
     <ul className="flex space-x-4">
@@ -12,9 +12,7 @@ export function NavLinks() {
         <Link
           href="/"
           className={`${
-            pathname === '/'
-              ? 'text-white font-medium'
-              : 'text-gray-400 hover:text-white'
+            pathname === "/" ? "text-white font-medium" : "text-gray-400 hover:text-white"
           }`}
         >
           Home
@@ -31,5 +29,5 @@ export function NavLinks() {
         </Link>
       </li>
     </ul>
-  )
+  );
 }

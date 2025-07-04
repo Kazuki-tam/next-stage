@@ -1,9 +1,6 @@
 {
   "permissions": {
-    "allow": [
-      "Bash(bun install:*)",
-      "Bash(bun run:*)"
-    ],
+    "allow": ["Bash(bun install:*)", "Bash(bun run:*)"],
     "deny": [
       "Read(.env)",
       "Write(.env)",

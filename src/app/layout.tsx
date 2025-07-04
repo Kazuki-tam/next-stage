@@ -1,6 +1,6 @@
-import { siteInfo } from "@/config/site";
 import type { Metadata, Viewport } from "next";
 import { Geist, Geist_Mono } from "next/font/google";
+import { siteInfo } from "@/config/site";
 import "./globals.css";
 
 const geistSans = Geist({
@@ -14,12 +14,12 @@ const geistMono = Geist_Mono({
 });
 
 export const viewport: Viewport = {
-  themeColor: 'black',
-  width: 'device-width',
+  themeColor: "black",
+  width: "device-width",
   initialScale: 1.0,
   maximumScale: 5.0,
   userScalable: true,
-}
+};
 
 export const metadata: Metadata = {
   title: {
@@ -55,11 +55,7 @@ export default function RootLayout({
 }>) {
   return (
     <html lang="en">
-      <body
-        className={`${geistSans.variable} ${geistMono.variable} antialiased`}
-      >
-        {children}
-      </body>
+      <body className={`${geistSans.variable} ${geistMono.variable} antialiased`}>{children}</body>
     </html>
   );
 }

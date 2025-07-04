@@ -21,35 +21,35 @@
     "rules:windsurf": "bun run _tasks/copy-rules.ts windsurf",
     "rules:copilot": "bun run _tasks/copy-rules.ts copilot",
     "rules": "bun run _tasks/copy-rules.ts cursor && bun run _tasks/copy-rules.ts windsurf && bun run _tasks/copy-rules.ts copilot",
-    "audit": "bunx upgradeps"
+    "upgradeps": "bunx upgradeps"
   },
   "dependencies": {
-    "@hono/zod-validator": "^0.5.0",
-    "@hookform/resolvers": "^5.0.1",
+    "@hono/zod-validator": "^0.7.0",
+    "@hookform/resolvers": "^5.1.1",
     "class-variance-authority": "^0.7.1",
     "clsx": "^2.1.1",
-    "hono": "^4.7.7",
-    "lucide-react": "^0.511.0",
-    "next": "15.3.2",
-    "next-themes": "^0.4.4",
+    "hono": "^4.8.3",
+    "lucide-react": "^0.525.0",
+    "next": "15.3.5",
+    "next-themes": "^0.4.6",
     "react": "^19.1.0",
     "react-dom": "^19.1.0",
-    "react-hook-form": "^7.56.3",
-    "tailwind-merge": "^3.3.0",
-    "zod": "^3.25.23"
+    "react-hook-form": "^7.59.0",
+    "tailwind-merge": "^3.3.1",
+    "zod": "^3.25.71"
   },
   "devDependencies": {
-    "@biomejs/biome": "1.9.4",
+    "@biomejs/biome": "2.0.0",
     "@markuplint/jsx-parser": "^4.7.19",
     "@markuplint/react-spec": "^4.5.19",
-    "@playwright/test": "^1.52.0",
-    "@tailwindcss/postcss": "^4",
-    "@types/bun": "^1.2.10",
-    "@types/node": "^20",
-    "@types/react": "^19",
-    "@types/react-dom": "^19",
+    "@playwright/test": "^1.53.2",
+    "@tailwindcss/postcss": "^4.1.11",
+    "@types/bun": "^1.2.18",
+    "@types/node": "^24.0.10",
+    "@types/react": "^19.1.8",
+    "@types/react-dom": "^19.1.6",
     "markuplint": "^4.12.0",
-    "tailwindcss": "^4",
-    "typescript": "^5"
+    "tailwindcss": "^4.1.11",
+    "typescript": "^5.8.3"
   }
 }

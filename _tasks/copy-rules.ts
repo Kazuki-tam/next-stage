@@ -19,7 +19,10 @@ function removeFrontmatter(content: string): string {
 }
 
 // New function to read and process rules
-async function readAndProcessRules(): Promise<{ coreRuleContent: string; otherRulesContent: string }> {
+async function readAndProcessRules(): Promise<{
+  coreRuleContent: string;
+  otherRulesContent: string;
+}> {
   const ruleFiles = globSync("_llm-rules/*.md");
   let coreRuleContent = "";
   let otherRulesContent = "";
@@ -31,7 +34,7 @@ async function readAndProcessRules(): Promise<{ coreRuleContent: string; otherRu
     const contentWithoutFrontmatter = removeFrontmatter(content);
 
     if (!contentWithoutFrontmatter.trim()) {
-      // biome-ignore lint/suspicious/noConsoleLog: <explanation>
+      // biome-ignore: Skipping files with no content
       console.log(`Skipping ${file} as it has no content besides frontmatter`);
       continue;
     }
@@ -53,6 +56,7 @@ async function copyRules() {
   } else if (editor === "copilot") {
     await processCopilotRules();
   } else {
+    // biome-ignore lint/suspicious/noConsole: <invalid editor>
     console.error(`Unsupported editor: ${editor}`);
     process.exit(1);
   }
@@ -65,7 +69,7 @@ async function processCursorRules() {
   // Create target directory if it doesn't exist
   if (!existsSync(targetDir)) {
     await mkdir(targetDir, { recursive: true });
-    // biome-ignore lint/suspicious/noConsoleLog: <explanation>
+    // biome-ignore: Skipping files with no content
     console.log(`Created directory ${targetDir}`);
   }
 
@@ -84,7 +88,7 @@ async function processCursorRules() {
 
     const targetPath = `${targetDir}/${newFileName}${fileExtension}`;
     await Bun.write(targetPath, content);
-    // biome-ignore lint/suspicious/noConsoleLog: <explanation>
+    // biome-ignore: Skipping files with no content
     console.log(`Copied ${file} to ${targetPath}`);
   }
 }
@@ -95,7 +99,7 @@ async function processWindsurfRules() {
   // Create target directory if it doesn't exist
   if (!existsSync(targetDir)) {
     await mkdir(targetDir, { recursive: true });
-    // biome-ignore lint/suspicious/noConsoleLog: <explanation>
+    // biome-ignore: Skipping files with no content
     console.log(`Created directory ${targetDir}`);
   }
 
@@ -107,31 +111,31 @@ async function processWindsurfRules() {
     const fileName = path.basename(file, ".md");
     const sourceFile = Bun.file(file);
     const content = await sourceFile.text();
-    
+
     // Parse frontmatter
     let trigger = "manual"; // Default trigger
     let frontmatterContent = "";
     let mainContent = content;
-    
+
     if (content.startsWith("---")) {
       const secondDashIndex = content.indexOf("---", 3);
       if (secondDashIndex !== -1) {
         frontmatterContent = content.substring(3, secondDashIndex).trim();
         mainContent = content.substring(secondDashIndex + 3).trim();
-        
+
         // Check if alwaysApply is true
         if (frontmatterContent.includes("alwaysApply: true")) {
           trigger = "always_on";
         }
       }
     }
-    
+
     // Create new content with trigger prefix
     const newContent = `---\ntrigger: ${trigger}\n---\n\n${mainContent}`;
-    
+
     const targetPath = `${targetDir}/${fileName}.md`;
     await Bun.write(targetPath, newContent);
-    // biome-ignore lint/suspicious/noConsoleLog: <explanation>
+    // biome-ignore: Skipping files with no content
     console.log(`Copied ${file} to ${targetPath} with trigger: ${trigger}`);
   }
 }
@@ -144,7 +148,7 @@ async function processCopilotRules() {
   const targetDir = ".github";
   if (!existsSync(targetDir)) {
     await mkdir(targetDir, { recursive: true });
-    // biome-ignore lint/suspicious/noConsoleLog: <explanation>
+    // biome-ignore: Skipping files with no content
     console.log(`Created directory ${targetDir}`);
   }
 
@@ -152,7 +156,7 @@ async function processCopilotRules() {
   const targetPath = `${targetDir}/copilot-instructions.md`;
 
   await Bun.write(targetPath, mergedContent);
-  // biome-ignore lint/suspicious/noConsoleLog: <explanation>
+  // biome-ignore: Skipping files with no content
   console.log(`Merged rule files and saved to ${targetPath}`);
 }
 
