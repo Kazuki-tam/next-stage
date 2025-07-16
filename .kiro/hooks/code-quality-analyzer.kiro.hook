@@ -1,0 +1,23 @@
+{
+  "enabled": true,
+  "name": "Code Quality Analyzer",
+  "description": "Monitors source code files for changes and analyzes modified code for potential improvements including code smells, design patterns, and best practices",
+  "version": "1",
+  "when": {
+    "type": "fileEdited",
+    "patterns": [
+      "src/**/*.ts",
+      "src/**/*.tsx",
+      "src/**/*.js",
+      "src/**/*.jsx",
+      "*.ts",
+      "*.tsx",
+      "*.js",
+      "*.jsx"
+    ]
+  },
+  "then": {
+    "type": "askAgent",
+    "prompt": "Analyze the recently modified code files for potential improvements and run quality assurance checks. Follow this comprehensive quality analysis process:\n\n## 1. Automated Quality Checks\nFirst, run the project's quality assurance commands to ensure code standards:\n\n```bash\n# Run comprehensive quality checks\nbun run check\n\n# Run linting for markup and code\nbun run lint\n\n# Format code if needed\nbun run format\n```\n\n## 2. Code Analysis Focus Areas\nAfter running automated checks, analyze the code for:\n\n1. **Code Smells**: Identify any code smells such as long methods, large classes, duplicate code, or complex conditionals\n2. **Design Patterns**: Suggest appropriate design patterns that could improve the code structure\n3. **Next.js Best Practices**: Ensure adherence to Next.js App Router conventions and React Server Components usage\n4. **TypeScript Quality**: Check for proper typing, avoid `any`, use of Zod schemas for validation\n5. **Performance Optimizations**: \n   - Minimize 'use client' usage\n   - Proper image optimization\n   - Efficient data fetching patterns\n6. **Accessibility**: Ensure components follow accessibility best practices\n7. **Security**: Validate input handling, environment variable usage, API security\n\n## 3. Technology Stack Compliance\nVerify adherence to the project's current technology stack as defined in package.json:\n- **Framework**: Next.js with App Router\n- **Language**: TypeScript\n- **Styling**: Tailwind CSS\n- **API**: Hono with Zod validation\n- **Linting**: Biome and markuplint\n\n## 4. Quality Report\nFor each issue found, provide:\n- **Issue Description**: Clear explanation of the problem\n- **Impact**: Why this affects code quality\n- **Recommendation**: Specific improvement suggestion\n- **Code Example**: Before/after code snippets when applicable\n- **Priority**: High/Medium/Low based on impact\n\n## 5. Automated Fixes\nWhen possible, automatically apply fixes using the project's configured tools:\n- Run formatting and linting commands\n- Import organization\n- Basic code structure improvements\n\nMaintain existing functionality while ensuring the highest code quality standards based on the project's current configuration."
+  }
+}

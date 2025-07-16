@@ -20,7 +20,8 @@
     "rules:cursor": "bun run _tasks/copy-rules.ts cursor",
     "rules:windsurf": "bun run _tasks/copy-rules.ts windsurf",
     "rules:copilot": "bun run _tasks/copy-rules.ts copilot",
-    "rules": "bun run _tasks/copy-rules.ts cursor && bun run _tasks/copy-rules.ts windsurf && bun run _tasks/copy-rules.ts copilot",
+    "rules:kiro": "bun run _tasks/copy-rules.ts kiro",
+    "rules": "bun run _tasks/copy-rules.ts cursor && bun run _tasks/copy-rules.ts windsurf && bun run _tasks/copy-rules.ts copilot && bun run _tasks/copy-rules.ts kiro",
     "upgradeps": "bunx upgradeps"
   },
   "dependencies": {
