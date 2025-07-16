@@ -110,7 +110,7 @@ This project supports AI-assisted development with predefined rules for writing 
 Supported AI Editors:
 - [Claude Code](https://claude.ai/code)
 - [Cursor](https://www.cursor.com/)
-- [Kiro](https://kiro.ai/)
+- [Kiro](https://kiro.dev/)
 - [Windsurf Editor by Codeium](https://codeium.com/windsurf)
 - [GitHub Copilot](https://github.com/features/copilot)
 
