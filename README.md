@@ -110,6 +110,7 @@ This project supports AI-assisted development with predefined rules for writing 
 Supported AI Editors:
 - [Claude Code](https://claude.ai/code)
 - [Cursor](https://www.cursor.com/)
+- [Kiro](https://kiro.ai/)
 - [Windsurf Editor by Codeium](https://codeium.com/windsurf)
 - [GitHub Copilot](https://github.com/features/copilot)
 
@@ -127,11 +128,14 @@ bun run rules:windsurf
 # Generate rules for GitHub Copilot (instructions)
 bun run rules:copilot
 
+# Generate rules for Kiro editor
+bun run rules:kiro
+
 # Generate rules for all supported editors
 bun run rules
 ```
 
-These commands copy the base rules and adapt them for the specified editor's format (e.g., `.cursor/rules/cursor-*.mdc`, `.windsurf/rules/*.md`, `.github/copilot-instructions.md`).
+These commands copy the base rules and adapt them for the specified editor's format (e.g., `.cursor/rules/cursor-*.mdc`, `.windsurf/rules/*.md`, `.github/copilot-instructions.md`, `.kiro/steering/*.md`).
 
 `CLAUDE.md` is for Claude Code. This file is not created by the `rules` command.
 

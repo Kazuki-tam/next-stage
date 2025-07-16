@@ -32,21 +32,22 @@ bun run rules           # Generate rules for all AI editors
 bun run rules:cursor    # Generate Cursor-specific rules
 bun run rules:windsurf  # Generate Windsurf-specific rules
 bun run rules:copilot   # Generate GitHub Copilot instructions
+bun run rules:kiro      # Generate Kiro-specific rules
 ```
 
 ### Dependency Management
 ```bash
-bun install      # Install dependencies
-bun upgradeps    # Upgrade dependencies interactively
+bun install             # Install dependencies
+bun run upgradeps       # Upgrade dependencies interactively
 ```
 
 ## Architecture Overview
 
-This is a modern Next.js 15.3.5 starter template designed for AI-driven development with the following architecture:
+This is a modern Next.js 15.4.1 starter template designed for AI-driven development with the following architecture:
 
 ### Core Stack
 - **Runtime**: Bun 1.2.18
-- **Framework**: Next.js 15.3.5 with App Router
+- **Framework**: Next.js 15.4.1 with App Router
 - **Language**: TypeScript 5.8.3 with strict mode
 - **API**: Hono 4.8.3 with Zod validator
 - **UI**: shadcn/ui with Radix UI primitives
@@ -76,7 +77,7 @@ This is a modern Next.js 15.3.5 starter template designed for AI-driven developm
 4. **AI-Driven Development**
    - Structured task execution process (analyze → plan → execute → verify)
    - Comprehensive rules for consistent code generation
-   - Editor-specific rule generation for Cursor, Windsurf, and Copilot
+   - Editor-specific rule generation for Cursor, Windsurf, Copilot, and Kiro
 
 ### Project Structure
 ```
