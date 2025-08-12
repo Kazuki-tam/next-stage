@@ -8,8 +8,8 @@ export const styles = {
     primary:
       "flex items-center gap-2 bg-[var(--blue-primary)] hover:bg-[var(--blue-dark)] text-white px-6 py-3 rounded-md font-medium transition-colors duration-200 shadow-lg hover:shadow-xl",
     secondary:
-      "flex items-center gap-2 bg-[#222] hover:bg-[#333] text-white px-6 py-3 rounded-md font-medium border border-[#444] transition-all duration-300",
-    link: "flex items-center gap-2 px-4 py-2 bg-[#222] hover:bg-[#333] rounded-md font-medium border border-[#444] transition-colors",
+      "flex items-center gap-2 bg-[var(--neutral-800)] hover:bg-[var(--neutral-700)] text-white px-6 py-3 rounded-md font-medium border border-[var(--neutral-600)] transition-all duration-300",
+    link: "flex items-center gap-2 px-4 py-2 bg-[var(--neutral-800)] hover:bg-[var(--neutral-700)] rounded-md font-medium border border-[var(--neutral-600)] transition-colors",
     accent:
       "flex items-center gap-2 px-4 py-2 bg-[#0ea5e9] hover:bg-[#0284c7] text-white rounded-md font-medium transition-colors duration-200",
   },
@@ -17,8 +17,9 @@ export const styles = {
   // Card styles
   cards: {
     feature:
-      "bg-[#111] p-6 rounded-xl border border-[#333] hover:border-[var(--blue-primary)] transition-all duration-300 hover:shadow-[0_0_15px_var(--blue-shadow)] group flex flex-col",
-    section: "w-full bg-[#111] p-8 rounded-xl border border-[#333] mt-4",
+      "bg-[var(--neutral-900)] p-6 rounded-xl border border-[var(--neutral-700)] hover:border-[var(--blue-primary)] transition-all duration-300 hover:shadow-[0_0_15px_var(--blue-shadow)] group flex flex-col",
+    section:
+      "w-full bg-[var(--neutral-900)] p-8 rounded-xl border border-[var(--neutral-700)] mt-4",
   },
 
   // Icon container

@@ -50,6 +50,12 @@
   --blue-bg-light: rgba(2, 132, 199, 0.1);
   --blue-border-light: rgba(2, 132, 199, 0.2);
   --blue-shadow: rgba(2, 132, 199, 0.15);
+
+  /* Neutral Color System */
+  --neutral-900: #111111;
+  --neutral-800: #222222;
+  --neutral-700: #333333;
+  --neutral-600: #444444;
 }
 
 .dark {
@@ -141,7 +147,7 @@
     @apply border-border outline-ring/50;
   }
   body {
-    @apply bg-[#1a1a1a] text-white dark:bg-background dark:text-foreground;
+    @apply bg-background text-foreground;
   }
   /* Animated gradient title */
   .gradient-title {
@@ -159,14 +165,5 @@
     100% {
       background-position: 0% 50%;
     }
-  }
-}
-
-@layer base {
-  * {
-    @apply border-border outline-ring/50;
-  }
-  body {
-    @apply bg-background text-foreground;
   }
 }

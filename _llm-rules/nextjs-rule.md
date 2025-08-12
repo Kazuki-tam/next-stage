@@ -13,15 +13,15 @@ alwaysApply: true
 - **Runtime**: React 19.1.0, React DOM 19.1.0
 - **UI Components**: shadcn/ui with Radix UI
 - **Styling**: Tailwind CSS 4.1.11
-- **API & Middleware**: Hono 4.8.3
+- **API & Middleware**: Hono 4.9.0
 - **API Validation**: @hono/zod-validator 0.7.0
-- **Form Management**: React Hook Form 7.59.0, @hookform/resolvers 5.1.1
-- **Form Validation**: Zod 3.25.71
+- **Form Management**: React Hook Form 7.62.0, @hookform/resolvers 5.1.1
+- **Form Validation**: Zod 4.0.17
 - **Styling Utilities**: class-variance-authority 0.7.1, clsx 2.1.1, tailwind-merge 3.3.1
 - **Theming**: next-themes 0.4.6
-- **Linting & Formatting**: Biome 2.0.0, markuplint 4.12.0
-- **Testing**: Playwright 1.53.2, Bun test runner
-- **Icons**: lucide-react 0.525.0
+- **Linting & Formatting**: Biome 2.1.4, markuplint 4.12.0
+- **Testing**: Playwright 1.54.2, Bun test runner
+- **Icons**: lucide-react 0.539.0
 
 ## Code Style and Structure
 
