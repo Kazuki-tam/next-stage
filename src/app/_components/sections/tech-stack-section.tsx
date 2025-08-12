@@ -4,6 +4,17 @@ import { TechListItem } from "@/app/_components/sections/tech-list-item";
 import { styles } from "@/app/_styles/index";
 
 export function TechStackSection() {
+  const resources = [
+    { label: "Bun", href: "https://bun.sh/docs" },
+    { label: "Next.js", href: "https://nextjs.org/docs" },
+    { label: "Tailwind CSS", href: "https://tailwindcss.com/" },
+    { label: "shadcn/ui", href: "https://ui.shadcn.com" },
+    { label: "Hono", href: "https://hono.dev" },
+    { label: "Zod", href: "https://zod.dev" },
+    { label: "React Hook Form", href: "https://react-hook-form.com/" },
+    { label: "Markuplint", href: "https://markuplint.dev/" },
+    { label: "Biome", href: "https://biomejs.dev/" },
+  ] as const;
   return (
     <div className={styles.cards.section}>
       <h2 className={styles.text.sectionTitle}>
@@ -64,79 +75,18 @@ export function TechStackSection() {
         </div>
       </div>
 
-      <div className="mt-8 pt-6 border-t border-[#333] flex flex-wrap gap-4 justify-center">
-        <Link
-          className={styles.buttons.link}
-          href="https://bun.sh/docs"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Bun <ExternalLink size={16} />
-        </Link>
-        <Link
-          className={styles.buttons.link}
-          href="https://nextjs.org/docs"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Next.js <ExternalLink size={16} />
-        </Link>
-        <Link
-          className={styles.buttons.link}
-          href="https://tailwindcss.com/"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Tailwind CSS <ExternalLink size={16} />
-        </Link>
-        <Link
-          className={styles.buttons.link}
-          href="https://ui.shadcn.com"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          shadcn/ui <ExternalLink size={16} />
-        </Link>
-        <Link
-          className={styles.buttons.link}
-          href="https://hono.dev"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Hono <ExternalLink size={16} />
-        </Link>
-        <Link
-          className={styles.buttons.link}
-          href="https://zod.dev"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Zod <ExternalLink size={16} />
-        </Link>
-        <Link
-          className={styles.buttons.link}
-          href="https://react-hook-form.com/"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          React Hook Form <ExternalLink size={16} />
-        </Link>
-        <Link
-          className={styles.buttons.link}
-          href="https://markuplint.dev/"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Markuplint <ExternalLink size={16} />
-        </Link>
-        <Link
-          className={styles.buttons.link}
-          href="https://biomejs.dev/"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Biome <ExternalLink size={16} />
-        </Link>
+      <div className="mt-8 pt-6 border-t border-border flex flex-wrap gap-4 justify-center">
+        {resources.map(({ label, href }) => (
+          <Link
+            key={href}
+            className={styles.buttons.link}
+            href={href}
+            target="_blank"
+            rel="noopener noreferrer"
+          >
+            {label} <ExternalLink size={16} />
+          </Link>
+        ))}
       </div>
     </div>
   );

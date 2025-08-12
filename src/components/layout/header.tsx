@@ -1,14 +1,15 @@
 import Link from "next/link";
 import { GitHubIcon } from "@/components/ui/icons";
+import { siteInfo } from "@/config/site";
 import { NavLinks } from "./nav-links";
 
 export function Header() {
   return (
-    <header className="fixed top-0 left-0 right-0 z-50 border-b border-[#333] py-4 bg-[#1a1a1a]">
+    <header className="fixed top-0 left-0 right-0 z-50 border-b border-border py-4 bg-background">
       <div className="container mx-auto px-4">
         <div className="flex justify-between items-center">
           <Link href="/" className="text-2xl font-bold text-[var(--blue-text)]">
-            Next-Stage
+            {siteInfo.name}
           </Link>
           <div className="flex items-center space-x-6">
             <nav>

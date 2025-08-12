@@ -33,7 +33,7 @@ export const metadata: Metadata = {
     description: siteInfo.description,
     images: [
       {
-        url: "/og-image.png",
+        url: "/opengraph-image.jpg",
         width: 1200,
         height: 630,
         alt: "Next-Stage Logo",
@@ -44,7 +44,7 @@ export const metadata: Metadata = {
     card: "summary_large_image",
     title: siteInfo.title,
     description: siteInfo.description,
-    images: ["/og-image.png"],
+    images: ["/opengraph-image.jpg"],
   },
 };
 
@@ -54,7 +54,7 @@ export default function RootLayout({
   children: React.ReactNode;
 }>) {
   return (
-    <html lang="en">
+    <html lang="en" className="dark">
       <body className={`${geistSans.variable} ${geistMono.variable} antialiased`}>{children}</body>
     </html>
   );
