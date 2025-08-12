@@ -49,11 +49,11 @@ This is a modern Next.js 15.4.1 starter template designed for AI-driven developm
 - **Runtime**: Bun 1.2.18
 - **Framework**: Next.js 15.4.1 with App Router
 - **Language**: TypeScript 5.8.3 with strict mode
-- **API**: Hono 4.8.3 with Zod validator
+- **API**: Hono 4.9.0 with Zod validator
 - **UI**: shadcn/ui with Radix UI primitives
 - **Styling**: Tailwind CSS v4.1.11
-- **Forms**: React Hook Form 7.59.0 + Zod 3.25.71 validation
-- **Quality**: Biome 2.0.0 (linting/formatting) + Markuplint 4.12.0
+- **Forms**: React Hook Form 7.62.0 + Zod 4.0.17 validation
+- **Quality**: Biome 2.1.4 (linting/formatting) + Markuplint 4.12.0
 
 ### Key Architectural Patterns
 
