@@ -1,6 +1,6 @@
-# CLAUDE.md
+# GEMINI.md
 
-This file provides guidance to Claude Code (claude.ai/code) when working with code in this repository.
+This file provides guidance to Google Gemini CLI when working with code in this repository.
 
 ## Commands
 
@@ -43,17 +43,17 @@ bun run upgradeps       # Upgrade dependencies interactively
 
 ## Architecture Overview
 
-This is a modern Next.js 15.4.1 starter template designed for AI-driven development with the following architecture:
+This is a modern Next.js 15.5.3 starter template designed for AI-driven development with the following architecture:
 
 ### Core Stack
 - **Runtime**: Bun 1.2.18
-- **Framework**: Next.js 15.4.1 with App Router
+- **Framework**: Next.js 15.5.3 with App Router
 - **Language**: TypeScript 5.8.3 with strict mode
-- **API**: Hono 4.9.0 with Zod validator
+- **API**: Hono 4.9.7 with Zod validator
 - **UI**: shadcn/ui with Radix UI primitives
-- **Styling**: Tailwind CSS v4.1.11
-- **Forms**: React Hook Form 7.62.0 + Zod 4.0.17 validation
-- **Quality**: Biome 2.1.4 (linting/formatting) + Markuplint 4.12.0
+- **Styling**: Tailwind CSS v4.1.13
+- **Forms**: React Hook Form 7.62.0 + Zod 4.1.8 validation
+- **Quality**: Biome 2.1.4 (linting/formatting) + Markuplint 4.13.1
 
 ### Key Architectural Patterns
 
@@ -126,3 +126,39 @@ When implementing APIs:
 - Implement proper error handling
 - Use middleware for cross-cutting concerns
 - Plan for RPC implementation with shared types
+
+## Rule File Management Protocol
+
+### Cross-Monitoring Requirements
+**CRITICAL**: When updating ANY rule file in this project, you MUST follow the cross-monitoring protocol:
+
+1. **Check Consistency Before Changes**:
+   ```bash
+   # Verify version consistency across all rule files
+   grep -r "Next.js.*15\." _llm-rules/ AGENTS.md CLAUDE.md GEMINI.md
+   grep -r "Bun.*1\." _llm-rules/ AGENTS.md CLAUDE.md GEMINI.md
+   ```
+
+2. **Mandatory Update Chain**:
+   When updating technology versions, patterns, or guidelines:
+   - ✅ Update base rules in `_llm-rules/` directory (source of truth)
+   - ✅ Update `AGENTS.md` (universal format)
+   - ✅ Update `CLAUDE.md` (Claude-specific)
+   - ✅ Update `GEMINI.md` (this file)
+   - ✅ Regenerate all editor rules: `bun run rules`
+
+3. **Update Triggers**:
+   Cross-update ALL rule files when:
+   - Technology stack versions change
+   - Core development patterns are modified
+   - Directory structure changes
+   - Testing strategies are updated
+   - Code style guidelines are revised
+
+### Rule File Hierarchy
+- **Base Rules**: `_llm-rules/` (core-rule.md, nextjs-rule.md, test-rule.md)
+- **Universal**: `AGENTS.md` (follows agents.md standard)
+- **CLI Tools**: `CLAUDE.md`, `GEMINI.md` (this file)
+- **Generated Editor Files**: `.cursor/`, `.windsurf/`, `.github/`, `.kiro/`
+
+**Remember**: Rule files must stay synchronized. Never update one without checking and updating related files.

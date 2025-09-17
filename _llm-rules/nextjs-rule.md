@@ -8,18 +8,18 @@ alwaysApply: true
 
 ## Technology Stack
 - **Package Manager**: Bun 1.2.18
-- **Framework**: Next.js 15.4.1 with App Router
+- **Framework**: Next.js 15.5.3 with App Router
 - **Language**: TypeScript 5.8.3
-- **Runtime**: React 19.1.0, React DOM 19.1.0
+- **Runtime**: React 19.1.1, React DOM 19.1.1
 - **UI Components**: shadcn/ui with Radix UI
-- **Styling**: Tailwind CSS 4.1.11
-- **API & Middleware**: Hono 4.9.0
+- **Styling**: Tailwind CSS 4.1.13
+- **API & Middleware**: Hono 4.9.7
 - **API Validation**: @hono/zod-validator 0.7.0
 - **Form Management**: React Hook Form 7.62.0, @hookform/resolvers 5.1.1
-- **Form Validation**: Zod 4.0.17
+- **Form Validation**: Zod 4.1.8
 - **Styling Utilities**: class-variance-authority 0.7.1, clsx 2.1.1, tailwind-merge 3.3.1
 - **Theming**: next-themes 0.4.6
-- **Linting & Formatting**: Biome 2.1.4, markuplint 4.12.0
+- **Linting & Formatting**: Biome 2.1.4, markuplint 4.13.1
 - **Testing**: Playwright 1.54.2, Bun test runner
 - **Icons**: lucide-react 0.539.0
 
