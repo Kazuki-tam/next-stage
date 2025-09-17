@@ -107,16 +107,40 @@ bun run test:codegen
 ## AI-Driven Development Rules
 This project supports AI-assisted development with predefined rules for writing clean, maintainable, and scalable code.
 
-Supported AI Editors:
-- [Claude Code](https://claude.ai/code)
-- [Cursor](https://www.cursor.com/)
-- [Kiro](https://kiro.dev/)
-- [Windsurf Editor by Codeium](https://codeium.com/windsurf)
-- [GitHub Copilot](https://github.com/features/copilot)
+### Universal AI Agent Support
+The project includes `AGENTS.md` following the [agents.md standard](https://agents.md/) - a universal format that works across all AI coding agents and tools.
+
+### Supported AI Tools:
+
+#### AI Editors:
+- [Cursor](https://www.cursor.com/) - Generated rules in `.cursor/rules/`
+- [Windsurf Editor by Codeium](https://codeium.com/windsurf) - Generated rules in `.windsurf/rules/`
+- [GitHub Copilot](https://github.com/features/copilot) - Generated instructions in `.github/`
+- [Kiro](https://kiro.dev/) - Generated rules in `.kiro/steering/`
+
+#### AI CLI Tools:
+- [Claude Code](https://claude.ai/code) - Uses `CLAUDE.md`
+- [Google Gemini CLI](https://gemini.google.com/) - Uses `GEMINI.md`
+
+### Rule File Hierarchy
+The project maintains a hierarchical rule system:
+
+1. **Base Rules** (`_llm-rules/` directory):
+   - `core-rule.md`: Core task execution methodology
+   - `nextjs-rule.md`: Next.js specific development patterns
+   - `test-rule.md`: Testing guidelines and best practices
+
+2. **Universal Format**:
+   - `AGENTS.md`: Universal format following agents.md standard
+
+3. **Tool-Specific Files**:
+   - `CLAUDE.md`: Claude CLI specific instructions
+   - `GEMINI.md`: Google Gemini CLI specific instructions
+   - Generated editor files: `.cursor/`, `.windsurf/`, `.github/`, `.kiro/`
 
 ### Generating Editor-Specific Rules
 
-You can generate editor-specific rule files from the base rules located in the `_llm-rules` directory using the following commands:
+You can generate editor-specific rule files from the base rules using the following commands:
 
 ```bash
 # Generate rules for Cursor editor
@@ -135,9 +159,14 @@ bun run rules:kiro
 bun run rules
 ```
 
-These commands copy the base rules and adapt them for the specified editor's format (e.g., `.cursor/rules/cursor-*.mdc`, `.windsurf/rules/*.md`, `.github/copilot-instructions.md`, `.kiro/steering/*.md`).
+### Rule File Cross-Monitoring
+**Important**: When updating any rule file, all related files must be updated to maintain consistency. The project includes a cross-monitoring protocol that ensures:
 
-`CLAUDE.md` is for Claude Code. This file is not created by the `rules` command.
+- Technology stack versions remain synchronized across all rule files
+- Core development patterns are consistently applied
+- Changes are properly documented and validated
+
+See `AGENTS.md` for detailed cross-monitoring requirements and procedures.
 
 ## Turbopack
 
