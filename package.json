@@ -1,11 +1,11 @@
 {
   "name": "next-stage",
   "description": "A modern, type-safe Next.js starter template designed for AI-driven development",
-  "version": "0.1.8",
+  "version": "0.2.0",
   "author": "Kazuki Yonemoto (https://dev.to/tim_yone)",
   "license": "MIT",
   "scripts": {
-    "dev": "next dev --turbopack",
+    "dev": "next dev",
     "build": "next build",
     "start": "next start",
     "lint": "bun run lint:markup && bun run lint:biome",
@@ -30,26 +30,30 @@
     "clsx": "^2.1.1",
     "hono": "^4.9.7",
     "lucide-react": "^0.539.0",
-    "next": "^15.5.3",
+    "next": "16.0.0",
     "next-themes": "^0.4.6",
-    "react": "^19.1.1",
-    "react-dom": "^19.1.1",
+    "react": "19.2.0",
+    "react-dom": "19.2.0",
     "react-hook-form": "^7.62.0",
     "tailwind-merge": "^3.3.1",
     "zod": "^4.1.8"
   },
   "devDependencies": {
     "@biomejs/biome": "2.1.4",
-    "@markuplint/jsx-parser": "^4.7.19",
-    "@markuplint/react-spec": "^4.5.19",
+    "@markuplint/jsx-parser": "^4.7.21",
+    "@markuplint/react-spec": "^4.5.21",
     "@playwright/test": "^1.54.2",
     "@tailwindcss/postcss": "^4.1.13",
-    "@types/bun": "^1.2.18",
-    "@types/node": "^24.2.1",
-    "@types/react": "^19.1.8",
-    "@types/react-dom": "^19.1.6",
+    "@types/bun": "^1.2.23",
+    "@types/node": "^24.6.1",
+    "@types/react": "19.2.2",
+    "@types/react-dom": "19.2.2",
     "markuplint": "^4.13.1",
     "tailwindcss": "^4.1.13",
     "typescript": "^5.8.3"
+  },
+  "overrides": {
+    "@types/react": "19.2.2",
+    "@types/react-dom": "19.2.2"
   }
 }

@@ -3,8 +3,8 @@
 ## Project Overview
 
 **Key Technologies:**
-- Framework: Next.js 15.5.3 with App Router
-- Runtime: React 19.1.1, React DOM 19.1.1
+- Framework: Next.js 16.0.0 with App Router
+- Runtime: React 19.2.0, React DOM 19.2.0
 - Language: TypeScript 5.8.3
 - Package Manager: Bun 1.2.18
 - API Framework: Hono 4.9.7
@@ -20,7 +20,7 @@
 # Install dependencies
 bun install
 
-# Start development server (with Turbopack)
+# Start development server (Turbopack is default in Next.js 16)
 bun dev
 
 # Build for production
@@ -40,7 +40,7 @@ bun run check
 
 ### Package Manager
 - **Primary**: Use `bun` for all package management and script execution
-- **Performance**: Turbopack is enabled by default for faster development builds
+- **Performance**: Turbopack is the default bundler in Next.js 16 for faster development builds
 - **Hot Reload**: Development server runs on http://localhost:3000 with auto-refresh
 
 ### Directory Structure
@@ -229,7 +229,7 @@ The project maintains a hierarchical rule system for consistent AI-driven develo
 1. **Version Synchronization Check**:
    ```bash
    # Before making changes, check version consistency across files
-   grep -r "Next.js.*15\." _llm-rules/ AGENTS.md CLAUDE.md GEMINI.md
+   grep -r "Next.js.*16\." _llm-rules/ AGENTS.md CLAUDE.md GEMINI.md
    grep -r "Bun.*1\." _llm-rules/ AGENTS.md CLAUDE.md GEMINI.md
    ```
 
@@ -294,7 +294,7 @@ The project includes automated checks to maintain rule file consistency:
 - Implement proper caching strategies
 
 ### Bundle Optimization
-- Turbopack is enabled for faster development builds
+- Turbopack is the default bundler in Next.js 16 for faster development builds
 - Use tree-shaking friendly imports
 - Avoid importing entire libraries when only specific functions are needed
 
