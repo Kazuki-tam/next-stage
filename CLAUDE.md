@@ -6,7 +6,7 @@ This file provides guidance to Claude CLI when working with code in this reposit
 
 ### Development
 ```bash
-bun dev          # Start development server with Turbopack
+bun dev          # Start development server (Turbopack is default in Next.js 16)
 bun build        # Build for production
 bun start        # Start production server
 ```
@@ -43,11 +43,11 @@ bun run upgradeps       # Upgrade dependencies interactively
 
 ## Architecture Overview
 
-This is a modern Next.js 15.5.3 starter template designed for AI-driven development with the following architecture:
+This is a modern Next.js 16.0.0 starter template designed for AI-driven development with the following architecture:
 
 ### Core Stack
 - **Runtime**: Bun 1.2.18
-- **Framework**: Next.js 15.5.3 with App Router
+- **Framework**: Next.js 16.0.0 with App Router
 - **Language**: TypeScript 5.8.3 with strict mode
 - **API**: Hono 4.9.7 with Zod validator
 - **UI**: shadcn/ui with Radix UI primitives
@@ -135,7 +135,7 @@ When implementing APIs:
 1. **Check Consistency Before Changes**:
    ```bash
    # Verify version consistency across all rule files
-   grep -r "Next.js.*15\." _llm-rules/ AGENTS.md CLAUDE.md GEMINI.md
+   grep -r "Next.js.*16\." _llm-rules/ AGENTS.md CLAUDE.md GEMINI.md
    grep -r "Bun.*1\." _llm-rules/ AGENTS.md CLAUDE.md GEMINI.md
    ```
 

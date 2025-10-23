@@ -168,9 +168,44 @@ bun run rules
 
 See `AGENTS.md` for detailed cross-monitoring requirements and procedures.
 
+### Next.js DevTools MCP Integration
+
+This project includes **[Next.js DevTools MCP](https://www.npmjs.com/package/next-devtools-mcp)** integration for AI coding assistants that support the [Model Context Protocol (MCP)](https://modelcontextprotocol.io).
+
+#### What is Next.js DevTools MCP?
+
+Next.js DevTools MCP provides a standardized interface for AI agents and coding assistants to interact with Next.js applications. It offers comprehensive tools to support Next.js development workflows.
+
+**Key Features:**
+
+- **MCP Tools**: Callable tools for automating Next.js upgrades and Cache Components setup
+- **Development Prompts**: Pre-configured prompts for common Next.js development tasks
+- **Next.js Documentation**: Access Next.js documentation and best practices
+- **Browser Testing**: Integrate with Playwright for browser automation and testing
+- **Next.js Agent**: Access internal state, diagnostics, and errors from running Next.js dev servers via MCP
+
+#### Setup
+
+The MCP server is already configured in `.cursor/mcp.json`:
+
+```json
+{
+  "mcpServers": {
+    "next-devtools": {
+      "command": "npx",
+      "args": ["-y", "next-devtools-mcp@latest"]
+    }
+  }
+}
+```
+
+For complete documentation and advanced usage, visit:
+- [Next.js DevTools MCP on npm](https://www.npmjs.com/package/next-devtools-mcp)
+- [Next.js MCP Documentation](https://nextjs.org/docs/app/guides/mcp)
+
 ## Turbopack
 
-This project is configured to use [Turbopack](https://turbo.build/pack) in development mode for faster refresh rates and improved developer experience.
+Next.js 16 uses [Turbopack](https://turbo.build/pack) as the default bundler for both development (`next dev`) and production builds (`next build`). This provides faster refresh rates and improved developer experience out of the box.
 
 ## Learn More
 
