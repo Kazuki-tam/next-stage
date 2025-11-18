@@ -3,7 +3,7 @@
 ## Project Overview
 
 **Key Technologies:**
-- Framework: Next.js 16.0.0 with App Router
+- Framework: Next.js 16.0.3 with App Router
 - Runtime: React 19.2.0, React DOM 19.2.0
 - Language: TypeScript 5.8.3
 - Package Manager: Bun 1.2.18
@@ -12,7 +12,7 @@
 - Styling: Tailwind CSS 4.1.13
 - Form Management: React Hook Form 7.62.0 + Zod 4.1.8
 - Testing: Playwright 1.54.2 + Bun test runner
-- Code Quality: Biome 2.1.4 + Markuplint 4.13.1
+- Code Quality: Biome 2.1.4 + Markuplint 4.14.0
 
 ## Setup Commands
 

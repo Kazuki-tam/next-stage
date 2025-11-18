@@ -8,7 +8,7 @@ alwaysApply: true
 
 ## Technology Stack
 - **Package Manager**: Bun 1.2.18
-- **Framework**: Next.js 16.0.0 with App Router
+- **Framework**: Next.js 16.0.3 with App Router
 - **Language**: TypeScript 5.8.3
 - **Runtime**: React 19.2.0, React DOM 19.2.0
 - **UI Components**: shadcn/ui with Radix UI
@@ -19,7 +19,7 @@ alwaysApply: true
 - **Form Validation**: Zod 4.1.8
 - **Styling Utilities**: class-variance-authority 0.7.1, clsx 2.1.1, tailwind-merge 3.3.1
 - **Theming**: next-themes 0.4.6
-- **Linting & Formatting**: Biome 2.1.4, markuplint 4.13.1
+- **Linting & Formatting**: Biome 2.1.4, markuplint 4.14.0
 - **Testing**: Playwright 1.54.2, Bun test runner
 - **Icons**: lucide-react 0.539.0
 
