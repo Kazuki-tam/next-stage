@@ -21,4 +21,9 @@ minimumReleaseAgeExcludes = [
   "@biomejs/biome",
   "hono",
   "@hono/zod-validator",
+  "zod",
+  "react-hook-form",
 ]
+
+[install.security]
+scanner = "@socketsecurity/bun-security-scanner"
