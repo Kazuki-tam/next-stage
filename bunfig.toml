@@ -1,0 +1,24 @@
+[install]
+# Only install package versions published at least 1 day ago
+minimumReleaseAge = 1440
+
+# These packages will bypass the 1-day minimum age requirement
+# - Official packages from major organizations (Microsoft, Meta, Vercel, etc.)
+# - DefinitelyTyped packages (@types/*)
+# - Well-established community packages with strong security practices
+minimumReleaseAgeExcludes = [
+  "@types/bun",
+  "typescript",
+  "@playwright/test",
+  "react",
+  "react-dom",
+  "next",
+  "@types/node",
+  "@types/react",
+  "@types/react-dom",
+  "tailwindcss",
+  "@tailwindcss/postcss",
+  "@biomejs/biome",
+  "hono",
+  "@hono/zod-validator",
+]
