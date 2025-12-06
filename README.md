@@ -12,6 +12,7 @@ A modern, type-safe Next.js starter template designed for AI-driven development.
 - **Form Validation**: Zod
 - **Linting & Formatting**: Biome, Markuplint
 - **Testing**: Playwright, Bun
+- **Supply Chain Security**: Bun Security Scanner, Minimum Release Age
 
 ## Getting Started
 Before you start, make sure you have the following installed:
@@ -69,6 +70,64 @@ You can start editing the page by modifying `src/app/page.tsx`. The page auto-up
 ├── .env.example        # Example environment variables
 └── ...                 # Config files
 ```
+
+## Supply Chain Security
+
+This project implements supply chain attack protection using Bun's built-in security features.
+
+### Security Scanner
+
+Bun supports configurable [security scanners](https://bun.sh/docs/runtime/bunfig#install-security-scanner) that scan packages for vulnerabilities before installation. This project uses [@socketsecurity/bun-security-scanner](https://github.com/SocketDev/bun-security-scanner) by default:
+
+```toml
+[install.security]
+scanner = "@socketsecurity/bun-security-scanner"
+```
+
+You can replace this with any compatible security scanner of your choice. When a security scanner is configured:
+- Auto-install is automatically disabled for security
+- Packages are scanned before installation
+- Installation is cancelled if fatal issues are found
+- Security warnings are displayed during installation
+
+### Minimum Release Age
+
+To protect against newly published malicious packages, this project enforces a minimum release age requirement:
+
+```toml
+[install]
+# Only install package versions published at least 1 day ago (1440 minutes)
+minimumReleaseAge = 1440
+```
+
+This helps mitigate supply chain attacks by ensuring packages have been publicly available long enough for the community to detect potential issues.
+
+### Trusted Packages (Exclusions)
+
+Well-established packages from trusted organizations bypass the minimum age requirement:
+
+```toml
+minimumReleaseAgeExcludes = [
+  "@types/bun",
+  "typescript",
+  "@playwright/test",
+  "react",
+  "react-dom",
+  "next",
+  "@types/node",
+  "@types/react",
+  "@types/react-dom",
+  "tailwindcss",
+  "@tailwindcss/postcss",
+  "@biomejs/biome",
+  "hono",
+  "@hono/zod-validator",
+  "zod",
+  "react-hook-form",
+]
+```
+
+For more details, see [Bun's bunfig.toml documentation](https://bun.sh/docs/runtime/bunfig#install-security-scanner).
 
 ## Code Quality with Biome and Markuplint
 
@@ -192,7 +251,7 @@ The MCP server is already configured in `.cursor/mcp.json`:
 {
   "mcpServers": {
     "next-devtools": {
-      "command": "npx",
+      "command": "bunx",
       "args": ["-y", "next-devtools-mcp@latest"]
     }
   }

@@ -1,7 +1,7 @@
 {
   "mcpServers": {
     "next-devtools": {
-      "command": "npx",
+      "command": "bunx",
       "args": ["-y", "next-devtools-mcp@latest"]
     }
   }
