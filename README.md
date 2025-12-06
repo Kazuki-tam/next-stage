@@ -12,6 +12,7 @@ A modern, type-safe Next.js starter template designed for AI-driven development.
 - **Form Validation**: Zod
 - **Linting & Formatting**: Biome, Markuplint
 - **Testing**: Playwright, Bun
+- **Supply Chain Security**: Bun Security Scanner, Minimum Release Age
 
 ## Getting Started
 Before you start, make sure you have the following installed:
