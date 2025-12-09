@@ -43,11 +43,11 @@ bun run upgradeps       # Upgrade dependencies interactively
 
 ## Architecture Overview
 
-This is a modern Next.js 16.0.7 starter template designed for AI-driven development with the following architecture:
+This is a modern Next.js 16.0.8 starter template designed for AI-driven development with the following architecture:
 
 ### Core Stack
 - **Runtime**: Bun 1.2.18
-- **Framework**: Next.js 16.0.7 with App Router
+- **Framework**: Next.js 16.0.8 with App Router
 - **Language**: TypeScript 5.8.3 with strict mode
 - **API**: Hono 4.10.7 with Zod validator
 - **UI**: shadcn/ui with Radix UI primitives

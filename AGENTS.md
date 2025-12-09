@@ -3,7 +3,7 @@
 ## Project Overview
 
 **Key Technologies:**
-- Framework: Next.js 16.0.7 with App Router
+- Framework: Next.js 16.0.8 with App Router
 - Runtime: React 19.2.1, React DOM 19.2.1
 - Language: TypeScript 5.8.3
 - Package Manager: Bun 1.2.18

@@ -8,7 +8,7 @@ alwaysApply: true
 
 ## Technology Stack
 - **Package Manager**: Bun 1.2.18
-- **Framework**: Next.js 16.0.7 with App Router
+- **Framework**: Next.js 16.0.8 with App Router
 - **Language**: TypeScript 5.8.3
 - **Runtime**: React 19.2.1, React DOM 19.2.1
 - **UI Components**: shadcn/ui with Radix UI
