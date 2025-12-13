@@ -173,7 +173,7 @@ The project includes `AGENTS.md` following the [agents.md standard](https://agen
 
 #### AI Editors:
 - [Cursor](https://www.cursor.com/) - Generated rules in `.cursor/rules/`
-- [Windsurf Editor by Codeium](https://codeium.com/windsurf) - Generated rules in `.windsurf/rules/`
+- [Windsurf](https://codeium.com/windsurf) - Generated rules in `.windsurf/rules/`
 - [GitHub Copilot](https://github.com/features/copilot) - Generated instructions in `.github/`
 - [Kiro](https://kiro.dev/) - Generated rules in `.kiro/steering/`
 

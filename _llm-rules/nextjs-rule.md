@@ -8,12 +8,12 @@ alwaysApply: true
 
 ## Technology Stack
 - **Package Manager**: Bun 1.2.18
-- **Framework**: Next.js 16.0.8 with App Router
+- **Framework**: Next.js 16.0.10 with App Router
 - **Language**: TypeScript 5.8.3
-- **Runtime**: React 19.2.1, React DOM 19.2.1
+- **Runtime**: React 19.2.3, React DOM 19.2.3
 - **UI Components**: shadcn/ui with Radix UI
 - **Styling**: Tailwind CSS 4.1.13
-- **API & Middleware**: Hono 4.10.7
+- **API & Middleware**: Hono 4.11.0
 - **API Validation**: @hono/zod-validator 0.7.5
 - **Form Management**: React Hook Form 7.62.0, @hookform/resolvers 5.1.1
 - **Form Validation**: Zod 4.1.8
