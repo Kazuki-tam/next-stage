@@ -18,6 +18,7 @@
     "test:e2e:ui": "bun playwright test --ui",
     "test:codegen": "bun playwright codegen",
     "check": "biome check . --write && bun run lint:markup && bun run typecheck",
+    "skills": "bunx add-skill vercel-labs/agent-skills",
     "rules:cursor": "bun run _tasks/copy-rules.ts cursor",
     "rules:windsurf": "bun run _tasks/copy-rules.ts windsurf",
     "rules:copilot": "bun run _tasks/copy-rules.ts copilot",
