@@ -161,6 +161,9 @@ bun run test:e2e:ui
 
 # Run e2e codegen
 bun run test:codegen
+
+# Install Vercel Agent Skills (React Best Practices)
+bun run skills
 ```
 
 ## AI-Driven Development Rules
@@ -261,6 +264,14 @@ The MCP server is already configured in `.cursor/mcp.json`:
 For complete documentation and advanced usage, visit:
 - [Next.js DevTools MCP on npm](https://www.npmjs.com/package/next-devtools-mcp)
 - [Next.js MCP Documentation](https://nextjs.org/docs/app/guides/mcp)
+
+### Vercel Agent Skills（React Best Practices）
+
+This project provides a script to install Vercel’s “React Best Practices” as **Agent Skills** for AI coding agents.
+
+- Command: `bun run skills`
+- Runs: `bunx add-skill vercel-labs/agent-skills`
+- Reference: [Introducing: React Best Practices](https://vercel.com/blog/introducing-react-best-practices)
 
 ## Turbopack
 
