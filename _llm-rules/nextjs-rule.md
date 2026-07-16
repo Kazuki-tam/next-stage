@@ -7,20 +7,20 @@ alwaysApply: true
 # Next.js Project Conventions
 
 ## Technology Stack
-- **Package Manager**: Bun 1.2.18
-- **Framework**: Next.js 16.0.10 with App Router
-- **Language**: TypeScript 5.8.3
-- **Runtime**: React 19.2.3, React DOM 19.2.3
+- **Package Manager**: Bun 1.3.14
+- **Framework**: Next.js 16.2.10 with App Router
+- **Language**: TypeScript 5.9.3
+- **Runtime**: React 19.2.7, React DOM 19.2.7
 - **UI Components**: shadcn/ui with Radix UI
-- **Styling**: Tailwind CSS 4.1.13
-- **API & Middleware**: Hono 4.11.0
-- **API Validation**: @hono/zod-validator 0.7.5
-- **Form Management**: React Hook Form 7.62.0, @hookform/resolvers 5.1.1
-- **Form Validation**: Zod 4.1.8
-- **Styling Utilities**: class-variance-authority 0.7.1, clsx 2.1.1, tailwind-merge 3.3.1
+- **Styling**: Tailwind CSS 4.3.2
+- **API & Middleware**: Hono 4.12.30
+- **API Validation**: @hono/zod-validator 0.7.6
+- **Form Management**: React Hook Form 7.81.0
+- **Form Validation**: Zod 4.4.3
+- **Styling Utilities**: class-variance-authority 0.7.1, clsx 2.1.1, tailwind-merge 3.6.0
 - **Theming**: next-themes 0.4.6
-- **Linting & Formatting**: Biome 2.3.8, markuplint 4.14.0
-- **Testing**: Playwright 1.54.2, Bun test runner
+- **Linting & Formatting**: Biome 2.3.8, markuplint 4.18.3
+- **Testing**: Playwright 1.61.1, Bun test runner
 - **Icons**: lucide-react 0.539.0
 
 ## Code Style and Structure
