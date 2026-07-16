@@ -3,16 +3,16 @@
 ## Project Overview
 
 **Key Technologies:**
-- Framework: Next.js 16.0.10 with App Router
-- Runtime: React 19.2.3, React DOM 19.2.3
-- Language: TypeScript 5.8.3
-- Package Manager: Bun 1.2.18
-- API Framework: Hono 4.11.0
+- Framework: Next.js 16.2.10 with App Router
+- Runtime: React 19.2.7, React DOM 19.2.7
+- Language: TypeScript 5.9.3
+- Package Manager: Bun 1.3.14
+- API Framework: Hono 4.12.30
 - UI Components: shadcn/ui with Radix UI
-- Styling: Tailwind CSS 4.1.13
-- Form Management: React Hook Form 7.62.0 + Zod 4.1.8
-- Testing: Playwright 1.54.2 + Bun test runner
-- Code Quality: Biome 2.3.8 + Markuplint 4.14.0
+- Styling: Tailwind CSS 4.3.2
+- Form Management: React Hook Form 7.81.0 + Zod 4.4.3
+- Testing: Playwright 1.61.1 + Bun test runner
+- Code Quality: Biome 2.3.8 + Markuplint 4.18.3
 
 ## Setup Commands
 
