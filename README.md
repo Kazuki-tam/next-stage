@@ -2,8 +2,6 @@
 
 A modern, type-safe Next.js starter template designed for AI-driven development.
 
-Current template version: **0.3.4**
-
 ## Features
 
 - **Package Manager**: Bun 1.3.14
