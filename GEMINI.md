@@ -43,17 +43,20 @@ bun run upgradeps       # Upgrade dependencies interactively
 
 ## Architecture Overview
 
-This is a modern Next.js 16.2.10 starter template designed for AI-driven development with the following architecture:
+This is a modern Next.js 16.3.0 starter template designed for AI-driven development with the following architecture:
 
 ### Core Stack
-- **Runtime**: Bun 1.3.14
-- **Framework**: Next.js 16.2.10 with App Router
+- **Package Manager**: Bun 1.3.14
+- **Framework**: Next.js 16.3.0 with App Router
+- **Runtime**: React 19.2.8, React DOM 19.2.8
 - **Language**: TypeScript 5.9.3 with strict mode
-- **API**: Hono 4.12.30 with Zod validator
+- **API**: Hono 4.13.0 with @hono/zod-validator 0.7.6
 - **UI**: shadcn/ui with Radix UI primitives
-- **Styling**: Tailwind CSS v4.3.2
-- **Forms**: React Hook Form 7.81.0 + Zod 4.4.3 validation
+- **Styling**: Tailwind CSS v4.3.3
+- **Forms**: React Hook Form 7.84.0 + Zod 4.4.3 validation
+- **Icons**: lucide-react 1.28.0
 - **Quality**: Biome 2.3.8 (linting/formatting) + Markuplint 4.18.3
+- **Testing**: Playwright 1.61.1 + Bun test runner
 
 ### Key Architectural Patterns
 
