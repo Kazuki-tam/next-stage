@@ -8,13 +8,13 @@
 - Language: TypeScript 5.9.3
 - Package Manager: Bun 1.3.14
 - API Framework: Hono 4.13.14
-- API Validation: @hono/zod-validator 0.7.6
+- API Validation: @hono/zod-validator 0.9.1
 - UI Components: shadcn/ui with Radix UI
 - Styling: Tailwind CSS 4.3.3
 - Form Management: React Hook Form 7.84.0 + Zod 4.6.7
 - Icons: lucide-react 1.28.0
 - Testing: Playwright 1.61.1 + Bun test runner
-- Code Quality: Biome 2.3.8 + Markuplint 4.18.3
+- Code Quality: Biome 2.6.4 + Markuplint 5.4.0
 
 ## Setup Commands
 

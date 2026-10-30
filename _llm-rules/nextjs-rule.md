@@ -14,12 +14,12 @@ alwaysApply: true
 - **UI Components**: shadcn/ui with Radix UI
 - **Styling**: Tailwind CSS 4.3.3
 - **API & Middleware**: Hono 4.13.14
-- **API Validation**: @hono/zod-validator 0.7.6
+- **API Validation**: @hono/zod-validator 0.9.1
 - **Form Management**: React Hook Form 7.84.0
 - **Form Validation**: Zod 4.6.7
 - **Styling Utilities**: class-variance-authority 0.7.1, clsx 2.1.1, tailwind-merge 3.6.0
 - **Theming**: next-themes 0.4.6
-- **Linting & Formatting**: Biome 2.3.8, markuplint 4.18.3
+- **Linting & Formatting**: Biome 2.6.4, markuplint 5.4.0
 - **Testing**: Playwright 1.61.1, Bun test runner
 - **Icons**: lucide-react 1.28.0
 
