@@ -3,15 +3,15 @@
 ## Project Overview
 
 **Key Technologies:**
-- Framework: Next.js 16.3.6 with App Router
+- Framework: Next.js 16.4.3 with App Router
 - Runtime: React 19.2.8, React DOM 19.2.8
 - Language: TypeScript 5.9.3
 - Package Manager: Bun 1.3.14
-- API Framework: Hono 4.13.0
+- API Framework: Hono 4.13.14
 - API Validation: @hono/zod-validator 0.7.6
 - UI Components: shadcn/ui with Radix UI
 - Styling: Tailwind CSS 4.3.3
-- Form Management: React Hook Form 7.84.0 + Zod 4.4.3
+- Form Management: React Hook Form 7.84.0 + Zod 4.6.7
 - Icons: lucide-react 1.28.0
 - Testing: Playwright 1.61.1 + Bun test runner
 - Code Quality: Biome 2.3.8 + Markuplint 4.18.3
@@ -370,7 +370,7 @@ refactor: simplify form validation logic
 
 <!-- BEGIN:nextjs-agent-rules -->
 
-# This is NOT the Next.js you know
+## This is NOT the Next.js you know
 
 This version has breaking changes — APIs, conventions, and file structure may all differ from your training data. Read the relevant guide in `node_modules/next/dist/docs/` (resolved from this file's directory; in monorepos the `next` package may not be visible from the repo root) before writing any code. Heed deprecation notices.
 

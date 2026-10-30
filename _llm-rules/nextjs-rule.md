@@ -8,15 +8,15 @@ alwaysApply: true
 
 ## Technology Stack
 - **Package Manager**: Bun 1.3.14
-- **Framework**: Next.js 16.3.6 with App Router
+- **Framework**: Next.js 16.4.3 with App Router
 - **Language**: TypeScript 5.9.3
 - **Runtime**: React 19.2.8, React DOM 19.2.8
 - **UI Components**: shadcn/ui with Radix UI
 - **Styling**: Tailwind CSS 4.3.3
-- **API & Middleware**: Hono 4.13.0
+- **API & Middleware**: Hono 4.13.14
 - **API Validation**: @hono/zod-validator 0.7.6
 - **Form Management**: React Hook Form 7.84.0
-- **Form Validation**: Zod 4.4.3
+- **Form Validation**: Zod 4.6.7
 - **Styling Utilities**: class-variance-authority 0.7.1, clsx 2.1.1, tailwind-merge 3.6.0
 - **Theming**: next-themes 0.4.6
 - **Linting & Formatting**: Biome 2.3.8, markuplint 4.18.3

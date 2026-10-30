@@ -5,15 +5,15 @@ A modern, type-safe Next.js starter template designed for AI-driven development.
 ## Features
 
 - **Package Manager**: Bun 1.3.14
-- **Framework**: Next.js 16.3.6 with App Router
+- **Framework**: Next.js 16.4.3 with App Router
 - **Runtime**: React 19.2.8, React DOM 19.2.8
 - **Language**: TypeScript 5.9.3
-- **API Framework**: Hono 4.13.0
+- **API Framework**: Hono 4.13.14
 - **API Validation**: @hono/zod-validator 0.7.6
 - **UI Components**: shadcn/ui
 - **Styling**: Tailwind CSS 4.3.3
 - **Form Management**: React Hook Form 7.84.0
-- **Form Validation**: Zod 4.4.3
+- **Form Validation**: Zod 4.6.7
 - **Icons**: lucide-react 1.28.0
 - **Linting & Formatting**: Biome 2.3.8, Markuplint 4.18.3
 - **Testing**: Playwright 1.61.1, Bun test runner

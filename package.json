@@ -1,7 +1,7 @@
 {
   "name": "next-stage",
   "description": "A modern, type-safe Next.js starter template designed for AI-driven development",
-  "version": "0.3.4",
+  "version": "0.3.5",
   "author": "Kazuki Yonemoto (https://dev.to/tim_yone)",
   "license": "MIT",
   "scripts": {
@@ -30,15 +30,15 @@
     "@hono/zod-validator": "^0.7.6",
     "class-variance-authority": "^0.7.1",
     "clsx": "^2.1.1",
-    "hono": "^4.13.0",
+    "hono": "^4.13.14",
     "lucide-react": "^1.28.0",
-    "next": "^16.3.6",
+    "next": "^16.4.3",
     "next-themes": "^0.4.6",
     "react": "^19.2.8",
     "react-dom": "^19.2.8",
     "react-hook-form": "^7.84.0",
     "tailwind-merge": "^3.6.0",
-    "zod": "^4.4.3"
+    "zod": "^4.6.7"
   },
   "devDependencies": {
     "@biomejs/biome": "2.3.8",
@@ -56,8 +56,12 @@
     "typescript": "^5.9.3"
   },
   "overrides": {
-    "brace-expansion": "^5.0.9",
-    "js-yaml": "^4.3.0",
+    "baseline-browser-mapping": "^2.11.0",
+    "brace-expansion": "^5.0.11",
+    "js-yaml": "^4.3.1",
+    "nanoid": "^3.3.18",
+    "postcss-selector-parser": "^7.1.3",
+    "source-map-js": "^1.2.2",
     "uuid": "^13.0.2"
   }
 }
